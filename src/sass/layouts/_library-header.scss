@@ -56,8 +56,10 @@
 }
 
 .nav-link {
-  font-family: 'Roboto';
+  position: relative;
+  padding-bottom: 3px;
 
+  font-family: 'Roboto';
   font-size: 12px;
   font-weight: 500;
   line-height: 1.17;
@@ -65,13 +67,47 @@
   text-transform: uppercase;
 
   color: #ffffff;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: inline-block;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #ff001b;
+
+    transform: scaleX(0);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &:hover:after,
+  &:focus:after {
+    transform: scaleX(1);
+  }
 }
 
 .nav-link:not(:last-child) {
   margin-right: 40px;
 }
 
-// .current {}
+.current {
+  &::after {
+    position: absolute;
+    bottom: 0;
+
+    display: inline-block;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #ff001b;
+
+    transform: scaleX(1);
+  }
+}
 
 .btn-wrap {
   display: flex;
@@ -90,28 +126,6 @@
     padding-bottom: 60px;
   }
 
-  .library__nav {
-    margin-bottom: 40px;
-  }
-
-  .library-logo__text {
-    display: block;
-
-    font-family: 'Roboto';
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 1.17;
-
-    color: #ffffff;
-  }
-
-  // видалити
-  .library-btn {
-    min-width: 152px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
   .library-overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/tablet/library-background-tablet.jpg);
@@ -137,9 +151,29 @@
     }
   }
 
+  .library__nav {
+    margin-bottom: 40px;
+  }
+
+  .library-logo__text {
+    display: block;
+
+    font-family: 'Roboto';
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.17;
+
+    color: #ffffff;
+  }
+
   .btn-wrap {
     justify-content: center;
     gap: 32px;
+  }
+
+  // видалити
+  .library-btn {
+    min-width: 152px;
   }
 }
 
