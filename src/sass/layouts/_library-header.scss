@@ -4,7 +4,31 @@
   padding-bottom: 62px;
 }
 
-// додати оверлей
+.library-overlay {
+  max-width: 1600px;
+  height: 230px;
+  margin-right: auto;
+  margin-left: auto;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/mobile/library-background-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/mobile/library-background-mobile@2x.jpg);
+  }
+
+  @media (min-device-pixel-ratio: 3),
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/mobile/library-background-mobile@3x.jpg);
+  }
+}
 
 .library__nav {
   display: flex;
@@ -17,6 +41,7 @@
   display: flex;
   align-items: center;
 }
+
 .library-logo__icon {
   margin-right: 10px;
 }
@@ -45,6 +70,8 @@
 .nav-link:not(:last-child) {
   margin-right: 40px;
 }
+
+// .current {}
 
 .btn-wrap {
   display: flex;
@@ -86,13 +113,28 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .library-overlay {
-    height: 219px;
-    // background-image: var(--hero-gradient),
-    //   url(../images/main/hero-tablet-320.jpg);
-    // @include retina {
-    //   background-image: var(--hero-gradient),
-    //     url(../images/main/hero-mobile-640.jpg);
-    // }
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/tablet/library-background-tablet.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/tablet/library-background-tablet@2x.jpg);
+    }
+
+    @media (min-device-pixel-ratio: 3),
+      (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/tablet/library-background-tablet@3x.jpg);
+    }
   }
 
   .btn-wrap {
@@ -103,11 +145,28 @@
 
 @media screen and (min-width: 1280px) {
   .library-overlay {
-    height: 216px;
-    // background-image: var(--hero-gradient), url(../images/main/hero-desktop-320.jpg);
-    // @include retina {
-    // 	background-image: var(--hero-gradient), url(../images/main/hero-mobile-640.jpg);
-    // }
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/desktop/library-background-desktop.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/desktop/library-background-desktop@2x.jpg);
+    }
+
+    @media (min-device-pixel-ratio: 3),
+      (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/desktop/library-background-desktop@3x.jpg);
+    }
   }
 
   .btn-wrap {
