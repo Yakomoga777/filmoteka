@@ -5,11 +5,11 @@
   "homepage": "https://Yakomoga777.github.io/filmoteka",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /filmoteka/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/filmoteka"
+    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
