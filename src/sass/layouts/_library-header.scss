@@ -40,6 +40,15 @@
 .library-logo {
   display: flex;
   align-items: center;
+
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
 }
 
 .library-logo__icon {
