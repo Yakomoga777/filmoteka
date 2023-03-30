@@ -1,35 +1,50 @@
-const btn = document.getElementById("crewShowBtn");
+const openBtn = document.getElementById("crewShowBtn");
 const crew = document.getElementById("ourCrew");
 const btnClose = document.getElementById("crewModalClose");
 const box = document.querySelector(".team-box");
 // const contentModal = document.querySelector('.modal-content');
 
- console.log(box);
+//  console.log(crew);
+
+const onEscapeClick = (e) => {
+    if (e.code === 'Escape') {
+    closeModalCrew()
+}
+}
 
 const showMembers = () => {
-    crew.style.display = "block"
-    
+    // crew.style.display = "block"
+    window.addEventListener('keydown', onEscapeClick);
+    document.body.classList.add('show-team')
 }
 
-const closeModalCrew = (e) => {
-    
-     if (e.target === e.currentTarget) {
-    crew.style.display = "none";
-     }
+const closeModalCrew = () => {
+    window.removeEventListener('keydown',onEscapeClick)
+    //  if (e.target === e.currentTarget) {
+    // crew.style.display = "none";
+         document.body.classList.remove('show-team')
+     
 }
 
-const onBtnCloseModal = (event) => {
-    console.log(event);
-    crew.style.display = "none"
+const forCloseModal = (e) => {
+    // console.log(e.target);
+    if (e.target === e.currentTarget) {
+        closeModalCrew();
+    }
 }
+
+
 
 // console.log(btn);
 
-box.addEventListener('click', closeModalCrew);
 
-btnClose.addEventListener('click', onBtnCloseModal);
 
-btn.addEventListener('click', showMembers);
+box.addEventListener('click', forCloseModal);
+// box.addEventListener('click', (e)=> console.log(e));
+
+btnClose.addEventListener('click', closeModalCrew);
+
+openBtn.addEventListener('click', showMembers);
 
 
 
