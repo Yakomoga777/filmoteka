@@ -1,4 +1,15 @@
-@import './components/home-header';
-@import './components/main';
-@import './components/footer';
+//base
+@import './utils/base';
+@import './utils/reset';
+
+//utils
+@import './utils/hidden';
+
+//layouts
+@import './layouts/home-header';
+@import './layouts/main';
+@import './layouts/footer';
+
+//components
+@import './components/buttons';
 @import './components/details-modal';

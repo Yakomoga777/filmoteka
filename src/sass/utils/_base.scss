@@ -1,0 +1,56 @@
+@import '../../node_modules/modern-normalize/modern-normalize.css';
+
+@media screen and (min-width: 320px) {
+  .container {
+    width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    outline: 1px solid tomato;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: auto;
+    margin-right: auto;
+
+    outline: 1px solid tomato;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: auto;
+    margin-right: auto;
+
+    outline: 1px solid tomato;
+  }
+}
+
+// Тимчасові
+.wrap {
+  height: 300px;
+}
+.main {
+  font-size: 50px;
+  text-align: center;
+}
+
+h1 {
+  color: tomato;
+  font-size: 50px;
+  text-align: center;
+}
+.footer {
+  font-size: 50px;
+  text-align: center;
+}
