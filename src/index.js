@@ -6,3 +6,4 @@ import './js/loader/loader';
 import './js/firebase/firebase';
 import './js/team-modal/team-modal';
 import './js/trailer/trailer';
+import './js/trailer/trailer';
