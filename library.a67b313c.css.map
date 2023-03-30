@@ -1,1 +1,0 @@
-{"mappings":"","sources":["library.a67b313c.css","src/sass/library.scss"],"sourcesContent":["\n\n/*# sourceMappingURL=library.a67b313c.css.map */\n","@import './components/library-header';\n@import './components/main';\n@import './components/footer';\n@import './components/details-modal';\n"],"names":[],"version":3,"file":"library.a67b313c.css.map"}
