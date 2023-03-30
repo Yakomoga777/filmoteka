@@ -1,0 +1,51 @@
+.main_section {
+  @media screen and (max-width: 767px) {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.list_film {
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (min-width: 320px) {
+    gap: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    gap: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+}
+// для макету
+li {
+  outline: 1px solid gray;
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1280px) {
+    height: 634px;
+  }
+}
+//
+.list_film_item {
+  min-width: 280px;
+  height: 402px;
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 32px) / 2);
+    height: 455px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: calc((100% - 2 * 16px) / 3);
+  }
+}
+.list_film_item:hover,
+.list_film_item:focus {
+  transform: scale(1.05);
+  transition: transform 150ms, cubic-bezier(0.2, 0, 0.2, 1);
+}
