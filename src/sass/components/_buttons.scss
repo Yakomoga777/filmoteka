@@ -1,0 +1,27 @@
+button {
+    display: flex;
+    width: 148px;
+    height: 42px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1;
+    padding: 41px 13px 41px 12px;
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+    margin: auto;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    background: #ff6b08;
+    color: #ffffff;
+}
