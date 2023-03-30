@@ -1,0 +1,122 @@
+.library-header {
+  background-color: rgb(71, 0, 0);
+  padding-top: 40px;
+  padding-bottom: 62px;
+}
+
+// додати оверлей
+
+.library__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.library-logo {
+  display: flex;
+  align-items: center;
+}
+.library-logo__icon {
+  margin-right: 10px;
+}
+
+.library-logo__text {
+  display: none;
+}
+
+.link-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'Roboto';
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.17;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.nav-link:not(:last-child) {
+  margin-right: 40px;
+}
+
+.btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // gap: 20px;
+}
+
+.library-btn {
+  min-width: 130px;
+  height: 44px;
+}
+
+@media screen and (min-width: 768px) {
+  .library-header {
+    padding-bottom: 60px;
+  }
+
+  .library__nav {
+    margin-bottom: 40px;
+  }
+
+  .library-logo__text {
+    display: block;
+
+    font-family: 'Roboto';
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.17;
+
+    color: #ffffff;
+  }
+
+  // видалити
+  .library-btn {
+    min-width: 152px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .library-overlay {
+    height: 219px;
+    // background-image: var(--hero-gradient),
+    //   url(../images/main/hero-tablet-320.jpg);
+    // @include retina {
+    //   background-image: var(--hero-gradient),
+    //     url(../images/main/hero-mobile-640.jpg);
+    // }
+  }
+
+  .btn-wrap {
+    justify-content: center;
+    gap: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .library-overlay {
+    height: 216px;
+    // background-image: var(--hero-gradient), url(../images/main/hero-desktop-320.jpg);
+    // @include retina {
+    // 	background-image: var(--hero-gradient), url(../images/main/hero-mobile-640.jpg);
+    // }
+  }
+
+  .btn-wrap {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  // видалити
+  .library-btn {
+    min-width: 147px;
+  }
+}
