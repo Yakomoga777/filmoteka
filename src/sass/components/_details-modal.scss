@@ -13,6 +13,8 @@
   top: 0%;
   left: 0%;
 
+  overflow-y: scroll;
+
   pointer-events: initial;
   opacity: 1;
   visibility: visible;
@@ -154,8 +156,8 @@
   display: flex;
 }
 
-.vote-item,
-.votes-item {
+.value__vote,
+.value__votes {
   display: block;
 
   width: 36;
@@ -165,7 +167,7 @@
 
 }
 
-.vote-item {
+.value__vote {
   padding: 1 9 10;
   
   background: $accent-color;
@@ -179,7 +181,7 @@
   color: $modal-category-text-color;
 }
 
-.votes-item {
+.value__votes {
   padding: 1 4;
 
   background: $modal-background-rating-color;
@@ -189,8 +191,28 @@
 
 .modal__buttons {
   display: flex;
-  
+
   button:first-child {
     margin-right: 20;
+  }
+}
+
+.modal__button {
+  width: 110;
+  height: 44;
+  
+  border-radius: 5;
+  
+  background-color: inherit;
+  border: 1 solid $btn-border-color-without-accent-bground;
+  
+  font-size: 12;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    border: none;
+    background: $accent-color;
+    color: $btn-text-color-with-accent-bground;
   }
 }
