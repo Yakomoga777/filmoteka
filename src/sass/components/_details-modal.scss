@@ -98,6 +98,9 @@
   &__cover-thumb {
     margin-bottom: 20;
   }
+  &__cover {
+    border-radius: 5;
+  }
 }
 
 .film-desc {
@@ -147,6 +150,40 @@
   }
 }
 
+.votes {
+  display: flex;
+}
+
+.vote-item,
+.votes-item {
+  display: block;
+
+  width: 36;
+  height: 16;
+
+  border-radius: 5px;
+
+}
+
+.vote-item {
+  padding: 1 9 10;
+  
+  background: #FF6B01;
+
+  color: #FFFFFF;
+}
+
+.slash {
+  margin: 0 3;
+
+  color: #8C8C8C;
+}
+
+.votes-item {
+  padding: 1 4;
+
+  background: #F7F7F7;
+}
 
 
 
