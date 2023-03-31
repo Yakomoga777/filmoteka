@@ -1,27 +1,59 @@
-button {
-    display: flex;
-    width: 148px;
-    height: 42px;
+
+.library-btn {
     align-items: center;
     text-align: center;
     text-transform: uppercase;
     z-index: 1;
-    padding: 41px 13px 41px 12px;
     border-radius: 5px;
-    border: none;
     position: absolute;
     cursor: pointer;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    user-select: none;
     touch-action: manipulation;
-    margin: auto;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    background: #ff6b08;
-    color: #ffffff;
+    background: transparent;
+    color: $header-btn-color-without-accent-bground;
+
+}
+
+.library-btn.watched {
+   width: 148px;
+   height: 42px;
+   padding: 41px 13px 41px 12px;
+   border: 1px solid $header-btn-color-without-accent-bground;
+   color: $header-btn-color-without-accent-bground$card-title-color;
+}
+
+.library-btn.queue {
+   width: 148px;
+   height: 42px;
+   padding: 41px 13px 41px 12px;
+   border: 1px solid $header-btn-color-without-accent-bground;
+   color: $header-btn-color-without-accent-bground;
+}
+
+.library-btn.add_to_watched {
+   width: 136px;
+   height: 44px;
+   padding: 10px 14px 10px 12px;
+   border: 1px solid $card-title-color;
+   color: $card-title-color;
+}
+
+.library-btn.add_to_queue {
+    width: 136px;
+    height: 44px;
+    padding: 8px 14px 8px 12px;
+    border: 1px solid $card-title-color;
+    color: $card-title-color;
+}
+
+.library-btn:hover,
+.library-btn:focus {
+    color: $header-btn-color-without-accent-bground;
+    background-color: $accent-color;
+    border: none;
 }
