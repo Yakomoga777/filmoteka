@@ -85,3 +85,51 @@
 
   background-color: inherit;
 }
+
+// Розмітка картки фільму
+
+.film-card {
+  display: flex;
+  flex-wrap: wrap;
+  
+  &__cover-thumb {
+    margin-bottom: 20;
+  }
+}
+
+.film-desc {
+  
+  &__title {
+    margin-bottom: 20;
+
+    text-transform: uppercase;
+  }
+}
+
+.film-info {
+  display: flex;
+
+  justify-content: space-between;
+  margin-bottom: 20;
+
+  &__data-headlines {
+    margin-right: 39;
+  }
+
+  &__about-title {
+    display: block;
+    margin-bottom: 8;
+  }
+
+  &__about-desc {
+    margin-bottom: 20;
+  }
+}
+
+.modal__buttons {
+  display: flex;
+  
+  button:first-child {
+    margin-right: 20;
+  }
+}
