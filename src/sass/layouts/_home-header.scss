@@ -1,21 +1,15 @@
-/*------------- header navigation-----------*/
-// .header-test {
-// 	position: fixed;
-// 	max-width: 1600px;
-// 	min-height: 230px;
-// 	top: 0;
-// 	left: 0;
-// }
 
 .header-home {
+	position : fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 
 	max-width: 1600px;
-	padding: 40px 0;
 	height: 230px;
-	background-color: rgba(0, 0, 0, 0.56);
-	margin: 0 auto;
-
-
+	padding: 40px 0;
+	
+	background-color: rgba(0, 0, 0, 0.56);	
 }
 
 .header-bgr {
@@ -37,14 +31,14 @@
 		background-image: url(../images/tablet/home-background-tab.jpg);
 
 		@media (min-device-pixel-ratio: 2),
-  	(-webkit-min-device-pixel-ratio: 2),
-  	(min-resolution: 192dpi),
-  	(min-resolution: 2dppx) {
+  		(-webkit-min-device-pixel-ratio: 2),
+  		(min-resolution: 192dpi),
+  		(min-resolution: 2dppx) {
 		background-image: url(../images/tablet/home-background-tablet@2x.jpg);
 	}
 	}
 
-	@media screen and (min-width: 1200px) {
+	@media screen and (min-width: $desktop) {
 		background-image: url(../images/desktop/home-background-desc.jpg);
 
 		@media (min-device-pixel-ratio: 2),
@@ -64,12 +58,11 @@
 	width: 280px;
 	margin: 0 auto;
 	
-  
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: $tablet) {
 	  width: 336px;
 	}
   
-	@media screen and (min-width: 1280px) {
+	@media screen and (min-width: $desktop) {
 	  width: 394px;
 	}
 }
@@ -77,33 +70,35 @@
 .search-input {
 
 	font-family: 'Roboto';
-	padding-bottom: 3px;
-  
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 1.14;
-  
-	color: #ffffff;
-  
-	background-color: transparent;
+
 	width: 100%;
+	padding-bottom: 3px;
+  
+	color: $header-input-text-color;
+	background-color: transparent;
+	
 	border: none;
-	border-bottom: 1px solid #fff;
+	border-bottom: 2px solid $header-input-border-color;
   }
 
   .search-input::placeholder {
-	color: #ffffff;
-	font-family: 'Roboto';
-  
+	
 	font-weight: 400;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.14;
+	color: $header-input-text-color;
+	opacity: 0.5;
+
   }
   
   .search-btn {
-	background-color: transparent;
-	border: none;
 	position: absolute;
 	bottom: 3px;
 	right: 0;
+
+	background-color: transparent;
+	border: none;
   }
