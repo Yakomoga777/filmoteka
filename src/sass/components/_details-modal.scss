@@ -28,7 +28,7 @@
 }
 
 // Модалка
-.modal {
+.details-modal {
   position: absolute;
   top: 20px;
   left: 50%;
@@ -112,34 +112,43 @@
     text-transform: uppercase;
     font-size: 20;
   }
-}
-
-.film-info {
-  display: flex;
-
-  justify-content: space-between;
-  margin-bottom: 20;
-
-  line-height: 133%;
-
-
-  // &__data-headlines {
-  //   color: #8c8c8c;
-  // }
 
   &__about-title {
     display: block;
     margin-bottom: 8;
-
+  
     text-transform: uppercase;
   }
-
+  
   &__about-desc {
     margin-bottom: 20;
-
+  
     line-height: 167%;
   }
 }
+
+.film-info {
+
+  margin-bottom: 20;
+
+  line-height: 133%;
+
+  .categories__item {
+    display: flex;
+  
+    margin-bottom: 8;
+
+    .category {
+      width: 69px;
+      margin-right: 39;
+
+      color: #8C8C8C;
+    }
+  }
+}
+
+
+
 
 .modal__buttons {
   display: flex;
