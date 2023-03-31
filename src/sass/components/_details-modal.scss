@@ -47,6 +47,7 @@
   transition: transform 250ms linear;
 
   font-family: 'Roboto';
+  font-weight: 500;
 
   @media screen and (min-width: 768px) {
     top: 219px;
@@ -56,7 +57,7 @@
     padding: 40px 36px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     top: 150px;
 
     width: 806px;
@@ -101,14 +102,15 @@
 
 .film-desc {
   
+  font-size: 12;
+
   &__title {
     display: block;
     margin-bottom: 20;
 
     line-height: 1.15;
     text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 20;
   }
 }
 
@@ -118,22 +120,24 @@
   justify-content: space-between;
   margin-bottom: 20;
 
-  line-height: 16px;
+  line-height: 133%;
 
-  font-size: 12;
-  font-weight: 500;
 
-  &__data-headlines {
-    color: aqua;
-  }
+  // &__data-headlines {
+  //   color: #8c8c8c;
+  // }
 
   &__about-title {
     display: block;
     margin-bottom: 8;
+
+    text-transform: uppercase;
   }
 
   &__about-desc {
     margin-bottom: 20;
+
+    line-height: 167%;
   }
 }
 
