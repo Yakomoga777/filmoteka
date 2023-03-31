@@ -55,3 +55,38 @@
     background: #FF6B01;
     border-radius: 5px;
 }
+@media screen and (min-width:768px) and (max-width:1279px) {
+    .card {
+        width: 336px;
+    }
+
+    .card__img {
+        width: 336px;
+        height: 455px;
+    }
+
+}
+
+@media screen and (min-width:1280px) {
+    .card {
+        width: 395px;
+
+    }
+
+    .card__img {
+        width: 395px;
+        height: 574px;
+        margin-bottom: 12px;
+    }
+
+    .card__title {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .card__genres {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+}
