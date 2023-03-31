@@ -46,6 +46,8 @@
 
   transition: transform 250ms linear;
 
+  font-family: 'Roboto';
+
   @media screen and (min-width: 768px) {
     top: 219px;
 
@@ -100,9 +102,13 @@
 .film-desc {
   
   &__title {
+    display: block;
     margin-bottom: 20;
 
+    line-height: 1.15;
     text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
   }
 }
 
@@ -112,8 +118,13 @@
   justify-content: space-between;
   margin-bottom: 20;
 
+  line-height: 16px;
+
+  font-size: 12;
+  font-weight: 500;
+
   &__data-headlines {
-    margin-right: 39;
+    color: aqua;
   }
 
   &__about-title {
