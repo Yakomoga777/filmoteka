@@ -18,6 +18,24 @@
 
 }
 
+.header-bgr {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	opacity: 0.9;
+
+	background-image: url(../images/mobile/home-background-mobile.jpg);
+
+	@media screen and (min-width: 768px) {
+		background-image: url(../images/tablet/home-background-tab.jpg);
+	}
+
+	@media screen and (min-width: 1200px) {
+		background-image: url(../images/desktop/home-background-desc.jpg);
+	}
+
+}
+
 /*------------ search form ---------------*/
 
 .search-form {
