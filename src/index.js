@@ -4,6 +4,6 @@ import './js/local-storage/show-watched-queue/show-watched-queqe';
 import './js/details-modal/details-modal';
 import './js/loader/loader';
 import './js/firebase/firebase';
+import './js/firebase/firebase-registration-modal';
 import './js/team-modal/team-modal';
 import './js/trailer/trailer';
-
