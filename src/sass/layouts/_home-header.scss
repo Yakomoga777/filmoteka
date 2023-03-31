@@ -25,13 +25,34 @@
 	opacity: 0.9;
 
 	background-image: url(../images/mobile/home-background-mobile.jpg);
+	
+	@media (min-device-pixel-ratio: 2),
+  	(-webkit-min-device-pixel-ratio: 2),
+  	(min-resolution: 192dpi),
+  	(min-resolution: 2dppx) {
+		background-image: url(../images/mobile/home-background-mobile@2x.jpg);
+  }
 
 	@media screen and (min-width: 768px) {
 		background-image: url(../images/tablet/home-background-tab.jpg);
+
+		@media (min-device-pixel-ratio: 2),
+  	(-webkit-min-device-pixel-ratio: 2),
+  	(min-resolution: 192dpi),
+  	(min-resolution: 2dppx) {
+		background-image: url(../images/tablet/home-background-tablet@2x.jpg);
+	}
 	}
 
 	@media screen and (min-width: 1200px) {
 		background-image: url(../images/desktop/home-background-desc.jpg);
+
+		@media (min-device-pixel-ratio: 2),
+		(-webkit-min-device-pixel-ratio: 2),
+		(min-resolution: 192dpi),
+		(min-resolution: 2dppx) {
+			background-image: url(../images/desktop/home-background-desktop@2x.jpg)
+		}
 	}
 
 }
