@@ -49,7 +49,7 @@
   font-family: 'Roboto';
   font-weight: 500;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     top: 219px;
 
     width: 704px;
@@ -57,7 +57,7 @@
     padding: 40px 36px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: $desktop) {
     top: 150px;
 
     width: 806px;
@@ -145,7 +145,7 @@
       width: 69px;
       margin-right: 39;
 
-      color: #8C8C8C;
+      color: $modal-category-text-color;
     }
   }
 }
@@ -168,21 +168,21 @@
 .vote-item {
   padding: 1 9 10;
   
-  background: #FF6B01;
+  background: $accent-color;
 
-  color: #FFFFFF;
+  color: $btn-text-color-with-accent-bground;
 }
 
 .slash {
   margin: 0 3;
 
-  color: #8C8C8C;
+  color: $modal-category-text-color;
 }
 
 .votes-item {
   padding: 1 4;
 
-  background: #F7F7F7;
+  background: $modal-background-rating-color;
 }
 
 
