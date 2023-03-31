@@ -91,6 +91,11 @@
   cursor: pointer;
 
   background-color: inherit;
+
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
 }
 
 // Розмітка картки фільму
@@ -101,9 +106,12 @@
   gap: 0;
   
   &__cover-thumb {
+    height: 375;
+
     margin-bottom: 20;
     
     @media screen and (min-width: $tablet) {
+      height: 373.55;
       margin-bottom: 0;
     }
     @media screen and (min-width: $desktop) {
@@ -111,7 +119,6 @@
     }
   }
   &__cover {
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -176,16 +183,20 @@
       margin-right: 39;
 
       color: $modal-category-text-color;
+
+      @media screen and (min-width: $desktop) {
+        margin-right: 83;
+      }
     }
   }
 }
 
-.votes {
+.categories__value--votes {
   display: flex;
 }
 
-.value__vote,
-.value__votes {
+.vote,
+.votes {
   display: block;
 
   width: 36;
@@ -195,7 +206,7 @@
 
 }
 
-.value__vote {
+.vote {
   padding: 1 9 10;
   
   background: $accent-color;
@@ -204,18 +215,20 @@
 }
 
 .slash {
-  margin: 0 3;
+  margin: 0 3 0 5;
 
   color: $modal-category-text-color;
 }
 
-.value__votes {
+.votes {
   padding: 1 4;
 
   background: $modal-background-rating-color;
 }
 
-
+.categories__value--original-title {
+  text-transform: uppercase;
+}
 
 .modal__buttons {
   display: flex;
@@ -226,7 +239,7 @@
 }
 
 .modal__button {
-  width: 110;
+  width: 100%;
   height: 44;
   
   border-radius: 5;
@@ -242,5 +255,9 @@
     border: none;
     background: $accent-color;
     color: $btn-text-color-with-accent-bground;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 136;
   }
 }
