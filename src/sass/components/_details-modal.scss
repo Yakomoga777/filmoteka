@@ -108,7 +108,6 @@
     }
     @media screen and (min-width: $desktop) {
       height: 478;
-      
     }
   }
   &__cover {
@@ -141,6 +140,10 @@
     text-transform: uppercase;
     font-size: 20;
     letter-spacing: 0.8;
+
+    @media screen and (min-width: $desktop) {
+      font-size: 30;
+    }
   }
 
   &__about-title {
