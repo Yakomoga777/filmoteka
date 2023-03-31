@@ -1,7 +1,7 @@
 import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '92d66af10495782dbf7116658cb2e14f';
-export default class MoviesApiService {
+class MoviesApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
@@ -75,3 +75,6 @@ export default class MoviesApiService {
     this.searchQuery = newQuery;
   }
 }
+
+//  імпортуйте цей екземпляр класу для роботи з fetch
+export const moviesApiService = new MoviesApiService();
