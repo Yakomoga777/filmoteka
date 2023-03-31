@@ -24,14 +24,14 @@
   }
 }
 // для макету
-li {
-  outline: 1px solid gray;
-  @media screen and (min-width: 768px) {
-  }
-  @media screen and (min-width: 1280px) {
-    height: 634px;
-  }
-}
+// li {
+//   outline: 1px solid $accent-color;
+//   @media screen and (min-width: 768px) {
+//   }
+//   @media screen and (min-width: 1280px) {
+//     height: 634px;
+//   }
+// }
 //
 .list_film_item {
   min-width: 280px;
