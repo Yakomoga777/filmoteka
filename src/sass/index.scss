@@ -1,3 +1,5 @@
+@import './components/variables';
+
 //base
 @import './utils/base';
 @import './utils/reset';
@@ -15,6 +17,5 @@
 @import './components/details-modal';
 @import './components/preloader';
 @import './components/card-markup';
-@import './components/variables';
 @import './components/team-modal';
 @import './components/registration-modal';
