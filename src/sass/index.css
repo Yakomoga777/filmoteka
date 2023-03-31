@@ -166,7 +166,6 @@ li {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
   z-index: 2;
   transition: 1s all;
   opacity: 1;
