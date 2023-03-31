@@ -1,5 +1,5 @@
 const openBtn = document.getElementById("crewShowBtn");
-const crew = document.getElementById("ourCrew");
+const crew = document.getElementById("crewBackdrop");
 const btnClose = document.getElementById("crewModalClose");
 const box = document.querySelector(".team-box");
 // const contentModal = document.querySelector('.modal-content');
@@ -13,16 +13,17 @@ const onEscapeClick = (e) => {
 }
 
 const showMembers = () => {
+    // console.log(crew);
     // crew.style.display = "block"
     window.addEventListener('keydown', onEscapeClick);
-    document.body.classList.add('show-team')
+    crew.classList.remove('is-hidden')
 }
 
 const closeModalCrew = () => {
     window.removeEventListener('keydown',onEscapeClick)
     //  if (e.target === e.currentTarget) {
     // crew.style.display = "none";
-         document.body.classList.remove('show-team')
+         crew.classList.add('is-hidden')
      
 }
 
