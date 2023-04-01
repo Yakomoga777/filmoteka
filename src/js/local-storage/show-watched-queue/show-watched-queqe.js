@@ -1,22 +1,26 @@
 import { moviesApiService } from "/src/js/fetch/fetch"
 
+const STORAGE_KEY = 'picked-movies-array';
+
 // console.log(moviesApiService.fetchTrendingMovies());
 
 const showBtn = document.getElementById('showOrder')
 const getBtn = document.getElementById('getOrders')
+const removeBtn = document.getElementById('removeOrders')
 // console.log(showBtn);
 
 
 const getOrderOnClick = (movies) => {
-
+     localStorage.setItem(STORAGE_KEY, JSON.stringify(movies));
+    // console.log(5);
 }
 
 
-const onShowOrderClick = () => {
+// const onShowOrderClick = () => {
 
-}
-showBtn.addEventListener('click', onShowOrderClick)
-showBtn.addEventListener('click', getOrderOnClick)
+// }
+showBtn.addEventListener('click', onShowStorage)
+
 
 
 const trainFetch = async () => {
@@ -25,10 +29,10 @@ const trainFetch = async () => {
     await moviesApiService.fetchTrendingMovies()
          .then((data) => {
         const movieArray = data.results
-             
-             
+             getOrderOnClick(movieArray);
+            //  onShowStorage()
             //  console.log(data);
-             console.log(movieArray);
+            //  console.log(movieArray);
     //   hits = data.hits;
     //   total = data.totalHits;
     //   const length = hits.length;
@@ -43,4 +47,29 @@ const trainFetch = async () => {
     .catch(error => console.log(error));
 };
 
-trainFetch()
+getBtn.addEventListener('click', trainFetch)
+
+
+function onShowStorage() {
+    const arrayOfMovies = localStorage.getItem(STORAGE_KEY) || '';
+    
+  if (arrayOfMovies) {
+    try {
+        const parsedValues = JSON.parse(arrayOfMovies);
+        console.log(parsedValues);
+    } catch (error) {
+      console.error('Get state error: ', error.message);
+    }
+    }
+    {
+        console.log('Sorry friend but you havent choosed anything');
+    }
+}
+
+
+removeBtn.addEventListener('click',clearLocalStorage)
+
+
+function clearLocalStorage() {
+    localStorage.removeItem(STORAGE_KEY);
+}
