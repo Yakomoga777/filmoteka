@@ -20,5 +20,8 @@
 <path fill="none" stroke="#fff" style="stroke: var(--color2, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 22.649h6.667"></path>
 <path fill="none" stroke="#fff" style="stroke: var(--color2, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 9.954h6.667"></path>
 </symbol>
+<symbol id="icon-close-modal" viewBox="0 0 32 32">
+<path d="M8.507 8.533l-0.746 0.748 6.719 6.719-6.693 6.693 0.759 0.761 0.761 0.759 6.693-6.693 6.693 6.693 0.761-0.759 0.759-0.761-6.693-6.693 6.72-6.72-0.761-0.759-0.759-0.761-6.72 6.72-3.347-3.347c-1.84-1.84-3.359-3.346-3.374-3.346s-0.363 0.336-0.772 0.747z"></path>
+</symbol>
 </defs>
 </svg>

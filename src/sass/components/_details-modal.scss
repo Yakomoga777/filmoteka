@@ -1,14 +1,247 @@
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition-property: opacity;
-}
-
-.is-hidden {
+// Стилі для приховування модального вікна 
+.backdrop.is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
+
+// Бэкдроп
+.backdrop {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+
+  overflow-y: scroll;
+
+  pointer-events: initial;
+  opacity: 1;
+  visibility: visible;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.25);
+
+  transition-property: opacity, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+}
+
+// Модалка
+.details-modal {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+
+  padding: 48px 20px 40px;
+
+  transform: translateX(-50%) scale(1);
+  transition: transform 250ms linear;
+
+  background-color: #FFFFFF;
+
+  font-family: 'Roboto';
+  font-weight: 500;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+
+  @media screen and (min-width: $tablet) {
+    top: 219px;
+    min-width: 704px;
+    padding: 40px 36px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    top: 150px;
+    min-width: 806px;
+    padding: 40px 12px;
+  }
+
+  .backdrop.is-hidden & {
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+.close-button {
+  position: absolute;
+
+  right: 8px;
+  top: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 0;
+
+  border: none;
+
+  cursor: pointer;
+
+  background-color: inherit;
+
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
+}
+
+// Розмітка картки фільму
+
+.film-card {
+  display: grid;
+  grid-template-columns: 240px;
+
+
+  &__cover-thumb {
+    min-height: 375;
+
+    margin-bottom: 20;
+    
+    @media screen and (min-width: $tablet) {
+      min-height: 373.55;
+      margin-bottom: 0;
+    }
+    @media screen and (min-width: $desktop) {
+      height: 478;
+    }
+  }
+
+  &__cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5;
+  }
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 264px 264px;
+    gap: 68px;
+  }
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: 375px 391px;
+    gap: 16px;
+  }
+}
+
+.film-desc {
+  
+  font-size: 12;
+
+  &__title {
+    margin-bottom: 20;
+
+    text-transform: uppercase;
+    font-size: 20;
+    letter-spacing: 0.8;
+
+    @media screen and (min-width: $desktop) {
+      font-size: 30;
+    }
+  }
+
+  &__about-title {
+    margin-bottom: 8;
+  
+    text-transform: uppercase;
+  }
+  
+  &__about-desc {
+    margin-bottom: 20;
+  
+    line-height: 167%;
+  }
+}
+
+.film-info {
+
+  margin-bottom: 20;
+
+  line-height: 133%;
+
+  .categories-item {
+    display: flex;
+  
+    margin-bottom: 8;
+
+    .category-name {
+      width: 69px;
+      margin-right: 39;
+
+      color: $modal-category-text-color;
+
+      @media screen and (min-width: $desktop) {
+        margin-right: 83;
+      }
+    }
+  }
+}
+
+.categories-item__votes {
+  display: flex;
+}
+
+.vote,
+.votes {
+  height: 16;
+
+  border-radius: 5px;
+}
+
+.vote {
+  padding: 1 9 10;
+  
+  background: $accent-color;
+
+  color: $btn-text-color-with-accent-bground;
+}
+
+.slash {
+  margin: 0 3 0 5;
+
+  color: $modal-category-text-color;
+}
+
+.votes {
+  padding: 1 4;
+
+  background: $modal-background-rating-color;
+}
+
+.categories-item__original-title {
+  text-transform: uppercase;
+}
+
+.modal-buttons {
+  display: flex;
+
+  &__watched,
+  &__queue {
+  
+    width: 100%;
+    height: 44;
+  
+    border-radius: 5;
+  
+    background-color: inherit;
+    border: 1 solid $btn-border-color-without-accent-bground;
+  
+    text-transform: uppercase;
+  
+    &:first-child {
+      margin-right: 20;
+    }
+  
+    &:hover,
+    &:focus {
+      border: none;
+      background: $accent-color;
+      color: $btn-text-color-with-accent-bground;
+    }
+  
+    @media screen and (min-width: $desktop) {
+      width: 136;
+    }
+  }
+}
+
