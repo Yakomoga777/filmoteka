@@ -4,16 +4,18 @@ main.light-theme {
   color: $card-title-color;
 }
 
-main.dark-theme {
+main.home.dark-theme {
   background: rgb(10, 0, 0);
-  background: linear-gradient(
-    180deg,
-    rgba(10, 0, 0, 1) 0%,
-    rgba(52, 3, 3, 1) 51%,
-    rgba(93, 1, 1, 1) 100%
-  );
+  background: $home-main-dark-bgd;
 
-  color: #e2e2e2;
+  color: $main-dark-color;
+}
+
+main.library.dark-theme {
+  background: rgb(10, 0, 0);
+  background: $library-main-dark-bgd;
+
+  color: $main-dark-color;
 }
 
 // бібліотека, якщо для заглушки буде просто текст
@@ -32,7 +34,7 @@ main.dark-theme {
 
 .registration-modal.dark-theme,
 .details-modal.dark-theme {
-  color: #e2e2e2;
+  color: $modal-dark-color;
 }
 
 // карточки команди
@@ -45,7 +47,7 @@ main.dark-theme {
 .team-card.dark-theme,
 .registration-modal.dark-theme,
 .details-modal.dark-theme {
-  background-color: #2c2c2c;
+  background-color: $modal-dark-bgd;
 }
 
 // кнопки пагінації
@@ -57,8 +59,8 @@ footer.light-theme {
 }
 
 footer.dark-theme {
-  background-color: rgba(93, 1, 1, 1);
-  color: #e2e2e2;
+  background-color: $footer-dark-bgd;
+  color: $footer-dark-color;
 }
 
 // колір для модалок #484747 або #2c2c2c
