@@ -1,9 +1,34 @@
+import { create } from 'lodash';
 import { moviesApiService } from './fetch';
 
-// moviesApiService.fetchTrendingMovies().then(data=> console.log(data)).catch(error => console.log(error));
+const moviesGalleryRef = document.querySelector('.list_film');
 
-// async function createMoviesGallery() {
-//   const movies = await moviesApiService.fetchTrendingMovies();
-// }
+renderTrandingMovies();
 
-// createMoviesGallery().then(movies => console.log(movies));
+async function renderTrandingMovies() {
+  const { results } = await moviesApiService.fetchTrendingMovies();
+  console.log(results);
+  renderMoviesMarkup(results);
+  console.log(renderMoviesMarkup(results));
+}
+
+function renderMoviesMarkup(movies) {
+  const markup = movies
+    .map(movie => {
+      let urlImg = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      return `<li>
+		<img src="${urlImg}"
+      		alt="img of film" width="395"/>
+	 <p class="card__title">${movie.original_title}</p>
+	 <div class="card__info">
+      <p class="card__genres">| ${movie.release_date.slice(0, 4)}</p>
+    </div>
+
+		</li>`;
+    })
+    .join('');
+
+  console.log(markup);
+
+  moviesGalleryRef.insertAdjacentHTML('beforeend', markup);
+}
