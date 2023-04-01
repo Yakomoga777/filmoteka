@@ -1,3 +1,62 @@
-<div class="backdrop is-hidden">
-  <div class="details-modal"></div>
+<!-- Бєкдроп з Модальним Вікном -->
+<div class="backdrop is-hidden" data-modal>
+  <div class="details-modal">
+    <button class="close-button" type="button" data-modal-close>
+      <svg width="30px" height="30px">
+        <use href="./images/icons.svg#icon-close-modal"></use>
+      </svg>
+    </button>
+    <div class="film-card">
+      <div class="film-card__cover-thumb">
+        <img
+          class="film-card__cover"
+          src="https://images.pexels.com/photos/2773557/pexels-photo-2773557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Film cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="film-desc">
+        <p class="film-desc__title">Film title</p>
+        <div class="film-info">
+          <div class="categories-item">
+            <p class="category-name">Vote / Votes</p>
+            <div class="categories-item__votes">
+              <span class="vote">0.0</span>
+              <span class="slash">/</span>
+              <span class="votes">0000</span>
+            </div>
+          </div>
+          <div class="categories-item">
+            <p class="category-name">Popularity</p>
+            <p class="categories-item__rating">000.0</p>
+          </div>
+          <div class="categories-item">
+            <p class="category-name">Original Title</p>
+            <p class="categories-item__original-title">Original film title</p>
+          </div>
+          <div class="categories-item">
+            <p class="category-name">Genre</p>
+            <p class="categories-item__genre">Some genre</p>
+          </div>
+        </div>
+        <p class="film-desc__about-title">About</p>
+        <p class="film-desc__about-desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla at
+          deserunt cum veniam amet ipsam ab tenetur tempora? Recusandae, dicta
+          dolore amet vitae eos praesentium veritatis aliquam accusantium odit
+          quidem nulla optio, excepturi deserunt minima nemo libero laboriosam
+          vero. Amet distinctio vero aspernatur provident fugit tempore dolor
+          rem debitis iusto.
+        </p>
+        <div class="modal-buttons">
+          <button class="modal-buttons__watched" type="button">
+            Add to watched
+          </button>
+          <button class="modal-buttons__queue" type="button">
+            Add to queue
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
