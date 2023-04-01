@@ -1,0 +1,52 @@
+.light-theme {
+  background-color: $main-background-color;
+  color: $card-title-color;
+}
+
+.dark-theme {
+  // background: rgb(31, 1, 1);
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(31, 1, 1, 1) 0%,
+  //   rgba(52, 3, 3, 1) 51%,
+  //   rgba(108, 2, 2, 1) 100%
+  // );
+
+  // background: rgb(18, 0, 0);
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(18, 0, 0, 1) 0%,
+  //   rgba(52, 3, 3, 1) 51%,
+  //   rgba(108, 2, 2, 1) 100%
+  // );
+
+  background: rgb(10, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 0, 0, 1) 0%,
+    rgba(52, 3, 3, 1) 51%,
+    rgba(93, 1, 1, 1) 100%
+  );
+
+  // background: rgb(3, 0, 0);
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(3, 0, 0, 1) 0%,
+  //   rgba(52, 3, 3, 1) 51%,
+  //   rgba(93, 1, 1, 1) 100%
+  // );
+
+  color: #e2e2e2;
+}
+
+// колір для модалок #484747 або #2c2c2c
+
+// .light-theme {
+//   $main-background-color: #ffffff;
+//   $card-title-color: #000000;
+// }
+
+// .dark-theme {
+//   $main-background-color: #000000;
+//   $card-title-color: #ffffff;
+// }
