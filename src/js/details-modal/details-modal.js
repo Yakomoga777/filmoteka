@@ -5,86 +5,8 @@ const modalEl = document.querySelector('div[data-modal]');
 const modalWindow = document.querySelector('.details-modal');
 const buttonClose = document.querySelector('.close-button');
 
-const genres = [
-    {
-    "id": 28,
-    "name": "Action"
-    },
-    {
-    "id": 12,
-    "name": "Adventure"
-    },
-    {
-    "id": 16,
-    "name": "Animation"
-    },
-    {
-    "id": 35,
-    "name": "Comedy"
-    },
-    {
-    "id": 80,
-    "name": "Crime"
-    },
-    {
-    "id": 99,
-    "name": "Documentary"
-    },
-    {
-    "id": 18,
-    "name": "Drama"
-    },
-    {
-    "id": 10751,
-    "name": "Family"
-    },
-    {
-    "id": 14,
-    "name": "Fantasy"
-    },
-    {
-    "id": 36,
-    "name": "History"
-    },
-    {
-    "id": 27,
-    "name": "Horror"
-    },
-    {
-    "id": 10402,
-    "name": "Music"
-    },
-    {
-    "id": 9648,
-    "name": "Mystery"
-    },
-    {
-    "id": 10749,
-    "name": "Romance"
-    },
-    {
-    "id": 878,
-    "name": "Science Fiction"
-    },
-    {
-    "id": 10770,
-    "name": "TV Movie"
-    },
-    {
-    "id": 53,
-    "name": "Thriller"
-    },
-    {
-    "id": 10752,
-    "name": "War"
-    },
-    {
-    "id": 37,
-    "name": "Western"
-    }
-    ]
-
 function renderCard(data) {
+    modalWindow.innerHTML='';
     let genresFilm=[];
     for (genre of data.genres) {
         genresFilm.push(genre.name);
@@ -144,7 +66,7 @@ function renderCard(data) {
 for (const card of cardsFilms) {
     card.addEventListener('click', function onClick() {
     modalEl.classList.remove('is-hidden');
-    const id=550;
+    const id=15;
     moviesApiService
         .fetchFilmDetails(id)
         .then(data=>renderCard(data))
@@ -152,18 +74,15 @@ for (const card of cardsFilms) {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             modalEl.classList.add('is-hidden');
-            modalWindow.innerHTML='';
         };
     });
     modalEl.addEventListener('click', function clickOnBackdrop(e) {
         if (e.target===e.currentTarget) {
             modalEl.classList.add('is-hidden');
-            modalWindow.innerHTML='';
         };
     });
     buttonClose.addEventListener('click', function() {
         modalEl.classList.add('is-hidden');
-        modalWindow.innerHTML='';
     })
   });
 }
