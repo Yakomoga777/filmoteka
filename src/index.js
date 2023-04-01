@@ -7,4 +7,6 @@ import './js/firebase/firebase';
 import './js/firebase/firebase-registration-modal';
 import './js/team-modal/team-modal';
 import './js/trailer/trailer';
+import './js/theme-switcher/theme-switcher';
 import './js/fetch/pagination/pagination';
+
