@@ -1,104 +1,99 @@
-
 .header-home {
-	position : fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
+  // position : fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
 
-	max-width: 1600px;
-	height: 230px;
-	padding: 40px 0;
-	
-	background-color: rgba(0, 0, 0, 0.56);	
+  max-width: 1600px;
+  height: 230px;
+  padding: 40px 0;
+
+  background-color: rgba(0, 0, 0, 0.56);
 }
 
 .header-bgr {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	opacity: 0.9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.9;
 
-	background-image: url(../images/mobile/home-background-mobile.jpg);
-	
-	@media (min-device-pixel-ratio: 2),
-  	(-webkit-min-device-pixel-ratio: 2),
-  	(min-resolution: 192dpi),
-  	(min-resolution: 2dppx) {
-		background-image: url(../images/mobile/home-background-mobile@2x.jpg);
+  background-image: url(../images/mobile/main-background-mobile.png);
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(../images/mobile/main-background-mobile@2x.png);
   }
 
-	@media screen and (min-width: 768px) {
-		background-image: url(../images/tablet/home-background-tab.jpg);
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/tablet/main-background-tablet.png);
 
-		@media (min-device-pixel-ratio: 2),
-  		(-webkit-min-device-pixel-ratio: 2),
-  		(min-resolution: 192dpi),
-  		(min-resolution: 2dppx) {
-		background-image: url(../images/tablet/home-background-tablet@2x.jpg);
-	}
-	}
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/tablet/main-background-tablet@2x.png);
+    }
+  }
 
-	@media screen and (min-width: $desktop) {
-		background-image: url(../images/desktop/home-background-desc.jpg);
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/desktop/main-background-desktop.png);
 
-		@media (min-device-pixel-ratio: 2),
-		(-webkit-min-device-pixel-ratio: 2),
-		(min-resolution: 192dpi),
-		(min-resolution: 2dppx) {
-			background-image: url(../images/desktop/home-background-desktop@2x.jpg)
-		}
-	}
-
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/desktop/main-background-desktop@2x.png);
+    }
+  }
 }
 
 /*------------ search form ---------------*/
 
 .search-form {
-    position: relative;
-	width: 280px;
-	margin: 0 auto;
-	
-	@media screen and (min-width: $tablet) {
-	  width: 336px;
-	}
-  
-	@media screen and (min-width: $desktop) {
-	  width: 394px;
-	}
+  position: relative;
+  width: 280px;
+  margin: 0 auto;
+
+  @media screen and (min-width: $tablet) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 394px;
+  }
 }
 
 .search-input {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
 
-	font-family: 'Roboto';
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 1.14;
+  width: 100%;
+  padding-bottom: 3px;
 
-	width: 100%;
-	padding-bottom: 3px;
-  
-	color: $header-input-text-color;
-	background-color: transparent;
-	
-	border: none;
-	border-bottom: 2px solid $header-input-border-color;
-  }
+  color: $header-input-text-color;
+  background-color: transparent;
 
-  .search-input::placeholder {
-	
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 1.14;
-	color: $header-input-text-color;
-	opacity: 0.5;
+  border: none;
+  border-bottom: 2px solid $header-input-border-color;
+}
 
-  }
-  
-  .search-btn {
-	position: absolute;
-	bottom: 3px;
-	right: 0;
+.search-input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.14;
+  color: $header-input-text-color;
+  opacity: 0.5;
+}
 
-	background-color: transparent;
-	border: none;
-  }
+.search-btn {
+  position: absolute;
+  bottom: 3px;
+  right: 0;
+
+  background-color: transparent;
+  border: none;
+}
