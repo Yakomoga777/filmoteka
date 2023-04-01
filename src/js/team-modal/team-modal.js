@@ -9,6 +9,7 @@ const onEscapeClick = e => {
   }
 };
 
+
 const showMembers = () => {
   window.addEventListener('keydown', onEscapeClick);
   crew.classList.remove('is-hidden');
