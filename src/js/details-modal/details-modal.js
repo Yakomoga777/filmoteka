@@ -4,6 +4,7 @@ const cardsFilms = document.querySelectorAll('.list_film_item');
 const modalEl = document.querySelector('div[data-modal]');
 const modalWindow = document.querySelector('.details-modal');
 const buttonClose = document.querySelector('.close-button');
+console.log(buttonClose);
 
 function renderCard(data) {
     modalWindow.innerHTML='';
@@ -11,12 +12,13 @@ function renderCard(data) {
     for (genre of data.genres) {
         genresFilm.push(genre.name);
     }
-    const oneCard = `<button class="close-button" type="button" data-modal-close>
-    <svg width="30px" height="30px">
-      <use href="./images/icons.svg#icon-close-modal"></use>
-    </svg>
-  </button>
-  <div class="cover-thumb">
+    const oneCard = `
+    <button class="close-button" type="button" data-modal-close>
+      <svg width="30px" height="30px">
+        <use href="/icons.adfc4680.svg#icon-close-modal"></use>
+      </svg>
+    </button>
+    <div class="cover-thumb">
     <img
       class="cover"
       src="https://image.tmdb.org/t/p/w500/${data.poster_path}"
@@ -66,24 +68,25 @@ function renderCard(data) {
 
 for (const card of cardsFilms) {
     card.addEventListener('click', function onClick(e) {
-    modalEl.classList.remove('is-hidden');
-    const id=e.target.id;
-    moviesApiService
-        .fetchFilmDetails(id)
-        .then(data=>renderCard(data))
-        .catch((error)=>console.log(error));
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
+        modalEl.classList.remove('is-hidden');
+        const id=e.target.id;
+        moviesApiService
+            .fetchFilmDetails(id)
+            .then(data=>renderCard(data))
+            .catch((error)=>console.log(error));
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modalEl.classList.add('is-hidden');
+            };
+        });
+        modalEl.addEventListener('click', function clickOnBackdrop(e) {
+            if (e.target===e.currentTarget) {
+                modalEl.classList.add('is-hidden');
+            };
+        });
+        buttonClose.addEventListener('click', function() {
             modalEl.classList.add('is-hidden');
-        };
-    });
-    modalEl.addEventListener('click', function clickOnBackdrop(e) {
-        if (e.target===e.currentTarget) {
-            modalEl.classList.add('is-hidden');
-        };
-    });
-    buttonClose.addEventListener('click', function() {
-        modalEl.classList.add('is-hidden');
-    });
-  });
+            console.log('click');
+        })
+  })
 }
