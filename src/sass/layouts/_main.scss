@@ -32,7 +32,7 @@
 //     height: 634px;
 //   }
 // }
-//
+
 .list_film_item {
   min-width: 280px;
   height: 402px;
@@ -43,8 +43,7 @@
   @media screen and (min-width: 1280px) {
     width: calc((100% - 2 * 16px) / 3);
   }
-  transform: scale(1);
-  transition: transform 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms;
 }
 .list_film_item:hover,
 .list_film_item:focus {
