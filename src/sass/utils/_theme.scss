@@ -1,10 +1,10 @@
 // головна сторінка
-body.light-theme {
+main.light-theme {
   background-color: $main-background-color;
   color: $card-title-color;
 }
 
-body.dark-theme {
+main.dark-theme {
   background: rgb(10, 0, 0);
   background: linear-gradient(
     180deg,

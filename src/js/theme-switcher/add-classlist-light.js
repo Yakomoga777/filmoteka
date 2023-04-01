@@ -3,7 +3,8 @@ import { THEME } from './theme-switcher';
 
 // Додає класи на всі елементи для світлої теми
 export function doCurrentThemeLight() {
-  addLightClassListToBody();
+  addLightClassListToMain();
+  // addLightClassListToBody();
   addLightClassListToRegistrationModal();
   addLightClassListToDetailsModal();
   addLightClassListToTeamCard();
@@ -12,11 +13,17 @@ export function doCurrentThemeLight() {
   refs.themeSwitcher.checked = false;
 }
 
-// body
-function addLightClassListToBody() {
-  refs.body.classList.remove(THEME.dark);
-  refs.body.classList.add(THEME.light);
+// main
+function addLightClassListToMain() {
+  refs.main.classList.remove(THEME.dark);
+  refs.main.classList.add(THEME.light);
 }
+
+// body
+// function addLightClassListToBody() {
+//   refs.body.classList.remove(THEME.dark);
+//   refs.body.classList.add(THEME.light);
+// }
 
 // registrationModal;
 function addLightClassListToRegistrationModal() {
