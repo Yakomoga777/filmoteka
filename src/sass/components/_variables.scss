@@ -37,3 +37,8 @@ $modal-title-color: #000000;
 $modal-text-color: #000000;
 $modal-category-text-color: #8c8c8c;
 $modal-background-rating-color: #f7f7f7;
+
+//animation
+$duration: 250ms;
+$timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// Приклад використання, якщо змінюються декілька властивостей === transition: (border-color, transform) $duration $timing-function;
