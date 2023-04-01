@@ -6,3 +6,5 @@ export const refs = {
   teamCards: document.querySelectorAll('.team-card'),
   footer: document.querySelector('footer'),
 };
+
+// додати кнопки пагінації

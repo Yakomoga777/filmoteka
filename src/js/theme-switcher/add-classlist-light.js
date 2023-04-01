@@ -43,3 +43,5 @@ function addLightClassListToTeamCard() {
 //   refs.footer.classList.remove(THEME.dark);
 //   refs.footer.classList.add(THEME.light);
 // }
+
+// додати кнопки пагінації
