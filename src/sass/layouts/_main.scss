@@ -35,10 +35,10 @@
 
 .list_film_item {
   min-width: 280px;
-  height: 402px;
+  // height: 402px;
   @media screen and (min-width: 768px) {
     width: calc((100% - 32px) / 2);
-    height: 455px;
+    // height: 455px;
   }
   @media screen and (min-width: 1280px) {
     width: calc((100% - 2 * 16px) / 3);
