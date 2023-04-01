@@ -21,7 +21,7 @@
    padding: 14px 13px 14px 12px;
    border: 1px solid $header-btn-color-without-accent-bground;
    color: $header-btn-color-without-accent-bground$card-title-color;
-}
+} 
 
 .btn.queue {
    width: 148px;
@@ -52,5 +52,5 @@
     color: $header-btn-color-without-accent-bground;
     background-color: $accent-color;
     border: none;   
-    text-shadow: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
 }
