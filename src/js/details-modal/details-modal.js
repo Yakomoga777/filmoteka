@@ -11,7 +11,6 @@ function renderCard(data) {
     for (genre of data.genres) {
         genresFilm.push(genre.name);
     }
-    console.log(genresFilm);
     const oneCard = `<button class="close-button" type="button" data-modal-close>
     <svg width="30px" height="30px">
       <use href="./images/icons.svg#icon-close-modal"></use>
@@ -63,10 +62,12 @@ function renderCard(data) {
   modalWindow.insertAdjacentHTML('beforeend', oneCard);
 }
 
+
+
 for (const card of cardsFilms) {
-    card.addEventListener('click', function onClick() {
+    card.addEventListener('click', function onClick(e) {
     modalEl.classList.remove('is-hidden');
-    const id=15;
+    const id=e.target.id;
     moviesApiService
         .fetchFilmDetails(id)
         .then(data=>renderCard(data))
@@ -83,6 +84,6 @@ for (const card of cardsFilms) {
     });
     buttonClose.addEventListener('click', function() {
         modalEl.classList.add('is-hidden');
-    })
+    });
   });
 }
