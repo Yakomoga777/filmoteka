@@ -1,4 +1,5 @@
-import { moviesApiService } from "/src/js/fetch/fetch"
+import { moviesApiService } from "/src/js/fetch/fetch";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const STORAGE_KEY = 'picked-movies-array';
 
@@ -62,7 +63,14 @@ function onShowStorage() {
     }
     }
     {
-        console.log('Sorry friend but you havent choosed anything');
+        // console.log('Sorry friend but you havent choosed anything');
+        Notify.info(
+            'Sorry friend but you havent choosed anything',
+            {
+              showOnlyTheLastOne: true,
+              clickToClose: true,
+            }
+          );
     }
 }
 
