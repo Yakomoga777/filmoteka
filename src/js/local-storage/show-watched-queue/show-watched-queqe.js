@@ -3,40 +3,17 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const STORAGE_KEY = 'picked-movies-array';
 
-moviesGalery.innerHTML = '';
+
 
 // console.log(moviesApiService.fetchTrendingMovies());
 
 // const showBtn = document.getElementById('showOrder')
 // const getBtn = document.getElementById('getOrders')
-// const removeBtn = document.getElementById('removeOrders')
+const removeBtn = document.getElementById('removeOrders')
 const moviesGalery = document.getElementById('listMovies')
 const watchedBtn = document.querySelector('[data-action = "watched"]');
 // const watchedBtn = document.querySelector('.library-btn');
-const queuedBtn = document.querySelector('[data-action = "queue"]');
- console.log(watchedBtn);
- console.log(queuedBtn);
-console.log(moviesGalery);
- 
-const onWatchedClick = () => {
-  moviesGalery.innerHTML = '';
-  onShowStorage();
-}
-
-watchedBtn.addEventListener('click',onWatchedClick)
-
-
-const getOrderOnClick = (movies) => {
-     localStorage.setItem(STORAGE_KEY, JSON.stringify(movies));
-    // console.log(5);
-}
-
-
-// const onShowOrderClick = () => {
-
-// }
-showBtn.addEventListener('click', onShowStorage)
-
+const queueBtn = document.querySelector('[data-action = "queue"]');
 
 
 const trainFetch = async () => {
@@ -63,16 +40,67 @@ const trainFetch = async () => {
     .catch(error => console.log(error));
 };
 
-getBtn.addEventListener('click', trainFetch)
+trainFetch();
+
+
+moviesGalery.innerHTML = '';
+onShowStorage()
+
+
+ 
+const onWatchedClick = () => {
+  if (watchedBtn.classList.contains('library-btn__active')) {
+    return
+  }
+  queueBtn.classList.remove('library-btn__active');
+  watchedBtn.classList.add('library-btn__active')
+  moviesGalery.innerHTML = '';
+  onShowStorage();
+}
+
+watchedBtn.addEventListener('click', onWatchedClick)
+
+
+const onQueueClick = () => {
+  if (queueBtn.classList.contains('library-btn__active')) {
+   return
+  }
+  queueBtn.classList.add('library-btn__active')
+  watchedBtn.classList.remove('library-btn__active')
+   moviesGalery.innerHTML = '';
+  onShowStorage();
+}
+
+queueBtn.addEventListener('click',onQueueClick)
+
+
+const getOrderOnClick = (movies) => {
+     localStorage.setItem(STORAGE_KEY, JSON.stringify(movies));
+    // console.log(5);
+}
+
+
+// const onShowOrderClick = () => {
+
+// }
+// showBtn.addEventListener('click', onShowStorage)
+
+
+
+
+
+// getBtn.addEventListener('click', trainFetch)
 
 
 function onShowStorage() {
     const arrayOfMovies = localStorage.getItem(STORAGE_KEY) || '';
-    
+    console.log(arrayOfMovies);
   if (arrayOfMovies) {
     try {
       const parsedValues = JSON.parse(arrayOfMovies);
-      return parsedValues
+      renderMoviesMarkup(parsedValues);
+      // return parsedValues
+
         // console.log(parsedValues);
     } catch (error) {
       console.error('Get state error: ', error.message);
@@ -123,3 +151,6 @@ function renderMoviesMarkup(movies) {
 
   moviesGalery.insertAdjacentHTML('beforeend', markup);
 }
+
+
+// console.log(5);
