@@ -37,3 +37,31 @@ $modal-title-color: #000000;
 $modal-text-color: #000000;
 $modal-category-text-color: #8c8c8c;
 $modal-background-rating-color: #f7f7f7;
+
+//animation
+$duration: 250ms;
+$timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// Приклад використання, якщо змінюються декілька властивостей === transition: (border-color, transform) $duration $timing-function;
+
+// light-theme
+$notification-color: #747474;
+
+// dark-theme
+$home-main-dark-bgd: linear-gradient(
+  180deg,
+  rgb(30, 34, 39) 0%,
+  rgba(52, 3, 3, 1) 49%,
+  rgba(93, 1, 1, 1) 100%
+);
+$library-main-dark-bgd: linear-gradient(
+  180deg,
+  rgb(35, 0, 0) 0%,
+  rgba(52, 3, 3, 1) 51%,
+  rgba(93, 1, 1, 1) 100%
+);
+$main-dark-color: #e2e2e2;
+$modal-dark-color: #e2e2e2;
+$modal-dark-bgd: #2c2c2c;
+$footer-dark-color: #e2e2e2;
+$footer-dark-bgd: #5d0101;
+$modal-btn-dark-border-color: #e2e2e2;

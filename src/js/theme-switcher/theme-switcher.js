@@ -1,20 +1,20 @@
-const THEME = {
+import { refs } from './refs';
+import { getPrefersColorScheme } from './prefers-color-scheme';
+import { doCurrentThemeDark } from './add-classlist-dark';
+import { doCurrentThemeLight } from './add-classlist-light';
+
+export const THEME = {
   light: 'light-theme',
   dark: 'dark-theme',
 };
 const THEME_KEY = 'current-theme';
 
-const refs = {
-  themeSwitcher: document.querySelector('#theme-switcher'),
-  body: document.querySelector('body'),
-};
-
 // Беремо дані з localStorage
-const currentTheme = localStorage.getItem(THEME_KEY);
+export const currentTheme = localStorage.getItem(THEME_KEY);
 
 refs.themeSwitcher.addEventListener('change', onThemeUpdate);
 
-// Додає необхідний клас з localStorage під час повторного відвідування сайту
+// Додає необхідний клас з localStorage під час повторного відвідування сайту/ в залежності від теми браузера при першому завантаженні
 setCurrentTheme();
 
 // Додає необхідний клас в localStorage під час зміни теми
@@ -32,22 +32,6 @@ function onThemeUpdate(e) {
   }
 }
 
-// Додає клас для темної теми
-function doCurrentThemeDark() {
-  refs.body.classList.remove(THEME.light);
-  refs.body.classList.add(THEME.dark);
-
-  refs.themeSwitcher.checked = true;
-}
-
-// Додає клас для світлої теми
-function doCurrentThemeLight() {
-  refs.body.classList.remove(THEME.dark);
-  refs.body.classList.add(THEME.light);
-
-  refs.themeSwitcher.checked = false;
-}
-
 // Отримуємо дані зі сховища
 function setCurrentTheme() {
   if (currentTheme === THEME.dark) {
@@ -56,16 +40,5 @@ function setCurrentTheme() {
     doCurrentThemeLight();
   } else {
     getPrefersColorScheme();
-  }
-}
-
-// Отримуємо дані про бажану тему користувача
-function getPrefersColorScheme() {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if (currentTheme === null && prefersDark) {
-    doCurrentThemeDark();
-  } else {
-    doCurrentThemeLight();
   }
 }
