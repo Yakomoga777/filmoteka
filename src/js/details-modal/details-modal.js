@@ -40,7 +40,7 @@ function renderCard(data) {
   const oneCard = `
     <button class="close-button" type="button" data-modal-close>
       <svg class="modal-icon-close" width="30px" height="30px">
-        <use href="/icons.adfc4680.svg#icon-close-modal"></use>
+        <use href="./icons.svg#icon-close-modal"></use>
       </svg>
     </button>
     <div class="cover-thumb">
