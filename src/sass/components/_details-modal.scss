@@ -81,7 +81,8 @@
 
   right: 8px;
   top: 8px;
-
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +92,7 @@
   border: none;
 
   cursor: pointer;
+  z-index: 2000;
 
   background-color: inherit;
 
@@ -213,9 +215,7 @@
 .modal-buttons {
   display: flex;
 
-  &__watched,
-  &__queue {
-  
+  &__add-watched,&__add-queue,&__remove-watched,&__remove-queue {
     width: 100%;
     height: 44;
   
@@ -243,3 +243,6 @@
   }
 }
 
+.hide-button {
+  display: none;
+}
