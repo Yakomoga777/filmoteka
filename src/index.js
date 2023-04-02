@@ -1,7 +1,7 @@
 import './js/fetch/fetch';
 import './js/fetch/gallery-movies-markup';
 import './js/fetch/genres';
-import './js/fetch/searchByName';
+// import './js/fetch/searchByName';
 import './js/local-storage/add-to-watched-queue/add-to-watched-queue';
 import './js/local-storage/show-watched-queue/show-watched-queqe';
 import './js/details-modal/details-modal';
@@ -12,4 +12,3 @@ import './js/team-modal/team-modal';
 import './js/trailer/trailer';
 import './js/fetch/pagination/pagination';
 import './js/theme-switcher/theme-switcher';
-
