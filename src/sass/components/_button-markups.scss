@@ -1,58 +1,73 @@
-.btn {
-  align-items: center;
+.header__watched-btn,
+.header__queue-btn {
   text-align: center;
   text-transform: uppercase;
   border-radius: 5px;
-  cursor: pointer;
-  touch-action: manipulation;
 
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  background: transparent;
+  background-color: transparent;
+
   color: $header-btn-color-without-accent-bground;
-}
 
-.btn.watched {
-  width: 148px;
-  height: 42px;
-  padding: 14px 13px 14px 12px;
-  border: 1px solid $header-btn-color-without-accent-bground;
-  color: $header-btn-color-without-accent-bground$card-title-color;
-}
-
-.btn.queue {
-  width: 148px;
-  height: 42px;
-  padding: 14px 13px 14px 12px;
-  border: 1px solid $header-btn-color-without-accent-bground;
-  color: $header-btn-color-without-accent-bground;
-}
-
-.btn.add-to-watched {
-  width: 136px;
+  min-width: 130px;
   height: 44px;
-  padding: 10px 14px 10px 12px;
-  border: 1px solid $card-title-color;
-  color: $card-title-color;
+  padding: 14px 14px 13px 14px;
+  border: 1px solid $header-btn-color-without-accent-bground;
+
+  transition: (border-color, background-color) $duration $timing-function;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    border-color: $accent-color;
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+  }
+
+  @media screen and (min-width: $tablet) {
+    min-width: 152px;
+    padding: 13px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    min-width: 148px;
+    height: 42px;
+  }
 }
 
-.btn.add-to-queue {
-  width: 136px;
-  height: 44px;
-  padding: 8px 14px 8px 12px;
-  border: 1px solid $card-title-color;
-  color: $card-title-color;
-}
+.modal-buttons {
+  display: flex;
 
-.btn:hover,
-.btn:focus {
-  color: $header-btn-color-without-accent-bground;
-  background-color: $accent-color;
-  border: none;
-  text-shadow: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+  &__watched,
+  &__queue {
+    width: 100%;
+    height: 44;
+
+    border-radius: 5;
+
+    background-color: inherit;
+    border: 1 solid $btn-border-color-without-accent-bground;
+
+    text-transform: uppercase;
+
+    &:first-child {
+      margin-right: 20;
+    }
+
+    &:hover,
+    &:focus {
+      border: none;
+      background: $accent-color;
+      color: $btn-text-color-with-accent-bground;
+    }
+
+    @media screen and (min-width: $desktop) {
+      width: 136;
+    }
+  }
 }
 
 .library-btn__active {
