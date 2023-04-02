@@ -9,6 +9,7 @@ import {
 } from '../gallery-movies-markup';
 
 const paginationEL = document.querySelector('.tui-pagination');
+console.log(paginationEL);
 
 const options = {
   totalItems: 500,
@@ -44,7 +45,7 @@ pagination.on('afterMove', async event => {
   moviesApiService.page = event.page;
   moviesGalleryRef.innerHTML = '';
   const movies = await moviesApiService.fetchTrendingMovies();
-  console.log(movies);
+  // console.log(movies);
   renderTrandingMovies(movies);
   // console.log(moviesApiService.page);
 });
