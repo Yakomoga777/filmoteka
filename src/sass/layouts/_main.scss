@@ -39,3 +39,83 @@
 .list_film_item:focus {
   transform: scale(1.05);
 }
+//  стилі для кнопок пагінації -------------------
+
+// при ховері та фокусі кнопки
+.tui-pagination .tui-page-btn:hover,
+.tui-pagination .tui-page-btn:focus {
+  background-color: aqua;
+  border-radius: 15px;
+}
+// при активній кнопці
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  color: #fff;
+  background-color: #ff6b08;
+  border-radius: 5px;
+  cursor: pointer;
+}
+//  стрілок та крапки
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-last,
+.tui-pagination .tui-first {
+  border-radius: 5px;
+  background-color: #c2baba;
+}
+// вирівнення кнопки крапка
+@media screen and (max-width: 767px) {
+  .tui-page-btn.tui-next-is-ellip.tui-last-child,
+  .tui-page-btn.tui-prev-is-ellip.tui-first-child {
+    height: 28px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .tui-pagination {
+    height: 28px;
+    margin: 12px 0 12px;
+    margin-top: 60px;
+    line-height: normal;
+    text-align: center;
+    font-size: 0;
+  }
+
+  .tui-pagination .tui-page-btn {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+    width: 40px;
+    color: #000000;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  //  стрілок та крапки
+  .tui-pagination .tui-prev,
+  .tui-pagination .tui-next,
+  .tui-pagination .tui-last,
+  .tui-pagination .tui-first {
+    border-radius: 5px;
+    background-color: #c2baba;
+    overflow: hidden;
+    height: 40px;
+    padding: 0;
+    font-size: 100px;
+    line-height: 26px;
+  }
+  .tui-pagination .tui-prev-is-ellip,
+  .tui-pagination .tui-next-is-ellip {
+    border-radius: 5px;
+    padding: 12px 12px 12px 12px;
+    overflow: hidden;
+    height: 40px;
+    font-size: 0;
+    line-height: 26px;
+  }
+}
