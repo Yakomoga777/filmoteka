@@ -1,38 +1,48 @@
 <header class="header-home header-bgr">
-	<div class="container">
-	  <nav class="nav">
-		<a class="link logo" href="./index.html">
-		  <svg class="logo__icon" width="24" height="24">
-			<use class="icon-film" href="./images/icons.svg#icon-logo-icon"></use>
-		  </svg>
-  
-		  <span class="logo__text">Filmoteka</span>
-		</a>
-		<ul class="list nav__list">
-			<li class="nav__item">
-			  <a class="link nav__link current" href="./index.html">Home</a>
-			</li>
-			<li class="nav__item">
-			  <a class="link nav__link" href="./library.html">My library</a>
-			</li>
-		  </ul>
-	  </nav>
+  <div class="container theme-switcher-container">
+    <nav class="nav">
+      <a class="link logo" href="./index.html">
+        <svg class="logo__icon" width="24" height="24">
+          <use class="icon-film" href="./images/icons.svg#icon-logo-icon"></use>
+        </svg>
 
-		<form class="search-form">
-			  <input
-			class="search-input"
-			type="text"
-			name="searchQuery"
-			autocomplete="off"
-			placeholder="Movie search"
-		  />
+        <span class="logo__text">Filmoteka</span>
+      </a>
+      <ul class="list nav__list">
+        <li class="nav__item">
+          <a class="link nav__link current" href="./index.html">Home</a>
+        </li>
+        <li class="nav__item">
+          <a class="link nav__link" href="./library.html">My library</a>
+        </li>
+      </ul>
+    </nav>
 
-		  <button class="search-btn" type="submit" aria-label="search button">
-			<svg width="24" height="24">
-			  <use href="./images/icons.svg#icon-search-icon"></use>
-			</svg>
-		  </button>
-		</form>
+    <form class="search-form">
+      <input
+        class="search-input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Movie search"
+      />
 
-	</div>
+      <button class="search-btn" type="submit" aria-label="search button">
+        <svg width="24" height="24">
+          <use href="./images/icons.svg#icon-search-icon"></use>
+        </svg>
+      </button>
+    </form>
+
+    <!-- Перемикач тем -->
+    <div class="theme-switcher">
+      <input
+        class="theme-switcher__input visually-hidden"
+        type="checkbox"
+        name="theme"
+        id="theme-switcher"
+      />
+      <label class="theme-switcher__label" for="theme-switcher"></label>
+    </div>
+  </div>
 </header>
