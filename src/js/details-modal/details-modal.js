@@ -31,8 +31,6 @@ function refresh() {
   }, 250);
 }
 
-console.log("hello");
-
 function renderCard(data) {
     let genresFilm=[];
     for (let genre of data.genres) {
@@ -40,9 +38,9 @@ function renderCard(data) {
     }
     const oneCard = `
     <button class="close-button" type="button" data-modal-close>
-        <svg class="modal-icon-close" width="30px" height="30px">
-          <use href="./images/icons.svg#icon-close-modal"></use>
-        </svg>
+      <svg class="modal-icon-close" width="30px" height="30px">
+        <use href="/icons.adfc4680.svg#icon-close-modal"></use>
+      </svg>
     </button>
     <div class="cover-thumb">
     <img
@@ -81,10 +79,10 @@ function renderCard(data) {
     ${data.overview}
     </p>
     <div class="modal-buttons">
-      <button class="modal-buttons__add-watched" type="button">Add to watched</button>
-      <button class="modal-buttons__add-queue" type="button">Add to queue</button>
-      <button class="modal-buttons__remove-watched hide-button" type="button">Remove from watched</button>
-      <button class="modal-buttons__remove-queue hide-button" type="button">Remove from queue</button>
+      <button class="modal-buttons__watched" type="button">
+        Add to watched
+      </button>
+      <button class="modal-buttons__queue" type="button">Add to queue</button>
     </div>
   </div>`
   modalWindow.insertAdjacentHTML('beforeend', oneCard);
