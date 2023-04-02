@@ -94,7 +94,7 @@ const getOrderOnClick = (movies) => {
 
 function onShowStorage() {
     const arrayOfMovies = localStorage.getItem(STORAGE_KEY) || '';
-    console.log(arrayOfMovies);
+    // console.log(arrayOfMovies);
   if (arrayOfMovies) {
     try {
       const parsedValues = JSON.parse(arrayOfMovies);
