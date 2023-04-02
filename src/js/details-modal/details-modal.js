@@ -18,6 +18,7 @@ listFilms.addEventListener('click', function(e){
       refresh()
     };
   });
+  
   modalEl.addEventListener('click', function clickOnBackdrop(e) {
     if (e.target===e.currentTarget) {
       modalEl.classList.add('is-hidden');
