@@ -44,13 +44,53 @@ main.library.dark-theme {
   background-color: #fff;
 }
 
+.team-card.light-theme:before {
+  background-color: #cecece;
+}
+
+.team-card.light-theme:after {
+  background-color: #eeeeee;
+}
+
 .team-card.dark-theme,
 .registration-modal.dark-theme,
 .details-modal.dark-theme {
   background-color: $modal-dark-bgd;
 }
 
+.team-card.dark-theme:before {
+  background-color: #444444;
+}
+
+.team-card.dark-theme:after {
+  background-color: #333333;
+}
+
+.modal-buttons__watched.light-theme,
+.modal-buttons__queue.light-theme {
+  border-color: $btn-border-color-without-accent-bground;
+}
+
+.modal-buttons__watched.dark-theme,
+.modal-buttons__queue.dark-theme {
+  color: $modal-dark-color;
+  border-color: $modal-btn-dark-border-color;
+}
+
+.close-button svg.dark-theme {
+  fill: #e2e2e2;
+
+  transition: fill $duration $timing-function;
+}
+
+.close-button svg.dark-theme:hover,
+.close-button svg.dark-theme:focus {
+  fill: $accent-color;
+}
+
 // кнопки пагінації
+// додати кнопку add-wached
+// додати кнопку add-qeue
 
 // footer
 footer.light-theme {
