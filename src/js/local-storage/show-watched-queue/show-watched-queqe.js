@@ -5,10 +5,22 @@ const STORAGE_KEY = 'picked-movies-array';
 
 // console.log(moviesApiService.fetchTrendingMovies());
 
-const showBtn = document.getElementById('showOrder')
-const getBtn = document.getElementById('getOrders')
-const removeBtn = document.getElementById('removeOrders')
-// console.log(showBtn);
+// const showBtn = document.getElementById('showOrder')
+// const getBtn = document.getElementById('getOrders')
+// const removeBtn = document.getElementById('removeOrders')
+const moviesGalery = document.getElementById('listMovies')
+const watchedBtn = document.querySelector('[data-action = "watched"]');
+const queuedBtn = document.querySelector('[data-action = "queue"]');
+ console.log(watchedBtn);
+ console.log(queuedBtn);
+console.log(moviesGalery);
+ 
+const onWatchedClick = () => {
+  moviesGalery.innerHTML = '';
+  
+}
+
+watchedBtn.addEventListener('click',onWatchedClick)
 
 
 const getOrderOnClick = (movies) => {
