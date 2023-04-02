@@ -45,7 +45,7 @@ pagination.on('afterMove', async event => {
   moviesApiService.page = event.page;
   moviesGalleryRef.innerHTML = '';
   const movies = await moviesApiService.fetchTrendingMovies();
-  console.log(movies);
+  // console.log(movies);
   renderTrandingMovies(movies);
   // console.log(moviesApiService.page);
 });
