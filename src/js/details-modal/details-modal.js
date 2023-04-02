@@ -1,49 +1,50 @@
-import {moviesApiService} from '../fetch/fetch';
+import { moviesApiService } from '../fetch/fetch';
 
 const listFilms = document.querySelector('.list_film');
 const modalEl = document.querySelector('div[data-modal]');
 const modalWindow = document.querySelector('.details-modal');
 let buttonClose;
 
-listFilms.addEventListener('click', function(e){
+listFilms.addEventListener('click', function (e) {
   const movieId = e.target.closest('li').dataset.id;
   modalEl.classList.remove('is-hidden');
   moviesApiService
     .fetchFilmDetails(movieId)
-    .then(data=>renderCard(data))
-    .catch((error)=>console.log(error));
-  document.addEventListener('keydown', function(e) {
+    .then(data => renderCard(data))
+    .catch(error => console.log(error));
+  document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       modalEl.classList.add('is-hidden');
-      refresh()
-    };
+      refresh();
+    }
   });
   
   modalEl.addEventListener('click', function clickOnBackdrop(e) {
-    if (e.target===e.currentTarget) {
+    if (e.target === e.currentTarget) {
       modalEl.classList.add('is-hidden');
-      refresh()
-    };})
+      refresh();
+    }
+  });
 });
 
 function refresh() {
-  setTimeout(function(){
-    modalWindow.innerHTML='';
+  setTimeout(function () {
+    modalWindow.innerHTML = '';
   }, 250);
 }
 
-console.log("hello");
-
 function renderCard(data) {
-    let genresFilm=[];
-    for (let genre of data.genres) {
-        genresFilm.push(genre.name);
-    }
-    const oneCard = `
+  let genresFilm = [];
+  for (let genre of data.genres) {
+    genresFilm.push(genre.name);
+  }
+  const oneCard = `
     <button class="close-button" type="button" data-modal-close>
-        <svg class="modal-icon-close" width="30px" height="30px">
-          <use href="./images/icons.svg#icon-close-modal"></use>
-        </svg>
+      <svg class="modal-icon-close" width="30px" height="30px">
+
+        <use href="./icons.svg#icon-close-modal"></use>
+
+      </svg>
     </button>
     <div class="cover-thumb">
     <img
@@ -82,16 +83,16 @@ function renderCard(data) {
     ${data.overview}
     </p>
     <div class="modal-buttons">
-      <button class="modal-buttons__add-watched" type="button">Add to watched</button>
-      <button class="modal-buttons__add-queue" type="button">Add to queue</button>
-      <button class="modal-buttons__remove-watched hide-button" type="button">Remove from watched</button>
-      <button class="modal-buttons__remove-queue hide-button" type="button">Remove from queue</button>
+      <button class="modal-buttons__watched" type="button">
+        Add to watched
+      </button>
+      <button class="modal-buttons__queue" type="button">Add to queue</button>
     </div>
-  </div>`
+  </div>`;
   modalWindow.insertAdjacentHTML('beforeend', oneCard);
   buttonClose = document.querySelector('.close-button');
-  buttonClose.addEventListener('click', function() {
+  buttonClose.addEventListener('click', function () {
     modalEl.classList.add('is-hidden');
     refresh();
-});
+  });
 }
