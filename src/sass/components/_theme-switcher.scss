@@ -1,34 +1,7 @@
-// Знизу
-// .theme-switcher {
-//   position: absolute;
-//   display: flex;
-//   align-items: center;
-//   gap: 5px;
-//   z-index: 10;
-//   top: 200px;
-//   right: 90px;
-// }
-
 .theme-switcher-container {
   position: relative;
 }
 
-// .header {
-//   position: relative;
-// }
-
-// Зверху, тягнеться за екраном
-// .theme-switcher {
-//   position: absolute;
-//   display: flex;
-//   align-items: center;
-//   gap: 5px;
-//   z-index: 10;
-//   top: 23px;
-//   right: 77px;
-// }
-
-// Зверху
 .theme-switcher {
   position: absolute;
   display: flex;
@@ -102,9 +75,3 @@
     right: 90px;
   }
 }
-
-// @media screen and (min-width: $desktop) {
-//   .theme-switcher {
-//     right: 90px;
-//   }
-// }
