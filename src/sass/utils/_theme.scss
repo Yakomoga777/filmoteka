@@ -1,0 +1,132 @@
+// головна сторінка
+main.light-theme {
+  background-color: $main-background-color;
+  color: $card-title-color;
+}
+
+main.home.dark-theme {
+  background: rgb(10, 0, 0);
+  background: $home-main-dark-bgd;
+
+  color: $main-dark-color;
+}
+
+main.library.dark-theme {
+  background: rgb(10, 0, 0);
+  background: $library-main-dark-bgd;
+
+  color: $main-dark-color;
+}
+
+// бібліотека, якщо для заглушки буде просто текст
+.notification.light-theme {
+  color: #747474;
+}
+
+.notification.dark-theme {
+  color: #e2e2e2;
+}
+
+.registration-modal.light-theme,
+.details-modal.light-theme {
+  color: $card-title-color;
+}
+
+.registration-modal.dark-theme,
+.details-modal.dark-theme {
+  color: $modal-dark-color;
+}
+
+// карточки команди
+.team-card.light-theme,
+.registration-modal.light-theme,
+.details-modal.light-theme {
+  background-color: #fff;
+}
+
+.team-card.light-theme:before {
+  background-color: #cecece;
+}
+
+.team-card.light-theme:after {
+  background-color: #eeeeee;
+}
+
+.team-card.dark-theme,
+.registration-modal.dark-theme,
+.details-modal.dark-theme {
+  background-color: $modal-dark-bgd;
+}
+
+.team-card.dark-theme:before {
+  background-color: #444444;
+}
+
+.team-card.dark-theme:after {
+  background-color: #333333;
+}
+
+.modal-buttons__watched.light-theme,
+.modal-buttons__queue.light-theme {
+  border-color: $btn-border-color-without-accent-bground;
+}
+
+.modal-buttons__watched.dark-theme,
+.modal-buttons__queue.dark-theme {
+  color: $modal-dark-color;
+  border-color: $modal-btn-dark-border-color;
+}
+
+.close-button svg.dark-theme {
+  fill: #e2e2e2;
+
+  transition: fill $duration $timing-function;
+}
+
+.close-button svg.dark-theme:hover,
+.close-button svg.dark-theme:focus {
+  fill: $accent-color;
+}
+
+// кнопки пагінації
+// додати кнопку add-wached
+// додати кнопку add-qeue
+
+// footer
+footer.light-theme {
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+}
+
+footer.dark-theme {
+  background-color: $footer-dark-bgd;
+  color: $footer-dark-color;
+}
+
+// колір для модалок #484747 або #2c2c2c
+
+// варіанти фону мейну
+
+// background: rgb(31, 1, 1);
+// background: linear-gradient(
+//   180deg,
+//   rgba(31, 1, 1, 1) 0%,
+//   rgba(52, 3, 3, 1) 51%,
+//   rgba(108, 2, 2, 1) 100%
+// );
+
+// background: rgb(18, 0, 0);
+// background: linear-gradient(
+//   180deg,
+//   rgba(18, 0, 0, 1) 0%,
+//   rgba(52, 3, 3, 1) 51%,
+//   rgba(108, 2, 2, 1) 100%
+// );
+
+// background: rgb(3, 0, 0);
+// background: linear-gradient(
+//   180deg,
+//   rgba(3, 0, 0, 1) 0%,
+//   rgba(52, 3, 3, 1) 51%,
+//   rgba(93, 1, 1, 1) 100%
+// );
