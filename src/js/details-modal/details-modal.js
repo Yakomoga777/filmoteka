@@ -6,7 +6,6 @@ const modalWindow = document.querySelector('.details-modal');
 let buttonClose;
 
 listFilms.addEventListener('click', function(e){
-  
   const movieId = e.target.closest('li').dataset.id;
   modalEl.classList.remove('is-hidden');
   moviesApiService
@@ -34,7 +33,7 @@ function refresh() {
 
 function renderCard(data) {
     let genresFilm=[];
-    for (genre of data.genres) {
+    for (let genre of data.genres) {
         genresFilm.push(genre.name);
     }
     const oneCard = `
