@@ -54,3 +54,9 @@
   border: none;
   text-shadow: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
 }
+
+.library-btn__active {
+  background-color: #FF6B01;
+  border-radius: 5px;
+  border-color: transparent;
+}
