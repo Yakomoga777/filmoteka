@@ -16,16 +16,23 @@ listFilms.addEventListener('click', function(e){
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       modalEl.classList.add('is-hidden');
+      refresh()
     };
   });
   modalEl.addEventListener('click', function clickOnBackdrop(e) {
     if (e.target===e.currentTarget) {
       modalEl.classList.add('is-hidden');
+      refresh()
     };})
 });
 
+function refresh() {
+  setTimeout(function(){
+    modalWindow.innerHTML='';
+  }, 250);
+}
+
 function renderCard(data) {
-  modalWindow.innerHTML='';
     let genresFilm=[];
     for (genre of data.genres) {
         genresFilm.push(genre.name);
@@ -83,5 +90,6 @@ function renderCard(data) {
   buttonClose = document.querySelector('.close-button');
   buttonClose.addEventListener('click', function() {
     modalEl.classList.add('is-hidden');
+    refresh();
 });
 }
