@@ -9,6 +9,9 @@ export function doCurrentThemeLight() {
   addLightClassListToDetailsModal();
   addLightClassListToTeamCard();
   // addLightClassListToFooter();
+  addLightClassListToAddWatchedBtn();
+  addLightClassListToAddQueueBtn();
+  addLightClassListToCloseSvg();
 
   refs.themeSwitcher.checked = false;
 }
@@ -50,5 +53,23 @@ function addLightClassListToTeamCard() {
 //   refs.footer.classList.remove(THEME.dark);
 //   refs.footer.classList.add(THEME.light);
 // }
+
+// addWatchedBtn
+function addLightClassListToAddWatchedBtn() {
+  refs.addWatchedBtn.classList.remove(THEME.dark);
+  refs.addWatchedBtn.classList.add(THEME.light);
+}
+
+// addQueueBtn
+function addLightClassListToAddQueueBtn() {
+  refs.addQueueBtn.classList.remove(THEME.dark);
+  refs.addQueueBtn.classList.add(THEME.light);
+}
+
+// closeSvg
+function addLightClassListToCloseSvg() {
+  refs.closeSvg.classList.remove(THEME.dark);
+  refs.closeSvg.classList.add(THEME.light);
+}
 
 // додати кнопки пагінації
