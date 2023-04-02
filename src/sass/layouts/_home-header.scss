@@ -76,17 +76,24 @@
 
   color: $header-input-text-color;
   background-color: transparent;
+  outline: none;
 
   border: none;
   border-bottom: 2px solid $header-input-border-color;
+}
+
+.search-input:hover,
+.search-input:focus {
+  border-color: $accent-color;
+  color: $accent-color;
 }
 
 .search-input::placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.14;
-  color: $header-input-text-color;
-  opacity: 0.5;
+  color: currentColor;
+  // opacity: 0.5;
 }
 
 .search-btn {
@@ -96,4 +103,11 @@
 
   background-color: transparent;
   border: none;
+}
+
+.search-btn:hover {
+  color: $accent-color;
+}
+.seach-btn-icon:hover {
+  fill: currentColor;
 }

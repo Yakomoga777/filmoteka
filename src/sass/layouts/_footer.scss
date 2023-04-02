@@ -22,65 +22,69 @@
 }
 
 .footer {
-    padding-top: 30px; 
-    padding-bottom: 30px; 
-    background-color: #f7f7f7;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #f7f7f7;
+}
+
+.container-footer {
+  display: block;
+  text-align: center;
+}
+
+.footer__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: #545454;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.19;
   }
-  
-  .container-footer {
-    display: block;
-    text-align: center;
+}
+
+.footer__content {
+  display: inline-block;
+  margin-top: 10px;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
   }
-  
-  .footer__text {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
-    color: #545454;
-  
-    @media (min-width: 768px) {
-      font-size: 16px;
-      line-height: 1.19;
-    }
-  }
-  
-  .footer__content {
-    display: inline-block;
-    margin-top: 10px;
-  
-    @media (min-width: 768px) {
-      margin-top: 0;
-    }
-  }
-  
-  .footer__icon {
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 14px;
-    height: 12.88px;
+}
+
+.footer__icon {
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 14px;
+  height: 12.88px;
+}
+
+.footer-link-btn {
+  display: inline;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: #545454;
+
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  transition: color 300ms;
+
+  &:hover,
+  :focus {
+    color: #ff6b08;
   }
 
-  .footer-link-btn {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
-    color: #545454;
-    text-decoration: underline;
-    transition: color 300ms;
-    
-    &:hover,
-    :focus {
-      color: #ff6b08;
-    }
-  
-    @media (min-width: 768px) {
-      font-size: 16px;
-      line-height: 1.19;
-    }
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.19;
   }
+}
 
-  .heart {
-    position: relative;
-    width: 19px;
-    height: 17.88px;
-  }
+.heart {
+  position: relative;
+  width: 19px;
+  height: 17.88px;
+}

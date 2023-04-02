@@ -2,46 +2,14 @@ import axios from 'axios';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { moviesApiService } from '../fetch';
+import {
+  moviesGalleryRef,
+  renderTrandingMovies,
+  renderMoviesMarkup,
+} from '../gallery-movies-markup';
 
-const galleryEl = document.querySelector('.list_film.list');
 const paginationEL = document.querySelector('.tui-pagination');
-
-// -------- для перевірки---------
-
-// moviesApiService.fetchTrendingMovies().then(data => {
-//   galleryFilms(data);
-// });
-
-// function galleryFilms(data) {
-//   const markup = data.results
-//     .map(
-//       ({
-//         id,
-//         original_title,
-//         poster_path,
-//         title,
-//         genre_ids,
-//         release_date,
-//       }) => `<li class="list_film_item" data-id="${id}">
-//         <img src="${renderImg(
-//           poster_path
-//         )}" alt="${title}"  width="395" height="574" />
-//         <h2>${original_title}</h2>
-//         <p>${genre_ids} | ${release_date}
-//       </li>`
-//     )
-//     .join('');
-
-//   galleryEl.insertAdjacentHTML('beforeend', markup);
-//   function renderImg(poster_path) {
-//     if (poster_path) {
-//       return `https://image.tmdb.org/t/p/w500${poster_path}`;
-//     }
-//     return `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923`;
-//   }
-// }
-
-// ----------------------
+console.log(paginationEL);
 
 const options = {
   totalItems: 500,
@@ -75,9 +43,9 @@ const pagination = new Pagination(paginationEL, options);
 
 pagination.on('afterMove', async event => {
   moviesApiService.page = event.page;
-  galleryEl.innerHTML = '';
+  moviesGalleryRef.innerHTML = '';
   const movies = await moviesApiService.fetchTrendingMovies();
-  console.log(movies);
-  galleryFilms(movies);
-  console.log(moviesApiService.page);
+  // console.log(movies);
+  renderTrandingMovies(movies);
+  // console.log(moviesApiService.page);
 });
