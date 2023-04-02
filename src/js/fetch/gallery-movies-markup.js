@@ -1,6 +1,7 @@
 import { create } from 'lodash';
 import { moviesApiService } from './fetch';
 import { genres } from './genres';
+
 // console.log(genres);
 
 export const moviesGalleryRef = document.querySelector('.list_film');
@@ -8,7 +9,7 @@ export const moviesGalleryRef = document.querySelector('.list_film');
 renderTrandingMovies();
 
 export async function renderTrandingMovies() {
-  const { results } = await moviesApiService.fetchTrendingMovies();
+  const results = await moviesApiService.fetchTrendingMovies();
   // console.log(results);
   renderMoviesMarkup(results);
   // console.log(renderMoviesMarkup(results));
@@ -20,7 +21,7 @@ function renderMoviesMarkup(movies) {
   //     movie.genres_ids.include(genre.id);
   //   });
   // });
-  const markup = movies
+  const markup = movies.results
     .map(({ poster_path, id, original_title, release_date }) => {
       let urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
