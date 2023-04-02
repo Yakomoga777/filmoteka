@@ -4,10 +4,6 @@
   padding-bottom: 62px;
 }
 
-.library__container {
-  position: relative;
-}
-
 .library-overlay {
   max-width: 1600px;
   height: 230px;
@@ -87,7 +83,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: $desktop) {
   .library-overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/desktop/library-background-desktop.jpg);
@@ -122,87 +118,4 @@
   .library-btn {
     min-width: 147px;
   }
-}
-
-// ----------------- Перемикач тем -----------------
-// Знизу
-// .theme-switcher {
-//   position: absolute;
-//   display: flex;
-//   align-items: center;
-//   gap: 5px;
-//   z-index: 10;
-//   top: 200px;
-//   right: 90px;
-// }
-
-// Зверху
-.theme-switcher {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  z-index: 10;
-  bottom: 133px;
-  right: 90px;
-}
-
-.theme-switcher__label {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.theme-switcher__label::before {
-  position: absolute;
-
-  content: '';
-  width: 46px;
-  height: 20px;
-
-  border: 1px solid #ff6b01;
-  border-radius: 50px;
-
-  box-shadow: none;
-
-  transition-property: box-shadow, border-color, background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.theme-switcher__label::after {
-  position: absolute;
-  left: 2px;
-
-  content: '';
-  width: 15px;
-  height: 15px;
-
-  border-radius: 50%;
-  background-image: url(../images/sun.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
-  transition-property: border-color, transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.theme-switcher__input:checked + .theme-switcher__label::before {
-  border-color: #9c9c9c90;
-}
-
-.theme-switcher__input:checked + .theme-switcher__label::after {
-  transform: translateX(27px);
-  background-image: url(../images/star.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.theme-switcher__input:hover + .theme-switcher__label::before {
-  box-shadow: 0px 0px 15px 2px rgba(255, 107, 1, 0.57);
-  -webkit-box-shadow: 0px 0px 15px 2px rgba(255, 107, 1, 0.57);
-  -moz-box-shadow: 0px 0px 15px 2px rgba(255, 107, 1, 0.57);
 }

@@ -1,5 +1,5 @@
 <header class="header-home header-bgr">
-  <div class="container">
+  <div class="container theme-switcher-container">
     <nav class="nav">
       <a class="link logo" href="./index.html">
         <svg class="logo__icon" width="24" height="24">
@@ -28,10 +28,20 @@
       />
 
       <button class="search-btn" type="submit" aria-label="search button">
-        <svg class="seach-btn-icon" width="24" height="24">
+        <svg width="24" height="24">
           <use href="./images/icons.svg#icon-search-icon"></use>
         </svg>
       </button>
     </form>
+    <!-- Перемикач тем -->
+    <div class="theme-switcher">
+      <input
+        class="theme-switcher__input visually-hidden"
+        type="checkbox"
+        name="theme"
+        id="theme-switcher"
+      />
+      <label class="theme-switcher__label" for="theme-switcher"></label>
+    </div>
   </div>
 </header>
