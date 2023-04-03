@@ -4,7 +4,7 @@ import { THEME } from './theme-switcher';
 // Додає класи на всі елементи для темної теми
 export function doCurrentThemeDark() {
   addDarkClassListToMain();
-  addDarkClassListToRegistrationModal();
+  // addDarkClassListToRegistrationModal();
   addDarkClassListToDetailsModal();
   addDarkClassListToTeamCard();
   addDarkClassListToFooter();
@@ -18,11 +18,11 @@ function addDarkClassListToMain() {
   refs.main.classList.add(THEME.dark);
 }
 
-// registrationModal;
-function addDarkClassListToRegistrationModal() {
-  refs.registrationModal.classList.remove(THEME.light);
-  refs.registrationModal.classList.add(THEME.dark);
-}
+// // registrationModal;
+// function addDarkClassListToRegistrationModal() {
+//   refs.registrationModal.classList.remove(THEME.light);
+//   refs.registrationModal.classList.add(THEME.dark);
+// }
 
 // detailsModal
 function addDarkClassListToDetailsModal() {
