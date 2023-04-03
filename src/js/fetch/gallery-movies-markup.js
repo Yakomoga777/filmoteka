@@ -25,10 +25,9 @@ function renderMoviesMarkup(movies) {
 		            <img src="${urlImg}" alt="img of film" width="395"/>
 	              <p class="card__title">${original_title}</p>
 	              <div class="card__info">
-                  <p class="card__genres">${listOfGenres} | ${release_date.slice(
-        0,
-        4
-      )}</p>
+                  <p class="card__genres">${listOfGenres} | ${
+        release_date.slice(0, 4) ?? ''
+      }</p>
                 </div>
 		        </li>`;
     })
