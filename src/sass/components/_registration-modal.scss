@@ -1,0 +1,77 @@
+.header-login-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.header-register-btn {
+  background-color: transparent;
+  border: none;
+}
+.header-out-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.login-title {
+  margin-bottom: 30px;
+}
+.login-form,
+.register-form {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(61, 56, 56);
+  border-radius: 10px;
+  width: 300px;
+  height: 320px;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(232, 237, 236);
+}
+
+.modal-close-register, .modal-close-login  {
+ margin-right: 0;
+  margin-left: 90%;
+  background-color: transparent;
+  border: none;
+}
+
+.login {
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  border: 0.5px solid rgb(210, 207, 207);
+  border-radius: 5px;
+}
+
+.login-btn,
+.register-btn {
+  margin: 0 auto;
+  padding: 7px 20px;
+  background-color: rgb(161, 186, 181);
+  border: 0.5px solid rgb(68, 65, 65);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  background-color: rgb(70, 136, 123);
+  scale: 1.05;
+}
+
+.an-btn {
+  margin: 0 auto;
+  border: 0;
+  background-color: rgb(232, 237, 236);
+}
+
+.an-btn:hover {
+  color: rgb(65, 130, 19);
+  border-bottom: 1px solid rgb(65, 130, 19);
+  scale: 1.02;
+}
+#register-form {
+  display: none;
+}
