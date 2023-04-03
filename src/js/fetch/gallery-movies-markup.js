@@ -35,7 +35,7 @@ function renderMoviesMarkup(movies) {
         poster_path
           ? (urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`)
           : (urlImg =
-              'https://dummyimage.com/500x400/ff6b08/fff.jpg&text=Opps,+no+image...');
+              'https://dummyimage.com/500x750/ff6b08/fff.jpg&text=Opps,+no+image...');
 
         const includeGenres = genres.filter(genre =>
           genre_ids.includes(genre.id)
