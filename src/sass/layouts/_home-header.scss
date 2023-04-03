@@ -3,21 +3,18 @@
   // top: 0;
   // left: 0;
   // width: 100%;
-
-  // max-width: 1600px;
-  width: 100%;
-  height: 230px;
   padding: 40px 0;
-
   background-color: rgba(0, 0, 0, 0.56);
 }
 
 .header-bgr {
+  max-width: 1600px;
+  height: 230px;
+  margin: 0 auto;
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  // opacity: 0.9;
-
   background-image: url(../images/mobile/main-background-mobile.png);
 
   @media (min-device-pixel-ratio: 2),
@@ -126,4 +123,8 @@
   @media screen and (min-width: $tablet) {
     width: 280px;
   }
+}
+
+.hide-notification {
+  display: none;
 }

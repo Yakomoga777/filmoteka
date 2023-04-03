@@ -4,7 +4,7 @@ import { THEME } from './theme-switcher';
 // Додає класи на всі елементи для світлої теми
 export function doCurrentThemeLight() {
   addLightClassListToMain();
-  addLightClassListToRegistrationModal();
+  // addLightClassListToRegistrationModal();
   addLightClassListToDetailsModal();
   addLightClassListToTeamCard();
   addLightClassListToFooter();
@@ -18,11 +18,11 @@ function addLightClassListToMain() {
   refs.main.classList.add(THEME.light);
 }
 
-// registrationModal;
-function addLightClassListToRegistrationModal() {
-  refs.registrationModal.classList.remove(THEME.dark);
-  refs.registrationModal.classList.add(THEME.light);
-}
+// // registrationModal;
+// function addLightClassListToRegistrationModal() {
+//   refs.registrationModal.classList.remove(THEME.dark);
+//   refs.registrationModal.classList.add(THEME.light);
+// }
 
 // detailsModal
 function addLightClassListToDetailsModal() {
