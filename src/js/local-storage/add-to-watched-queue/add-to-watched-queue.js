@@ -1,67 +1,55 @@
 
-const STORAGE_KEY_W = 'watched-movies-array';
-const STORAGE_KEY_Q = 'queue-movies-array';
+// export const STORAGE_KEY_W = 'watched-movies-array';
+// export const STORAGE_KEY_Q = 'queue-movies-array';
+
+// // clearLocalStorage()
+// // function clearLocalStorage() {
+// //     localStorage.removeItem(STORAGE_KEY);
+// // }
 
 
 
 
-document.addEventListener('click', onCardClick);
+// document.addEventListener('click', onCardClick);
 
- function onCardClick(e) {
+//  function onCardClick(e) {
  
-     const movie = e.target.closest('li');
-     console.log(movie);
-     if (!movie) {
-          return
-   }
-   const filmId = movie.dataset.id;
-   console.log(filmId);
-  setTimeout(() => {
-    const addWachedBtn = document.querySelector('.modal-buttons__watched');
-    const addQueueBtn = document.querySelector('.modal-buttons__queue');
-    console.log(addWachedBtn);
-      console.log(addQueueBtn);
+//      const movie = e.target.closest('li');
+//      if (!movie) {
+//           return
+//    }
+//    const filmId = movie.dataset.id;
+//   setTimeout(() => {
+//     const addWachedBtn = document.querySelector('.modal-buttons__watched');
+//     const addQueueBtn = document.querySelector('.modal-buttons__queue');
+
       
-      addWachedBtn.addEventListener('click', onAddWatch);
-      addQueueBtn.addEventListener('click', onAddQueue);
+//       addWachedBtn.addEventListener('click', onAddWatch);
+//       addQueueBtn.addEventListener('click', onAddQueue);
 
-      function onAddWatch() {
-    console.log(5);
-      }
+//       function onAddWatch() {
+//    addToLocalStorage(movie,filmId,STORAGE_KEY_W)
+//       }
       
-            function onAddQueue() {
-    console.log(10);
-}
-
-
-
+//             function onAddQueue() {
+//     addToLocalStorage(movie,filmId,STORAGE_KEY_Q)
+// }
 
    
-  }, 400);
-}
+//   }, 400);
+// }
 
 
-
-
-function RecordingMoviesArray(film,id,localStorageKey) {
+// function addToLocalStorage(film, id, key) {
+//   const storedItems = JSON.parse(localStorage.getItem(key)) || [];
   
-    const arrayOfMovies = JSON.parse(localStorage.getItem(localStorageKey)) || {х;
-     if (!arrayOfMovies[id]) {
-    arrayOfMovies[id] = film;
-    localStorage.setItem(key, JSON.stringify(arrayOfMovies));
-    console.log('Item added to local storage!');
-  } else {
-    console.log('Item already exists in local storage!');
-  }
-}
-function addToLocalStorage(item, id, key) {
-  const storedItems = JSON.parse(localStorage.getItem(key)) || [];
-  
-  if (!storedItems.some((storedItem) => storedItem.id === id)) {
-    storedItems.push({ id, value: item });
-    localStorage.setItem(key, JSON.stringify(storedItems));
-    console.log('Item added to local storage!');
-  } else {
-    console.log('Item already exists in local storage!');
-  }
-}
+//   if (!storedItems.some((storedItem) => storedItem.id === id)) {
+//     console.log({id});
+//      console.log(film);
+//     storedItems.push({ id });
+//     localStorage.setItem(key, JSON.stringify(storedItems));
+//     console.log('Film added to local storage!');
+//   } else {
+//     console.log('Filmm already exists in local storage!');
+//   }
+// }

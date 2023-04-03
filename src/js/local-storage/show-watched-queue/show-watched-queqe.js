@@ -1,11 +1,69 @@
 // import { moviesApiService } from "/src/js/fetch/fetch";
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-// const STORAGE_KEY = 'picked-movies-array';
+
+// const STORAGE_KEY_W = 'watched-movies-array';
+// const STORAGE_KEY_Q = 'queue-movies-array';
+// // const STORAGE_KEY = 'picked-movies-array';
+
+// // clearLocalStorage()
+// // function clearLocalStorage() {
+// //     localStorage.removeItem(STORAGE_KEY);
+// // }
 
 
 
-// // console.log(moviesApiService.fetchTrendingMovies());
+
+// document.addEventListener('click', onCardClick);
+
+//  function onCardClick(e) {
+ 
+//      const movie = e.target.closest('li');
+//     //  console.log(movie);
+//      if (!movie) {
+//           return
+//    }
+//    const filmId = movie.dataset.id;
+//   //  console.log(filmId);
+//   setTimeout(() => {
+//     const addWachedBtn = document.querySelector('.modal-buttons__watched');
+//     const addQueueBtn = document.querySelector('.modal-buttons__queue');
+//     // console.log(addWachedBtn);
+//     //   console.log(addQueueBtn);
+      
+//       addWachedBtn.addEventListener('click', onAddWatch);
+//       addQueueBtn.addEventListener('click', onAddQueue);
+
+//       function onAddWatch() {
+//    addToLocalStorage(movie,filmId,STORAGE_KEY_W)
+//       }
+      
+//             function onAddQueue() {
+//     addToLocalStorage(movie,filmId,STORAGE_KEY_Q)
+// }
+
+   
+//   }, 400);
+// }
+
+
+// function addToLocalStorage(film, id, key) {
+//   const storedItems = JSON.parse(localStorage.getItem(key)) || [];
+  
+//   if (!storedItems.some((storedItem) => storedItem.id === id)) {
+//     console.log({id});
+//      console.log(film);
+//     storedItems.push({ id });
+//     localStorage.setItem(key, JSON.stringify(storedItems));
+//     console.log('Item added to local storage!');
+//   } else {
+//     console.log('Item already exists in local storage!');
+//   }
+// }
+
+
+
+// // // console.log(moviesApiService.fetchTrendingMovies());
 
 // // const showBtn = document.getElementById('showOrder')
 // // const getBtn = document.getElementById('getOrders')
@@ -122,9 +180,9 @@
 // // removeBtn.addEventListener('click',clearLocalStorage)
 
 
-// function clearLocalStorage() {
-//     localStorage.removeItem(STORAGE_KEY);
-// }
+// // function clearLocalStorage() {
+// //     localStorage.removeItem(STORAGE_KEY);
+// // }
 
 
 
@@ -155,13 +213,5 @@
 
 
 
-// функція для пагінації сторінок
 
 
-// const loadNextPage = (movies) => {
-//     let page = 1; 
-//     const moviesLength = movies.length 
-//     if (moviesLength <= 19) {
-//       return
-//   }
-// }
