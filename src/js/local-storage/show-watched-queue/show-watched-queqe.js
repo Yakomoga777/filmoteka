@@ -4,7 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const STORAGE_KEY_W = 'watched-movies-array';
 const STORAGE_KEY_Q = 'queue-movies-array';
-// const STORAGE_KEY = 'picked-movies-array';
+
 
 // clearLocalStorage()
 // function clearLocalStorage() {
@@ -71,12 +71,14 @@ const queueBtn = document.querySelector('[data-action = "queue"]');
 
 
 
-// trainFetch();
 
 
-// moviesGalery.innerHTML = '';
-// onShowStorage()
 
+moviesGalery.innerHTML = '';
+const watchedArray = onShowStorage(STORAGE_KEY_W);
+ 
+  getIdes(watchedArray,moviesGalery);
+watchedBtn.classList.add('library-btn__active')
 
  
 const onWatchedClick = () => {
@@ -86,164 +88,89 @@ const onWatchedClick = () => {
   queueBtn.classList.remove('library-btn__active');
   watchedBtn.classList.add('library-btn__active')
   moviesGalery.innerHTML = '';
-  onShowStorage(STORAGE_KEY_W);
+  
+  //  watchedArray = onShowStorage(STORAGE_KEY_W);
+ 
+  getIdes(watchedArray,moviesGalery);
+
 }
 
 watchedBtn.addEventListener('click', onWatchedClick)
 
 
-// const onQueueClick = () => {
-//   if (queueBtn.classList.contains('library-btn__active')) {
-//    return
-//   }
-//   queueBtn.classList.add('library-btn__active')
-//   watchedBtn.classList.remove('library-btn__active')
-//    moviesGalery.innerHTML = '';
-//   onShowStorage();
-// }
+const onQueueClick = () => {
+  if (queueBtn.classList.contains('library-btn__active')) {
+   return
+  }
+  queueBtn.classList.add('library-btn__active')
+  watchedBtn.classList.remove('library-btn__active')
+   moviesGalery.innerHTML = '';
+  const queueArray = onShowStorage(STORAGE_KEY_Q);
+  getIdes(queueArray,moviesGalery);
+}
 
-// queueBtn.addEventListener('click',onQueueClick)
-
-
-// const getOrderOnClick = (movies) => {
-//      localStorage.setItem(STORAGE_KEY, JSON.stringify(movies));
-//     // console.log(5);
-// }
+queueBtn.addEventListener('click',onQueueClick)
 
 
-// // const onShowOrderClick = () => {
 
-// // }
-// // showBtn.addEventListener('click', onShowStorage)
 
 
 
 
 
 // // getBtn.addEventListener('click', trainFetch)
-
-
 function onShowStorage(key) {
-    const arrayOfId = localStorage.getItem(key) || '';
+  const arrayOfId = localStorage.getItem(key) || '';
+  // console.log(arrayOfId);
   if (arrayOfId) {
     try {
-        const parsedValues = JSON.parse(arrayOfId);
-        // console.log(parsedValues);
-        getIdes(parsedValues);
-        ;
+      const parsedValues = JSON.parse(arrayOfId);
+    //  console.log(parsedValues);
+      return parsedValues;
+      
     } catch (error) {
       console.error('Get state error: ', error.message);
     }
-    }
-    {
-    
-        Notify.info(
-            'Sorry friend but you havent choosed anything',
-            {
-              showOnlyTheLastOne: true,
-              clickToClose: true,
-            }
-          );
-    }
+  } else {
+    Notify.info(
+      'Sorry friend but you havent chosen anything',
+      {
+        showOnlyTheLastOne: true,
+        clickToClose: true,
+      }
+    );
+    return null;
+  }
 }
 
 
-// // removeBtn.addEventListener('click',clearLocalStorage)
-
-
-// // function clearLocalStorage() {
-// //     localStorage.removeItem(STORAGE_KEY);
-// // }
 
 
 
-
-// function renderMoviesMarkup(movies) {
-//   // movies.forEach(movie => {
-//   //   const gendersIs = genres.filter(genre => {
-//   //     movie.genres_ids.include(genre.id);
-//   //   });
-//   // });
-//   const markup = movies
-//     .map(({ poster_path, id, original_title, release_date }) => {
-//       let urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`;
-
-//       return `<li class="list_film_item" data-id="${id}">
-// 		            <img src="${urlImg}" alt="img of film" width="395"/>
-// 	              <p class="card__title">${original_title}</p>
-// 	              <div class="card__info">
-//                   <p class="card__genres">| ${release_date.slice(0, 4)}</p>
-//                 </div>
-// 		        </li>`;
-//     })
-//     .join('');
-
-//   moviesGalery.insertAdjacentHTML('beforeend', markup);
-// }
-
-
-// function getIdes(idArray) {
-//     for (const numer of idArray) {
-//         console.log(+numer.id);
-//         console.log(numer.id + 1);
-//     }
-// }
-
-
-// function getIdes(idArray) {
-//     for (const numer of idArray) {
-//         moviesApiService.fetchFilmDetails(+numer.id)
-//             .then(({ poster_path, id, original_title, release_date }) => {
-//                 let urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`;
-//                 // console.log( poster_path, id, original_title, release_date);
-
-//                  return
-
-//           `<li class="list_film_item" data-id="${id}">
-//  	 	            <img src="${urlImg}" alt="img of film" width="395"/>
-//  	               <p class="card__title">${original_title}</p>
-//  	               <div class="card__info">
-//                     <p class="card__genres">| ${release_date.slice(0, 4)}</p>
-//                   </div>
-// 	 	        </li>`;
-//             })
-//             .join('');
-        
-
-//         //   moviesGalery.insertAdjacentHTML('beforeend', getMovies);
-               
-//         // do something with movieArray, e.g. render it
-//     }
-
-
-    function getIdes(idArray) {
-        let html = '';
-        for (const numer of idArray) {
-            moviesApiService.fetchFilmDetails(+numer.id)
-                .then(({ poster_path, id, original_title, release_date }) => {
-                    let urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`;
-                    const movieHtml = `
-          <li class="list_film_item" data-id="${id}">
-            <img src="${urlImg}" alt="img of film" width="395"/>
-            <p class="card__title">${original_title}</p>
-            <div class="card__info">
-              <p class="card__genres">| ${release_date.slice(0, 4)}</p>
-            </div>
-          </li>
-        `;
-                    html += movieHtml;
-                    //   console.log(html);
-                })
-                .catch(error => console.log(error));
-        }
-        return html;
+ 
+            
+    async function getIdes(idArray, filmsList) {
+  let filmItems = '';
+  for (const numer of idArray) {
+    try {
+      const { poster_path, id, original_title, release_date } = await moviesApiService.fetchFilmDetails(+numer.id);
+      const urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`;
+      const oneFilm = `
+        <li class="list_film_item" data-id="${id}">
+          <img src="${urlImg}" alt="img of film" width="395"/>
+          <p class="card__title">${original_title}</p>
+          <div class="card__info">
+            <p class="card__genres">| ${release_date.slice(0, 4)}</p>
+          </div>
+        </li>
+      `;
+      filmItems += oneFilm;
+    } catch (error) {
+      console.log(error);
     }
-        // moviesGalery.insertAdjacentHTML('beforeend', getFilmsList);
-
-
-            
-            
-    
+  }
+  filmsList.insertAdjacentHTML('beforeend', filmItems);
+}
 
 
 
