@@ -38,40 +38,46 @@ function renderMovie(data) {
         id,
         original_title,
         release_date,
-        genre_ids,
+        genres,
         original_language,
         title,
     } = data; 
     
-        let urlImg = '';
-        let movieTitle = '';
+    let genresFilm = [];
+    for (let genre of genres) {
+        genresFilm.push(genre.name);
+    }
 
-        original_language !== 'en'
-          ? (movieTitle = title)
-          : (movieTitle = original_title);
+    let urlImg = '';
+    let movieTitle = '';
 
-        poster_path
-          ? (urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`)
-          : (urlImg =
-              'https://dummyimage.com/500x400/ff6b08/fff.jpg&text=Opps,+no+image...');
+    original_language !== 'en'
+        ? (movieTitle = title)
+        : (movieTitle = original_title);
 
-        // const includeGenres = genres.filter(genre =>
-        //   genre_ids.includes(genre.id)
-        // );
-        // const listOfGenres = includeGenres.map(genre => genre.name).join(', ');
+    poster_path
+        ? (urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`)
+        : (urlImg =
+            'https://dummyimage.com/500x400/ff6b08/fff.jpg&text=Opps,+no+image...');
 
-        const markup = `<li class="list_film_item" data-id="${id}">
-                <img src="${urlImg}" alt="img of film" width="395"/>
-                <p class="card__title">${movieTitle}</p>
-                <div class="card__info">
-                  <p class="card__genres">NOlistOfGenres(need fix!) | ${
-          release_date.slice(0, 4) ?? ''
-        }</p>
-                </div>
-            </li>`;
+    // const includeGenres = genres.filter(genre =>
+    //   genre_ids.includes(genre.id)
+    // );
+    // const listOfGenres = includeGenres.map(genre => genre.name).join(', ');
+
+    const markup = `
+        <li class="list_film_item" data-id="${id}">
+            <img src="${urlImg}" alt="img of film" width="395"/>
+            <p class="card__title">${movieTitle}</p>
+            <div class="card__info">
+                <p class="card__genres">${genresFilm.join(', ')} | ${
+                    release_date.slice(0, 4) ?? ''
+                }</p>
+            </div>
+        </li>`;
     
-        listFilms.insertAdjacentHTML('beforeend', markup);
-      }
+    listFilms.insertAdjacentHTML('beforeend', markup);
+}
 
 
   
