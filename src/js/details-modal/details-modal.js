@@ -34,17 +34,17 @@ function refresh() {
   }, 250);
 }
 
+/* <svg class="modal-icon-close" width="30px" height="30px">
+<use href="./images/icons.svg#icon-close-modal"></use>
+</svg> */
+
 function renderCard(data) {
   let genresFilm = [];
   for (let genre of data.genres) {
     genresFilm.push(genre.name);
   }
   const oneCard = `
-    <button class="close-button" type="button" data-modal-close>
-      <svg class="modal-icon-close" width="30px" height="30px">
-        <use href="./images/icons.svg#icon-close-modal"></use>
-      </svg>
-    </button>
+    <button class="close-button" type="button" data-modal-close></button>
     <div class="cover-thumb">
     <img
       class="cover"
@@ -59,14 +59,14 @@ function renderCard(data) {
       <div class="categories-item">
         <p class="category-name">Vote / Votes</p>
         <div class="categories-item__votes">
-          <span class="vote">${data.vote_average}</span>
+          <span class="vote">${data.vote_average.toFixed(1)}</span>
           <span class="slash">/</span>
           <span class="votes">${data.vote_count}</span>
         </div>
       </div>
       <div class="categories-item">
         <p class="category-name">Popularity</p>
-        <p class="categories-item__rating">${data.popularity}</p>
+        <p class="categories-item__rating">${data.popularity.toFixed(1)}</p>
       </div>
       <div class="categories-item">
         <p class="category-name">Original Title</p>
@@ -82,16 +82,21 @@ function renderCard(data) {
     ${data.overview}
     </p>
     <div class="modal-buttons">
-      <button class="modal-buttons__add-watched" type="button">Add to watched</button>
-      <button class="modal-buttons__add-queue" type="button">Add to queue</button>
-      <button class="modal-buttons__remove-watched" type="button">Remove from watched</button>
-      <button class="modal-buttons__remove-queue" type="button">Remove from queue</button>
+      <div class="modal-buttons__div">
+        <button class="modal-buttons__add-watched" type="button">Add to watched</button>
+        <button class="modal-buttons__remove-watched" type="button">Remove from watched</button>
+      </div>
+      <div class="modal-buttons__div">
+        <button class="modal-buttons__add-queue" type="button">Add to queue</button>
+        <button class="modal-buttons__remove-queue" type="button">Remove from queue</button>
+      </div>
     </div>
   </div>`;
   modalWindow.insertAdjacentHTML('beforeend', oneCard);
+  buttonClose = modalWindow.querySelector('.close-button');
+  console.log(buttonClose);
   changeButtons(data.id);
-  buttonClose = document.querySelector('.close-button');
-  buttonClose.addEventListener('click', function () {
+  buttonClose.addEventListener('click', () =>{
     modalEl.classList.add('is-hidden');
     refresh();
   });
@@ -103,30 +108,26 @@ function changeButtons(id) {
   btnAddQueue = document.querySelector(".modal-buttons__add-queue");
   btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
   btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
-  const arrayWatched = [
-    {id:6665},
-    {id:603692},
-    {id:3545}
-  ];
-  const arrayQueue = [
-    {id:76600},
-    {id:493529},
-    {id:34456}
-  ]
   btnRemoveWatched.classList.add("hide-button");
   btnRemoveQueue.classList.add("hide-button");
-  for (item of arrayWatched) {
-    if (id===item.id) {
-      btnRemoveWatched.classList.remove("hide-button");
-      btnAddWatched.classList.add("hide-button");
-      btnRemoveQueue.classList.add("hide-button");
+  const arrayWatched = JSON.parse(localStorage.getItem('watched-movies-array'));
+  const arrayQueue = JSON.parse(localStorage.getItem('queue-movies-array'));
+  if (arrayWatched!==null) {
+    for (item of arrayWatched) {
+        if (id===Number(item.id)) {
+          btnRemoveWatched.classList.remove("hide-button");
+          btnAddWatched.classList.add("hide-button");
+          btnRemoveQueue.classList.add("hide-button");
+        }
     }
   }
-  for (item of arrayQueue) {
-    if (id===item.id) {
-      btnRemoveQueue.classList.remove("hide-button");
-      btnRemoveWatched.classList.add("hide-button");
-      btnAddQueue.classList.add("hide-button");
+  if (arrayQueue!==null) {
+    for (item of arrayQueue) {
+      if (id===Number(item.id)) {
+        btnRemoveQueue.classList.remove("hide-button");
+        btnRemoveWatched.classList.add("hide-button");
+        btnAddQueue.classList.add("hide-button");
+      }
     }
   }
 }

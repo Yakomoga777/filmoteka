@@ -78,26 +78,51 @@
 
 .close-button {
   position: absolute;
-
+  width: 30px;
+  height: 30px;
   right: 8px;
   top: 8px;
-
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  padding: 0;
-
-  border: none;
-
-  cursor: pointer;
-
   background-color: inherit;
+  border: none;
+  
+  // padding: 0;
 
-  &:hover,
-  &:focus {
-    fill: $accent-color;
-  }
+  // 
+
+  // cursor: pointer;
+
+  // 
+
+  // &:hover,
+  // &:focus {
+  //   fill: $accent-color;
+  // }
+}
+
+.close-button::before, .close-button::after {
+  content: ""; 
+  position: absolute; 
+  padding: 0px;
+  width: 18px; 
+  height: 2px; 
+  background: rgb(0, 0, 0);
+}
+
+.close-button:hover::before, .close-button:hover::after,
+.close-button:focus::before, .close-button:focus::after {
+  background: $accent-color;
+} 
+
+.close-button::before {
+  transform: rotate(45deg);
+}
+
+.close-button::after {
+  transform: rotate(-45deg);
 }
 
 .cover-thumb {
@@ -214,6 +239,14 @@
   display: flex;
   gap: 20px;
 
+  &__div {
+    width: 122px;
+
+    @media screen and (min-width: $desktop) {
+      width: 160px;
+    }
+  }
+
   &__add-watched,
   &__add-queue,
   &__remove-watched,
@@ -236,10 +269,7 @@
       background: $accent-color;
       color: $btn-text-color-with-accent-bground;
     }
-  
-    @media screen and (min-width: $desktop) {
-      max-width: 160;
-    }
+
   }
 }
 

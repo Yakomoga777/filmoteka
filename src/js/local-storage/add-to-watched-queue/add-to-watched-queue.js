@@ -15,18 +15,27 @@ function onCardClick(e) {
   }
   const filmId = movie.dataset.id;
   setTimeout(() => {
-    const addWachedBtn = document.querySelector('.modal-buttons__watched');
-    const addQueueBtn = document.querySelector('.modal-buttons__queue');
-
+    const addWachedBtn = document.querySelector('.modal-buttons__add-watched');
+    const addQueueBtn = document.querySelector('.modal-buttons__add-queue');
+    const removeWatchedBtn = document.querySelector(".modal-buttons__remove-watched");
+    const removeQueueBtn = document.querySelector(".modal-buttons__remove-queue");
     addWachedBtn.addEventListener('click', onAddWatch);
     addQueueBtn.addEventListener('click', onAddQueue);
 
     function onAddWatch() {
       addToLocalStorage(movie, filmId, STORAGE_KEY_W);
+      addWachedBtn.classList.add("hide-button");
+      addQueueBtn.classList.remove("hide-button");
+      removeWatchedBtn.classList.remove("hide-button");
+      removeQueueBtn.classList.add("hide-button");
     }
 
     function onAddQueue() {
       addToLocalStorage(movie, filmId, STORAGE_KEY_Q);
+      addWachedBtn.classList.remove("hide-button");
+      addQueueBtn.classList.add("hide-button");
+      removeWatchedBtn.classList.add("hide-button");
+      removeQueueBtn.classList.remove("hide-button");
     }
   }, 400);
 }
