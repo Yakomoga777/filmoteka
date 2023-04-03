@@ -45,7 +45,7 @@ document.addEventListener('click', onCardClick);
 
 function RecordingMoviesArray(film,id,localStorageKey) {
   
-    const arrayOfMovies = JSON.parse(localStorage.getItem(localStorageKey)) || {};
+    const arrayOfMovies = JSON.parse(localStorage.getItem(localStorageKey)) || {х;
      if (!arrayOfMovies[id]) {
     arrayOfMovies[id] = film;
     localStorage.setItem(key, JSON.stringify(arrayOfMovies));
@@ -53,5 +53,15 @@ function RecordingMoviesArray(film,id,localStorageKey) {
   } else {
     console.log('Item already exists in local storage!');
   }
-
+}
+function addToLocalStorage(item, id, key) {
+  const storedItems = JSON.parse(localStorage.getItem(key)) || [];
+  
+  if (!storedItems.some((storedItem) => storedItem.id === id)) {
+    storedItems.push({ id, value: item });
+    localStorage.setItem(key, JSON.stringify(storedItems));
+    console.log('Item added to local storage!');
+  } else {
+    console.log('Item already exists in local storage!');
+  }
 }
