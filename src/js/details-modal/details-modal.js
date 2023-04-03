@@ -81,10 +81,10 @@ function renderCard(data) {
     ${data.overview}
     </p>
     <div class="modal-buttons">
-      <button class="modal-buttons__watched" type="button">
-        Add to watched
-      </button>
-      <button class="modal-buttons__queue" type="button">Add to queue</button>
+      <button class="modal-buttons__add-watched" type="button">Add to watched</button>
+      <button class="modal-buttons__add-queue" type="button">Add to queue</button>
+      <button class="modal-buttons__remove-watched hide-button" type="button">Remove from watched</button>
+      <button class="modal-buttons__remove-queue hide-button" type="button">Remove from queue</button>
     </div>
   </div>`;
   modalWindow.insertAdjacentHTML('beforeend', oneCard);
