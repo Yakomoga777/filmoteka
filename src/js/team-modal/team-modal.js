@@ -1,4 +1,4 @@
-const openBtn = document.getElementById('crewShowBtn');
+const openBtn = document.querySelector('.show-crew-btn');
 const crew = document.getElementById('crewBackdrop');
 const btnClose = document.getElementById('crewModalClose');
 const box = document.querySelector('.team-box');

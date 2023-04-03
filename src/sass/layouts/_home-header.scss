@@ -55,6 +55,7 @@
   position: relative;
   width: 280px;
   margin: 0 auto;
+  margin-bottom: 16px;
 
   @media screen and (min-width: $tablet) {
     width: 336px;
@@ -93,7 +94,6 @@
   font-size: 16px;
   line-height: 1.14;
   color: currentColor;
-  // opacity: 0.5;
 }
 
 .search-btn {
@@ -110,4 +110,19 @@
 }
 .seach-btn-icon:hover {
   fill: currentColor;
+}
+
+.search-notification {
+  width: 280px;
+  margin: 0 auto;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+
+  color: $header-search-notification;
+
+  @media screen and (min-width: $tablet) {
+    width: 280px;
+  }
 }
