@@ -4,6 +4,7 @@ const listFilms = document.querySelector('.list_film');
 const modalEl = document.querySelector('div[data-modal]');
 const modalWindow = document.querySelector('.details-modal');
 let buttonClose;
+let btnAddWatched;
 
 listFilms.addEventListener('click', function (e) {
   const movieId = e.target.closest('li').dataset.id;
@@ -83,14 +84,49 @@ function renderCard(data) {
     <div class="modal-buttons">
       <button class="modal-buttons__add-watched" type="button">Add to watched</button>
       <button class="modal-buttons__add-queue" type="button">Add to queue</button>
-      <button class="modal-buttons__remove-watched hide-button" type="button">Remove from watched</button>
-      <button class="modal-buttons__remove-queue hide-button" type="button">Remove from queue</button>
+      <button class="modal-buttons__remove-watched" type="button">Remove from watched</button>
+      <button class="modal-buttons__remove-queue" type="button">Remove from queue</button>
     </div>
   </div>`;
   modalWindow.insertAdjacentHTML('beforeend', oneCard);
+  changeButtons(data.id);
   buttonClose = document.querySelector('.close-button');
   buttonClose.addEventListener('click', function () {
     modalEl.classList.add('is-hidden');
     refresh();
   });
+}
+
+function changeButtons(id) {
+  console.log(id);
+  btnAddWatched = document.querySelector(".modal-buttons__add-watched");
+  btnAddQueue = document.querySelector(".modal-buttons__add-queue");
+  btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+  btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
+  const arrayWatched = [
+    {id:6665},
+    {id:603692},
+    {id:3545}
+  ];
+  const arrayQueue = [
+    {id:76600},
+    {id:493529},
+    {id:34456}
+  ]
+  btnRemoveWatched.classList.add("hide-button");
+  btnRemoveQueue.classList.add("hide-button");
+  for (item of arrayWatched) {
+    if (id===item.id) {
+      btnRemoveWatched.classList.remove("hide-button");
+      btnAddWatched.classList.add("hide-button");
+      btnRemoveQueue.classList.add("hide-button");
+    }
+  }
+  for (item of arrayQueue) {
+    if (id===item.id) {
+      btnRemoveQueue.classList.remove("hide-button");
+      btnRemoveWatched.classList.add("hide-button");
+      btnAddQueue.classList.add("hide-button");
+    }
+  }
 }
