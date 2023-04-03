@@ -9,7 +9,6 @@ import {
 } from '../gallery-movies-markup';
 
 const paginationEL = document.querySelector('.tui-pagination');
-console.log(paginationEL);
 
 const options = {
   totalItems: 500,
