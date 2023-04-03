@@ -26,6 +26,7 @@ function renderMoviesMarkup(movies) {
       }) => {
         let urlImg = '';
         let movieTitle = '';
+        let movieGenresTitle = '';
 
         original_language !== 'en'
           ? (movieTitle = title)
@@ -39,13 +40,19 @@ function renderMoviesMarkup(movies) {
         const includeGenres = genres.filter(genre =>
           genre_ids.includes(genre.id)
         );
-        const listOfGenres = includeGenres.map(genre => genre.name).join(', ');
+
+        const listOfGenres = includeGenres.map(genre => genre.name);
+
+        listOfGenres.length > 3
+          ? (movieGenresTitle =
+              listOfGenres.slice(0, 2).join(', ') + ', ' + 'Other')
+          : (movieGenresTitle = listOfGenres.join(', '));
 
         return `<li class="list_film_item" data-id="${id}">
                 <img src="${urlImg}" alt="img of film" width="395"/>
                 <p class="card__title">${movieTitle}</p>
                 <div class="card__info">
-                  <p class="card__genres">${listOfGenres} | ${
+                  <p class="card__genres">${movieGenresTitle} | ${
           release_date.slice(0, 4) ?? ''
         }</p>
                 </div>
