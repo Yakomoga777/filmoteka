@@ -1,5 +1,4 @@
 import { moviesApiService } from '../../fetch/fetch';
-import { genres } from '../../fetch/genres';
 
 const listFilms = document.querySelector('.list_film');
 
