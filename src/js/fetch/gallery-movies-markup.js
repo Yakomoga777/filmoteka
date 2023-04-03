@@ -3,7 +3,6 @@ import { moviesApiService } from './fetch';
 import { genres } from './genres';
 
 export const moviesGalleryRef = document.querySelector('.list_film');
-
 renderTrandingMovies();
 
 export async function renderTrandingMovies() {
@@ -11,24 +10,16 @@ export async function renderTrandingMovies() {
   renderMoviesMarkup(results);
 }
 
+// функція рендерингу популярний фільмів
 function renderMoviesMarkup(movies) {
-  console.log('Результати: ', movies.results);
-
-  let listOfGenres = '';
-
-  movies.results.forEach(result => {
-    const includeGenres = genres.filter(genre =>
-      result.genre_ids.includes(genre.id)
-    );
-    listOfGenres = includeGenres.map(genre => genre.name).join(', ');
-    console.log(listOfGenres);
-  });
-
   const markup = movies.results
-    .map(({ poster_path, id, original_title, release_date }) => {
-      {
-      }
+    .map(({ poster_path, id, original_title, release_date, genre_ids }) => {
       let urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`;
+
+      const includeGenres = genres.filter(genre =>
+        genre_ids.includes(genre.id)
+      );
+      const listOfGenres = includeGenres.map(genre => genre.name).join(', ');
 
       return `<li class="list_film_item" data-id="${id}">
 		            <img src="${urlImg}" alt="img of film" width="395"/>
