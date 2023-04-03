@@ -1,7 +1,7 @@
 import { create } from 'lodash';
 import { moviesApiService } from './fetch';
 import { genres } from './genres';
-// console.log(genres);
+console.log(genres);
 
 export const moviesGalleryRef = document.querySelector('.list_film');
 
