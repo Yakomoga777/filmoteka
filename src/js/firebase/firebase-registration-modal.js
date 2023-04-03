@@ -38,6 +38,12 @@ registerForm.style.display = 'none';
 loginForm.style.display = 'none';
 headerOutBtn.style.display = 'none';
 
+if (localStorage.getItem('userSession')) {
+  headerLoginBtn.style.display = 'none';
+  headerRegisterBtn.style.display = 'none';
+  headerOutBtn.style.display = 'inline';
+}
+
 // ===== Btn in Header ======
 
 headerRegisterBtn.addEventListener('click', function () {
@@ -93,6 +99,8 @@ loginBtn.addEventListener('click', function () {
       Notiflix.Notify.success(`Welcome back!`);
       headerOutBtn.style.display = 'inline';
       getLoginPassword.value = '';
+
+      localStorage.setItem('userSession', 'true');
     })
     .catch(error => {
       const errorCode = error.code;
@@ -114,6 +122,8 @@ registerBtn.addEventListener('click', function () {
       registerForm.style.display = 'none';
       Notiflix.Notify.success(`Welcome!`);
       headerOutBtn.style.display = 'inline';
+
+      localStorage.setItem('userSession', 'true');
     })
     .catch(error => {
       const errorCode = error.code;
@@ -131,6 +141,8 @@ headerOutBtn.addEventListener('click', function () {
       loginForm.style.display = 'none';
       headerOutBtn.style.display = 'none';
       Notiflix.Notify.info(`You are Log Out!`);
+
+      localStorage.removeItem('userSession');
     })
     .catch(error => {});
   headerLoginBtn.style.display = 'inline';
