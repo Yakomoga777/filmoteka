@@ -3,20 +3,18 @@
   // top: 0;
   // left: 0;
   // width: 100%;
-
-  max-width: 1600px;
-  height: 230px;
   padding: 40px 0;
-
   background-color: rgba(0, 0, 0, 0.56);
 }
 
 .header-bgr {
+  max-width: 1600px;
+  height: 230px;
+  margin: 0 auto;
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  // opacity: 0.9;
-
   background-image: url(../images/mobile/main-background-mobile.png);
 
   @media (min-device-pixel-ratio: 2),
@@ -55,6 +53,7 @@
   position: relative;
   width: 280px;
   margin: 0 auto;
+  margin-bottom: 16px;
 
   @media screen and (min-width: $tablet) {
     width: 336px;
@@ -93,7 +92,6 @@
   font-size: 16px;
   line-height: 1.14;
   color: currentColor;
-  // opacity: 0.5;
 }
 
 .search-btn {
@@ -110,4 +108,23 @@
 }
 .seach-btn-icon:hover {
   fill: currentColor;
+}
+
+.search-notification {
+  width: 280px;
+  margin: 0 auto;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+
+  color: $header-search-notification;
+
+  @media screen and (min-width: $tablet) {
+    width: 280px;
+  }
+}
+
+.hide-notification {
+  display: none;
 }
