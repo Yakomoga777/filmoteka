@@ -1,7 +1,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { genres } from '../../fetch/genres';
 
-const listFilms = document.querySelector('.list_film');
+
+const listFilms = document.querySelector('.list_film_library');
 
 let getWatched;
 let getQueue;
@@ -16,6 +17,10 @@ if (watchedBtn && qeueBtn) {
     watchedBtn.addEventListener('click', handleClickWatched);
     qeueBtn.addEventListener('click', handleClickQueue);
 
+    watchedBtn.click()
+    watchedBtn.classList.add('header__active-btn')
+
+    getWatched = localStorage.getItem('watched-movies-array');
 }
     
 
@@ -31,10 +36,11 @@ function handleClickWatched() {
 }
 
 function handleClickQueue() {
+    watchedBtn.classList.remove('header__active-btn');
     getQueue = localStorage.getItem('queue-movies-array');
+    listFilms.innerHTML = '';
     
     if (getQueue) {
-        listFilms.innerHTML = '';
         moviesArray = JSON.parse(getQueue);
         renderMovies(moviesArray);
     }
