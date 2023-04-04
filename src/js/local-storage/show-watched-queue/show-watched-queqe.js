@@ -2,7 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { genres } from '../../fetch/genres';
 
 
-const listFilms = document.querySelector('.list_film');
+const listFilms = document.getElementById('listMoviesLibrary');
 
 let getWatched;
 let getQueue;
