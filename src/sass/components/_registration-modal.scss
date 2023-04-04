@@ -1,26 +1,12 @@
-.header-login-btn {
-  background-color: transparent;
-  border: none;
-}
-
-.header-register-btn {
-  background-color: transparent;
-  border: none;
-}
-.header-out-btn {
-  background-color: transparent;
-  border: none;
-}
-
 .login-title {
   margin-bottom: 30px;
 }
 .login-form,
 .register-form {
-
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 20;
   transform: translate(-50%, -50%);
   border: 1px solid rgb(61, 56, 56);
   border-radius: 10px;
@@ -31,8 +17,9 @@
   background-color: rgb(232, 237, 236);
 }
 
-.modal-close-register, .modal-close-login  {
- margin-right: 0;
+.modal-close-register,
+.modal-close-login {
+  margin-right: 0;
   margin-left: 90%;
   background-color: transparent;
   border: none;

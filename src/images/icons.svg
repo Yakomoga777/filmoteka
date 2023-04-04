@@ -23,5 +23,21 @@
 <symbol id="icon-close-modal" viewBox="0 0 32 32">
 <path d="M8.507 8.533l-0.746 0.748 6.719 6.719-6.693 6.693 0.759 0.761 0.761 0.759 6.693-6.693 6.693 6.693 0.761-0.759 0.759-0.761-6.693-6.693 6.72-6.72-0.761-0.759-0.759-0.761-6.72 6.72-3.347-3.347c-1.84-1.84-3.359-3.346-3.374-3.346s-0.363 0.336-0.772 0.747z"></path>
 </symbol>
+    <symbol id="icon-home" viewBox="0 0 32 32">
+      <path d="M32 18.451 16 6.031 0 18.451v-5.064L16 .967l16 12.42zM28 18v12h-8v-8h-8v8H4V18l12-9z"/>
+    </symbol>
+    <symbol id="icon-film" viewBox="0 0 32 32">
+      <path d="M0 4v24h32V4H0zm6 22H2v-4h4v4zm0-8H2v-4h4v4zm0-8H2V6h4v4zm18 16H8V6h16v20zm6 0h-4v-4h4v4zm0-8h-4v-4h4v4zm0-8h-4V6h4v4zm-18 0v12l8-6z"/>
+    </symbol>
+    <symbol id="icon-new-user" viewBox="0 0 32 32">
+      <path d="M12 23c0-4.726 2.996-8.765 7.189-10.319C19.698 11.539 20 10.27 20 9c0-4.971 0-9-6-9S8 4.029 8 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784.555-12 3.888-12 7.918h12.416a10.962 10.962 0 0 1-.416-3z"/>
+      <path d="M23 14c-4.971 0-9 4.029-9 9s4.029 9 9 9 9-4.029 9-9-4.029-9-9-9zm5 10h-4v4h-2v-4h-4v-2h4v-4h2v4h4v2z"/>
+    </symbol>
+    <symbol id="icon-enter" viewBox="0 0 32 32">
+      <path d="M12 16H2v-4h10V8l6 6-6 6zM32 0v26l-12 6v-6H8v-8h2v6h10V6l8-4H10v8H8V0z"/>
+    </symbol>
+    <symbol id="icon-exit" viewBox="0 0 32 32">
+      <path d="M24 20v-4H14v-4h10V8l6 6zm-2-2v8H12v6L0 26V0h22v10h-2V2H4l8 4v18h8v-6z"/>
+    </symbol>
 </defs>
 </svg>
