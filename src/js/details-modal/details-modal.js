@@ -4,7 +4,6 @@ const listFilms = document.querySelector('.list_film');
 const modalEl = document.querySelector('div[data-modal]');
 const modalWindow = document.querySelector('.details-modal');
 let buttonClose;
-let btnAddWatched;
 
 listFilms.addEventListener('click', function (e) {
   const movieId = e.target.closest('li').dataset.id;
@@ -104,16 +103,16 @@ function renderCard(data) {
 
 function changeButtons(id) {
   console.log(id);
-  btnAddWatched = document.querySelector(".modal-buttons__add-watched");
-  btnAddQueue = document.querySelector(".modal-buttons__add-queue");
-  btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
-  btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
+  const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
+  const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
+  const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+  const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
   btnRemoveWatched.classList.add("hide-button");
   btnRemoveQueue.classList.add("hide-button");
   const arrayWatched = JSON.parse(localStorage.getItem('watched-movies-array'));
   const arrayQueue = JSON.parse(localStorage.getItem('queue-movies-array'));
   if (arrayWatched!==null) {
-    for (item of arrayWatched) {
+    for (let item of arrayWatched) {
         if (id===Number(item.id)) {
           btnRemoveWatched.classList.remove("hide-button");
           btnAddWatched.classList.add("hide-button");
@@ -122,7 +121,7 @@ function changeButtons(id) {
     }
   }
   if (arrayQueue!==null) {
-    for (item of arrayQueue) {
+    for (let item of arrayQueue) {
       if (id===Number(item.id)) {
         btnRemoveQueue.classList.remove("hide-button");
         btnRemoveWatched.classList.add("hide-button");
