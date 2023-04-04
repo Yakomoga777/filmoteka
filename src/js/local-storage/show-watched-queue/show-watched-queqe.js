@@ -1,4 +1,3 @@
-import { moviesApiService } from '../../fetch/fetch';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { genres } from '../../fetch/genres';
 
