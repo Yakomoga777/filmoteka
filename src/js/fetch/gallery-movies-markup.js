@@ -27,6 +27,7 @@ function renderMoviesMarkup(movies) {
         let urlImg = '';
         let movieTitle = '';
         let movieGenresTitle = '';
+        let year = '';
 
         original_language !== 'en'
           ? (movieTitle = title)
@@ -35,27 +36,28 @@ function renderMoviesMarkup(movies) {
         poster_path
           ? (urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`)
           : (urlImg =
-              'https://dummyimage.com/500x750/ff6b08/fff.jpg&text=Opps,+no+image...');
+              'https://dummyimage.com/500x750/ff6b08/ffffff.jpg&text=Opps,+no+image...');
 
         const includeGenres = genres.filter(genre =>
           genre_ids.includes(genre.id)
         );
 
         const listOfGenres = includeGenres.map(genre => genre.name);
-
         listOfGenres.length > 3
           ? (movieGenresTitle =
-              listOfGenres.slice(0, 2).join(', ') + ', ' + 'Other')
+              listOfGenres.slice(0, 2).join(', ') + ', ' + '...and others')
           : (movieGenresTitle = listOfGenres.join(', '));
 
+        release_date ? (year = release_date.slice(0, 4)) : (year = '');
+
         return `<li class="list_film_item" data-id="${id}">
-                <img src="${urlImg}" alt="img of film" width="395"/>
-                <p class="card__title">${movieTitle}</p>
-                <div class="card__info">
-                  <p class="card__genres">${movieGenresTitle} | ${
-          release_date.slice(0, 4) ?? ''
-        }</p>
-                </div>
+                    <div class="card">
+                        <img class="card__img" src="${urlImg}" alt="img of film" width="395"/>
+                        <p class="card__title">${movieTitle}</p>
+                        <div class="card__info">
+                            <p class="card__genres">${movieGenresTitle} | ${year}</p>
+                        </div>
+                    </div>
             </li>`;
       }
     )
