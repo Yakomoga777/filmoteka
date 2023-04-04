@@ -13,7 +13,7 @@ import './js/trailer/trailer';
 
 import './js/theme-switcher/theme-switcher';
 
-import './js/fetch/pagination/btn_up';
+import './js/main/btn_up';
 
 // import './js/fetch/searchByName'; відразу підвязала в index.html
 
