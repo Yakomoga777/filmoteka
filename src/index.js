@@ -14,4 +14,5 @@ import './js/trailer/trailer';
 import './js/theme-switcher/theme-switcher';
 
 // import './js/fetch/pagination/pagination';
-import './js/fetch/searchByName';
+// import './js/fetch/searchByName';
+import main from './js/main/main';
