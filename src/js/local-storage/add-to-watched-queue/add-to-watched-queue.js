@@ -143,7 +143,8 @@ export const onRemoveWatched = (data) => {
   try {
           const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
 
-          const findItemIndex = storedItems.findIndex(storedItem => storedItem.id === data.id);
+          const findItemIndex =
+            storedItems.findIndex(storedItem => storedItem.id === data.id);
 
           if (findItemIndex !== -1) {
             
@@ -170,6 +171,44 @@ export const onRemoveWatched = (data) => {
         }
 }
 
+export const onRemoveQueue = (data) => {
+  
+  const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
+  const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
+  const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+  const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
+  
+  try {
+          const storedItems =
+            JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
+  
+          const findItemIndex =
+            storedItems.findIndex(storedItem => storedItem.id === data.id);
+
+          if (findItemIndex !== -1) {
+            
+            storedItems.splice(findItemIndex, 1);
+  
+            try {
+              localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
+              btnAddWatched.classList.remove("hide-button");
+              btnAddQueue.classList.add("hide-button");
+              btnRemoveWatched.classList.add("hide-button");
+              btnRemoveQueue.classList.remove("hide-button");
+            } catch (error) {
+              console.error('Error adding film to local storage:', error);
+            }
+  
+            // ---------- тимчасово
+            console.log('Film added to local storage!');
+          } else {
+            // ---------- тимчасово
+            console.log('Filmm already exists in local storage!');
+          }
+        } catch (error) {
+          console.error('Error retrieving films from local storage:', error);
+        }
+};
 
 
 // document.addEventListener('click', onCardClick);
