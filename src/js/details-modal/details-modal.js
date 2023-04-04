@@ -1,9 +1,17 @@
 import { moviesApiService } from '../fetch/fetch';
+import {onAddWatched} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
+import {onAddQueue} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
 
 const listFilms = document.querySelector('.list_film');
 const modalEl = document.querySelector('div[data-modal]');
 const modalWindow = document.querySelector('.details-modal');
 let buttonClose;
+
+function refresh() {
+  setTimeout(function () {
+    modalWindow.innerHTML = '';
+  }, 250);
+}
 
 listFilms.addEventListener('click', function (e) {
   const movieId = e.target.closest('li').dataset.id;
@@ -26,16 +34,6 @@ listFilms.addEventListener('click', function (e) {
     }
   });
 });
-
-function refresh() {
-  setTimeout(function () {
-    modalWindow.innerHTML = '';
-  }, 250);
-}
-
-/* <svg class="modal-icon-close" width="30px" height="30px">
-<use href="./images/icons.svg#icon-close-modal"></use>
-</svg> */
 
 function renderCard(data) {
   let genresFilm = [];
@@ -93,16 +91,14 @@ function renderCard(data) {
   </div>`;
   modalWindow.insertAdjacentHTML('beforeend', oneCard);
   buttonClose = modalWindow.querySelector('.close-button');
-  console.log(buttonClose);
-  changeButtons(data.id);
+  changeButtons(data.id, data);
   buttonClose.addEventListener('click', () =>{
     modalEl.classList.add('is-hidden');
     refresh();
   });
 }
 
-function changeButtons(id) {
-  console.log(id);
+function changeButtons(id, data) {
   const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
   const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
@@ -129,4 +125,10 @@ function changeButtons(id) {
       }
     }
   }
+  btnAddWatched.addEventListener("click", () => {
+    const onAddingWatch = onAddWatched(data);
+  });
+  btnAddQueue.addEventListener("click", ()=>{
+    const onAddingQueue = onAddQueue(data);
+  })
 }
