@@ -2,67 +2,22 @@ import { moviesApiService } from "/src/js/fetch/fetch";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 
-const STORAGE_KEY_W = 'watched-movies-array';
-const STORAGE_KEY_Q = 'queue-movies-array';
+import { STORAGE_KEY_W,STORAGE_KEY_Q } from '../add-to-watched-queue/add-to-watched-queue';  
 
+
+
+// формула для очищення локального сховища
 
 // clearLocalStorage()
 // function clearLocalStorage() {
-//     localStorage.removeItem(STORAGE_KEY_Q);
+//     localStorage.removeItem(STORAGE_KEY_W);
 // }
 
 
 
 
-document.addEventListener('click', onCardClick);
-
- function onCardClick(e) {
- 
-     const movie = e.target.closest('li');
-
-     if (!movie) {
-          return
-   }
-   const filmId = movie.dataset.id;
-  
-  setTimeout(() => {
-    const addWachedBtn = document.querySelector('.modal-buttons__watched');
-    const addQueueBtn = document.querySelector('.modal-buttons__queue');
-   
-      
-      addWachedBtn.addEventListener('click', onAddWatch);
-      addQueueBtn.addEventListener('click', onAddQueue);
-
-      function onAddWatch() {
-   addToLocalStorage(movie,filmId,STORAGE_KEY_W)
-      }
-      
-            function onAddQueue() {
-    addToLocalStorage(movie,filmId,STORAGE_KEY_Q)
-}
-
-   
-  }, 400);
-}
 
 
-function addToLocalStorage(film, id, key) {
-  const storedItems = JSON.parse(localStorage.getItem(key)) || [];
-  
-  if (!storedItems.some((storedItem) => storedItem.id === id)) {
-    // console.log({id});
-    //  console.log(film);
-    storedItems.push({ id });
-    localStorage.setItem(key, JSON.stringify(storedItems));
-    console.log('Item added to local storage!');
-  } else {
-    console.log('Item already exists in local storage!');
-  }
-}
-
-
-
-// // console.log(moviesApiService.fetchTrendingMovies());
 
 
 const moviesGalery = document.getElementById('listMovies')
@@ -89,7 +44,7 @@ const onWatchedClick = () => {
   watchedBtn.classList.add('library-btn__active')
   moviesGalery.innerHTML = '';
   
-  //  watchedArray = onShowStorage(STORAGE_KEY_W);
+   watchedArray = onShowStorage(STORAGE_KEY_W);
  
   getIdes(watchedArray,moviesGalery);
 
@@ -116,9 +71,9 @@ queueBtn.addEventListener('click',onQueueClick)
 
 
 
+// Формула яка повертає відповідні дані зі сховища в залужності від переданого ключа
 
 
-// // getBtn.addEventListener('click', trainFetch)
 function onShowStorage(key) {
   const arrayOfId = localStorage.getItem(key) || '';
   // console.log(arrayOfId);
@@ -147,7 +102,7 @@ function onShowStorage(key) {
 
 
 
- 
+//  Формула для рендерингу і відмальовуванні фільмів на екрані за допомогою id
             
     async function getIdes(idArray, filmsList) {
   let filmItems = '';
