@@ -40,11 +40,13 @@ backdropForms.style.display = 'none';
 registerForm.style.display = 'none';
 loginForm.style.display = 'none';
 headerOutBtn.style.display = 'none';
+headerLoginItem.style.marginRight = '20px';
 
 if (localStorage.getItem('userSession')) {
   headerLoginBtn.style.display = 'none';
   headerRegisterBtn.style.display = 'none';
   headerOutBtn.style.display = 'inline';
+ headerLoginItem.style.marginRight = '0';
 }
 
 // ===== Btn in Header ======
@@ -100,6 +102,7 @@ loginBtn.addEventListener('click', function () {
   const loginPassword = getLoginPassword.value;
   headerLoginBtn.style.display = 'none';
   headerRegisterBtn.style.display = 'none';
+  headerLoginItem.style.marginRight = '0';
   signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then(userCredential => {
       const user = userCredential.user;
@@ -108,6 +111,7 @@ loginBtn.addEventListener('click', function () {
       Notiflix.Notify.success(`Welcome back!`);
       headerOutBtn.style.display = 'inline';
       getLoginPassword.value = '';
+      headerLoginItem.style.marginRight = '0';
 
       localStorage.setItem('userSession', 'true');
     })
@@ -132,6 +136,7 @@ registerBtn.addEventListener('click', function () {
       backdropForms.style.display = 'none';
       Notiflix.Notify.success(`Welcome!`);
       headerOutBtn.style.display = 'inline';
+      headerLoginItem.style.marginRight = '0';
 
       localStorage.setItem('userSession', 'true');
     })
@@ -152,6 +157,7 @@ headerOutBtn.addEventListener('click', function () {
       backdropForms.style.display = 'none';
       headerOutBtn.style.display = 'none';
       Notiflix.Notify.info(`You are Log Out!`);
+      headerLoginItem.style.marginRight = '20px';
 
       localStorage.removeItem('userSession');
     })
