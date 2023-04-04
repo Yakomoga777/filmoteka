@@ -13,10 +13,12 @@ class MoviesApiService {
     try {
       const url = `${BASE_URL}trending/movie/week?api_key=${API_KEY}&language=en-US&page=${this.page}`;
       const response = await axios.get(url);
+
       this.totalPages = response.data.total_pages;
       this.totalResults = response.data.total_results;
       this.page = response.data.page;
       console.log(response);
+
       return response.data;
     } catch (error) {
       console.error(error);

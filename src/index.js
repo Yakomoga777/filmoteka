@@ -13,6 +13,12 @@ import './js/trailer/trailer';
 
 import './js/theme-switcher/theme-switcher';
 
+import './js/fetch/pagination/btn_up';
+
+// import './js/fetch/searchByName'; відразу підвязала в index.html
+
+
 // import './js/fetch/pagination/pagination';
 // import './js/fetch/searchByName';
 import main from './js/main/main';
+
