@@ -37,8 +37,10 @@ main.library.dark-theme {
     background: $modal-background-rating-color;
   }
 
-  & .modal-buttons__watched,
-  .modal-buttons__queue {
+  & .modal-buttons__add-watched,
+  .modal-buttons__add-queue,
+  .modal-buttons__remove-watched,
+  .modal-buttons__remove-queue {
     border-color: $btn-border-color-without-accent-bground;
   }
 }
@@ -51,20 +53,25 @@ main.library.dark-theme {
     background: #747474;
   }
 
-  & .modal-buttons__watched,
-  .modal-buttons__queue {
+  & .modal-buttons__add-watched,
+  .modal-buttons__add-queue,
+  .modal-buttons__remove-watched,
+  .modal-buttons__remove-queue {
     color: $modal-dark-color;
     border-color: $modal-btn-dark-border-color;
   }
 
-  & .close-button svg {
-    fill: #e2e2e2;
+  & .close-button::before,
+  .close-button::after {
+    background-color: #e2e2e2;
 
-    transition: fill $duration $timing-function;
-    &:hover,
-    &:focus {
-      fill: $accent-color;
-    }
+    transition: background-color $duration $timing-function;
+  }
+  & .close-button:hover::before,
+  .close-button:hover::after,
+  .close-button:focus::before,
+  .close-button:focus::after {
+    background-color: $accent-color;
   }
 }
 
