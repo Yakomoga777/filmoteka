@@ -1,4 +1,4 @@
-// import './js/fetch/fetch';
+import './js/fetch/fetch';
 // import './js/fetch/gallery-movies-markup';
 import './js/fetch/genres';
 // import './js/fetch/searchByName';
