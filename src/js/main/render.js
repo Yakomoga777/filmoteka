@@ -1,6 +1,6 @@
 import { genres } from '../fetch/genres';
 import { moviesApiService } from '../fetch/fetch';
-const moviesGalleryRef = document.querySelector('.list_film');
+const moviesGalleryRef = document.getElementById('listMoviesMain');
 import { init } from './pagination';
 
 start();
