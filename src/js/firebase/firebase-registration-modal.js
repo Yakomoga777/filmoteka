@@ -69,11 +69,11 @@ getLoginForm.addEventListener('click', function () {
 });
 
 // ======== Закриття форм ===========
-document.addEventListener('keydown', function(e) {
-if (e.key === 'Escape') {
- registerForm.style.display = 'none';
-  loginForm.style.display = 'none';
-}
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    registerForm.style.display = 'none';
+    loginForm.style.display = 'none';
+  }
 });
 modalCloseLoginBtn.addEventListener('click', function () {
   registerForm.style.display = 'none';
