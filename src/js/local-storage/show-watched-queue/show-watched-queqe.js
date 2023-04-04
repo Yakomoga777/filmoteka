@@ -1,5 +1,4 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { genres } from '../../fetch/genres';
 
 const listFilms = document.getElementById('listMoviesLibrary');
 
@@ -47,7 +46,7 @@ function renderMovies(movies) {
         id,
         original_title,
         release_date,
-        genre_ids,
+        genres,
         original_language,
         title,
       }) => {
@@ -64,11 +63,8 @@ function renderMovies(movies) {
           : (urlImg =
               'https://dummyimage.com/500x750/ff6b08/fff.jpg&text=Opps,+no+image...');
 
-        const includeGenres = genres.filter(genre =>
-          genre_ids.includes(genre.id)
-        );
 
-        const listOfGenres = includeGenres.map(genre => genre.name);
+        const listOfGenres = genres.map(genre => genre.name);
 
         listOfGenres.length > 3
           ? (movieGenresTitle =
