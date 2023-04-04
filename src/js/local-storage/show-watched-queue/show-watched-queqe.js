@@ -8,7 +8,6 @@ let getWatched;
 let getQueue;
 let moviesArray;
 
-libraryLink = document.querySelector('a[href="/library.html"]')
 watchedBtn = document.querySelector('button[data-action="watched"]');
 qeueBtn = document.querySelector('button[data-action="queue"]');
 
