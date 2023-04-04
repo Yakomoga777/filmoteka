@@ -78,9 +78,9 @@ export const onAddWatched = (data) => {
             try {
               localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
               btnAddWatched.classList.add("hide-button");
-              btnAddQueue.classList.remove("hide-button");
+              
               btnRemoveWatched.classList.remove("hide-button");
-              btnRemoveQueue.classList.add("hide-button");
+              
             } catch (error) {
               console.error('Error adding film to local storage:', error);
             }
@@ -98,9 +98,9 @@ export const onAddWatched = (data) => {
 
 export const onAddQueue = (data) => {
   
-  const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
+  
   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
-  const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+  
   const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
   
   try {
@@ -112,9 +112,9 @@ export const onAddQueue = (data) => {
   
             try {
               localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
-              btnAddWatched.classList.remove("hide-button");
+              
               btnAddQueue.classList.add("hide-button");
-              btnRemoveWatched.classList.add("hide-button");
+              
               btnRemoveQueue.classList.remove("hide-button");
             } catch (error) {
               console.error('Error adding film to local storage:', error);
@@ -136,9 +136,9 @@ export const onAddQueue = (data) => {
 export const onRemoveWatched = (data) => {
   
   const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
-  const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
+  
   const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
-  const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
+  
   
   try {
           const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
@@ -152,16 +152,16 @@ export const onRemoveWatched = (data) => {
   
             try {
               localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
-              btnAddWatched.classList.add("hide-button");
-              btnAddQueue.classList.remove("hide-button");
-              btnRemoveWatched.classList.remove("hide-button");
-              btnRemoveQueue.classList.add("hide-button");
+              btnAddWatched.classList.remove("hide-button");
+              
+              btnRemoveWatched.classList.add("hide-button");
+              
             } catch (error) {
               console.error('Error adding film to local storage:', error);
             }
   
             // ---------- тимчасово
-            console.log('Film added to local storage!');
+            console.log('Film removed from watched list!');
           } else {
             // ---------- тимчасово
             console.log('Filmm already exists in local storage!');
@@ -173,9 +173,9 @@ export const onRemoveWatched = (data) => {
 
 export const onRemoveQueue = (data) => {
   
-  const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
+  
   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
-  const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+  
   const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
   
   try {
@@ -191,16 +191,16 @@ export const onRemoveQueue = (data) => {
   
             try {
               localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
-              btnAddWatched.classList.remove("hide-button");
-              btnAddQueue.classList.add("hide-button");
-              btnRemoveWatched.classList.add("hide-button");
-              btnRemoveQueue.classList.remove("hide-button");
+              
+              btnAddQueue.classList.remove("hide-button");
+              
+              btnRemoveQueue.classList.add("hide-button");
             } catch (error) {
               console.error('Error adding film to local storage:', error);
             }
   
             // ---------- тимчасово
-            console.log('Film added to local storage!');
+            console.log('Film removed from queue list!');
           } else {
             // ---------- тимчасово
             console.log('Filmm already exists in local storage!');
