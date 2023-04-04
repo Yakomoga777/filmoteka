@@ -102,6 +102,10 @@ main.library.dark-theme {
   &:after {
     background-color: #3e3e3e;
   }
+
+  & .close-crew-btn {
+    background-color: $modal-dark-bgd;
+  }
 }
 
 // ---------- footer

@@ -1,22 +1,14 @@
-import axios from 'axios';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { moviesApiService } from '../fetch';
-import {
-  moviesGalleryRef,
-  renderTrandingMovies,
-  renderMoviesMarkup,
-} from '../gallery-movies-markup';
-
-const paginationEL = document.querySelector('.tui-pagination');
-
-// console.log(paginationEL);
+const container = document.querySelector('.tui-pagination');
+import { moviesApiService } from '../fetch/fetch';
+import { clearFilmsGallery } from './render';
+import { fetchFilmography } from './render';
 
 const options = {
-  totalItems: 500,
   itemsPerPage: 20,
   visiblePages: 5,
-  page: 1,
+  page: moviesApiService.page,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -40,13 +32,22 @@ const options = {
   },
 };
 
-const pagination = new Pagination(paginationEL, options);
-
-pagination.on('afterMove', async event => {
-  moviesApiService.page = event.page;
-  moviesGalleryRef.innerHTML = '';
-  const movies = await moviesApiService.fetchTrendingMovies();
-  // console.log(movies);
-  renderTrandingMovies(movies);
-  // console.log(moviesApiService.page);
+export const pagination = new Pagination(container, options);
+pagination.on('beforeMove', async e => {
+  moviesApiService.page = e.page;
+  clearFilmsGallery();
+  fetchFilmography();
 });
+
+let totalItemsFromServer;
+export const init = async total => {
+  if (total === undefined && !totalItemsFromServer)
+    totalItemsFromServer = await moviesApiService.fetchTrendingMovies();
+
+  if (total === undefined) total = totalItemsFromServer.total_results;
+
+  pagination.setTotalItems(total);
+  pagination.reset();
+};
+
+init();

@@ -1,4 +1,4 @@
-// Стилі для приховування модального вікна 
+// Стилі для приховування модального вікна
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -42,7 +42,7 @@
   transform: translateX(-50%) scale(1);
   transition: transform 250ms linear;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   font-family: 'Roboto';
   font-weight: 500;
@@ -85,19 +85,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   padding: 0;
 
   border: none;
 
   cursor: pointer;
 
-  background-color: inherit;
+  background-color: transparent;
 
   &:hover,
   &:focus {
-    fill: $accent-color;
+    color: $accent-color;
   }
+}
+
+.modal-icon-close {
+  fill: currentColor;
 }
 
 .cover-thumb {
@@ -114,7 +118,7 @@
     height: 478;
   }
 }
-  
+
 .cover {
   width: 100%;
   height: 100%;
@@ -123,7 +127,6 @@
 }
 
 .film-interface {
-  
   font-size: 12;
 
   &__title {
@@ -140,26 +143,25 @@
 
   &__about-title {
     margin-bottom: 8;
-  
+
     text-transform: uppercase;
   }
-  
+
   &__about-desc {
     margin-bottom: 20;
-  
+
     line-height: 167%;
   }
 }
 
 .film-info {
-
   margin-bottom: 20;
 
   line-height: 133%;
 
   .categories-item {
     display: flex;
-  
+
     margin-bottom: 8;
 
     .category-name {
@@ -188,7 +190,7 @@
 
 .vote {
   padding: 1 9 10;
-  
+
   background: $accent-color;
 
   color: $btn-text-color-with-accent-bground;
@@ -215,31 +217,29 @@
 
   &__watched,
   &__queue {
-  
     width: 100%;
     height: 44;
-  
+
     border-radius: 5;
-  
+
     background-color: inherit;
     border: 1 solid $btn-border-color-without-accent-bground;
-  
+
     text-transform: uppercase;
-  
+
     &:first-child {
       margin-right: 20;
     }
-  
+
     &:hover,
     &:focus {
       border: none;
       background: $accent-color;
       color: $btn-text-color-with-accent-bground;
     }
-  
+
     @media screen and (min-width: $desktop) {
       width: 136;
     }
   }
 }
-
