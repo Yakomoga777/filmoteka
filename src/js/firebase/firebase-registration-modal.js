@@ -33,7 +33,7 @@ const getRegisterEmail = document.querySelector('#register-email');
 const getRegisterPassword = document.querySelector('#register-password');
 const modalCloseLoginBtn = document.querySelector('.modal-close-login');
 const modalCloseRegisterBtn = document.querySelector('.modal-close-register');
-const body = document.querySelector('body');
+const headerLoginItem = document.querySelector('.header-login-item');
 const backdropForms = document.querySelector('.backdrop-forms');
 
 backdropForms.style.display = 'none';
