@@ -2,6 +2,10 @@
   background-color: rgb(71, 0, 0);
   padding-top: 40px;
   padding-bottom: 62px;
+
+  @media screen and (min-width: $tablet) {
+    padding-bottom: 60px;
+  }
 }
 
 .library-overlay {
@@ -28,26 +32,9 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/mobile/library-background-mobile@3x.jpg);
   }
-}
 
-.btn-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  // gap: 20px;
-}
-
-.library-btn {
-  min-width: 130px;
-  height: 44px;
-}
-
-@media screen and (min-width: 768px) {
-  .library-header {
-    padding-bottom: 60px;
-  }
-
-  .library-overlay {
+  // ------- min-width: $tablet
+  @media screen and (min-width: $tablet) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/tablet/library-background-tablet.jpg);
 
@@ -72,19 +59,8 @@
     }
   }
 
-  .btn-wrap {
-    justify-content: center;
-    gap: 32px;
-  }
-
-  // видалити
-  .library-btn {
-    min-width: 152px;
-  }
-}
-
-@media screen and (min-width: $desktop) {
-  .library-overlay {
+  // --------- min-width: $desktop
+  @media screen and (min-width: $desktop) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/desktop/library-background-desktop.jpg);
 
@@ -108,14 +84,19 @@
         url(../images/desktop/library-background-desktop@3x.jpg);
     }
   }
+}
 
-  .btn-wrap {
-    justify-content: center;
-    gap: 16px;
+.header-btn-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  @media screen and (min-width: $tablet) {
+    gap: 32px;
   }
 
-  // видалити
-  .library-btn {
-    min-width: 147px;
+  @media screen and (min-width: $desktop) {
+    gap: 16px;
   }
 }
