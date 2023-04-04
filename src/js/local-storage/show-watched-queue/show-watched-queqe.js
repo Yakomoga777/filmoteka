@@ -1,49 +1,43 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { genres } from '../../fetch/genres';
 
-
 const listFilms = document.getElementById('listMoviesLibrary');
 
 let getWatched;
 let getQueue;
 let moviesArray;
 
-watchedBtn = document.querySelector('button[data-action="watched"]');
-queueBtn = document.querySelector('button[data-action="queue"]');
-
+const watchedBtn = document.querySelector('button[data-action="watched"]');
+const queueBtn = document.querySelector('button[data-action="queue"]');
 
 if (watchedBtn && queueBtn) {
   watchedBtn.addEventListener('click', handleClickWatched);
   queueBtn.addEventListener('click', handleClickQueue);
 
-  watchedBtn.click()
-  watchedBtn.classList.add('header__active-btn')
+  watchedBtn.click();
+  watchedBtn.classList.add('header__active-btn');
 }
-    
 
 function handleClickWatched() {
-    getWatched = localStorage.getItem('watched-movies-array');
+  getWatched = localStorage.getItem('watched-movies-array');
 
-    if (getWatched) {
-        listFilms.innerHTML = '';
-        moviesArray = JSON.parse(getWatched);
-        renderMovies(moviesArray);
-    }
-    else Notify.info('There is nothing on your watch list yet');
+  if (getWatched) {
+    listFilms.innerHTML = '';
+    moviesArray = JSON.parse(getWatched);
+    renderMovies(moviesArray);
+  } else Notify.info('There is nothing on your watch list yet');
 }
 
 function handleClickQueue() {
-    watchedBtn.classList.remove('header__active-btn');
-    getQueue = localStorage.getItem('queue-movies-array');
-    listFilms.innerHTML = '';
-    
-    if (getQueue) {
-        moviesArray = JSON.parse(getQueue);
-        renderMovies(moviesArray);
-    }
-    else Notify.info('You have not added any movies to the queue yet');
-}
+  watchedBtn.classList.remove('header__active-btn');
+  getQueue = localStorage.getItem('queue-movies-array');
+  listFilms.innerHTML = '';
 
+  if (getQueue) {
+    moviesArray = JSON.parse(getQueue);
+    renderMovies(moviesArray);
+  } else Notify.info('You have not added any movies to the queue yet');
+}
 
 function renderMovies(movies) {
   const markup = movies
@@ -96,6 +90,3 @@ function renderMovies(movies) {
 
   listFilms.insertAdjacentHTML('beforeend', markup);
 }
-
-
-  
