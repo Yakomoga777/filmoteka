@@ -2,12 +2,14 @@ import { moviesApiService } from '../../fetch/fetch';
 
 const listFilms = document.querySelector('.list_film');
 
-// watchedBtn = document.querySelector('button[data-action="watched"]');
-// qeueBtn = document.querySelector('button[data-action="queue"]');
+watchedBtn = document.querySelector('button[data-action="watched"]');
+qeueBtn = document.querySelector('button[data-action="queue"]');
 
-// watchedBtn.addEventListener('click', handleClickWatched);
-// qeueBtn.addEventListener('click', handleClickQueue);
-
+if (watchedBtn && qeueBtn) {
+    watchedBtn.addEventListener('click', handleClickWatched);
+    qeueBtn.addEventListener('click', handleClickQueue);
+}
+    
 let moviesArray;
 
 function handleClickWatched() {
