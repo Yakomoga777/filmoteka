@@ -9,16 +9,16 @@ let getQueue;
 let moviesArray;
 
 watchedBtn = document.querySelector('button[data-action="watched"]');
-qeueBtn = document.querySelector('button[data-action="queue"]');
+queueBtn = document.querySelector('button[data-action="queue"]');
 
 
-watchedBtn.addEventListener('click', handleClickWatched);
-qeueBtn.addEventListener('click', handleClickQueue);
+if (watchedBtn && queueBtn) {
+  watchedBtn.addEventListener('click', handleClickWatched);
+  queueBtn.addEventListener('click', handleClickQueue);
 
-watchedBtn.click()
-watchedBtn.classList.add('header__active-btn')
-
-getWatched = localStorage.getItem('watched-movies-array');
+  watchedBtn.click()
+  watchedBtn.classList.add('header__active-btn')
+}
     
 
 function handleClickWatched() {
