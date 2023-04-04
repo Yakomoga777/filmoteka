@@ -1,4 +1,4 @@
-import './js/fetch/fetch';
+// import './js/fetch/fetch';
 // import './js/fetch/gallery-movies-markup';
 import './js/fetch/genres';
 // import './js/fetch/searchByName';
@@ -17,8 +17,6 @@ import './js/fetch/pagination/btn_up';
 
 // import './js/fetch/searchByName'; відразу підвязала в index.html
 
-
 // import './js/fetch/pagination/pagination';
 // import './js/fetch/searchByName';
 import main from './js/main/main';
-
