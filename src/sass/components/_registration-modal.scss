@@ -1,3 +1,19 @@
+.backdrop-forms {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+
+  overflow-y: scroll;
+  z-index: 999;
+
+  pointer-events: initial;
+  opacity: 1;
+  visibility: visible;
+   width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.25);
+}
 .header-login-btn {
   background-color: transparent;
   border: none;
@@ -17,7 +33,7 @@
 }
 .login-form,
 .register-form {
-
+  z-index: 999;
   position: absolute;
   top: 50%;
   left: 50%;
