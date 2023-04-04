@@ -33,7 +33,10 @@ const getRegisterEmail = document.querySelector('#register-email');
 const getRegisterPassword = document.querySelector('#register-password');
 const modalCloseLoginBtn = document.querySelector('.modal-close-login');
 const modalCloseRegisterBtn = document.querySelector('.modal-close-register');
+const headerLoginItem = document.querySelector('.header-login-item');
+const backdropForms = document.querySelector('.backdrop-forms');
 
+backdropForms.style.display = 'none';
 registerForm.style.display = 'none';
 loginForm.style.display = 'none';
 headerOutBtn.style.display = 'none';
@@ -49,11 +52,13 @@ if (localStorage.getItem('userSession')) {
 headerRegisterBtn.addEventListener('click', function () {
   registerForm.style.display = 'inline';
   loginForm.style.display = 'none';
+  backdropForms.style.display = 'inline';
 });
 
 headerLoginBtn.addEventListener('click', function () {
   registerForm.style.display = 'none';
   loginForm.style.display = 'inline';
+  backdropForms.style.display = 'inline';
 });
 
 // ===== Переключення між формами ===
@@ -73,16 +78,19 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') {
     registerForm.style.display = 'none';
     loginForm.style.display = 'none';
+    backdropForms.style.display = 'none';
   }
 });
 modalCloseLoginBtn.addEventListener('click', function () {
   registerForm.style.display = 'none';
   loginForm.style.display = 'none';
+  backdropForms.style.display = 'none';
 });
 
 modalCloseRegisterBtn.addEventListener('click', function () {
   registerForm.style.display = 'none';
   loginForm.style.display = 'none';
+  backdropForms.style.display = 'none';
 });
 
 // ====== Відправка форми Login =======
@@ -96,6 +104,7 @@ loginBtn.addEventListener('click', function () {
     .then(userCredential => {
       const user = userCredential.user;
       loginForm.style.display = 'none';
+      backdropForms.style.display = 'none';
       Notiflix.Notify.success(`Welcome back!`);
       headerOutBtn.style.display = 'inline';
       getLoginPassword.value = '';
@@ -120,6 +129,7 @@ registerBtn.addEventListener('click', function () {
     .then(userCredential => {
       const user = userCredential.user;
       registerForm.style.display = 'none';
+      backdropForms.style.display = 'none';
       Notiflix.Notify.success(`Welcome!`);
       headerOutBtn.style.display = 'inline';
 
@@ -139,6 +149,7 @@ headerOutBtn.addEventListener('click', function () {
     .then(() => {
       registerForm.style.display = 'none';
       loginForm.style.display = 'none';
+      backdropForms.style.display = 'none';
       headerOutBtn.style.display = 'none';
       Notiflix.Notify.info(`You are Log Out!`);
 
