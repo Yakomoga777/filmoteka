@@ -1,3 +1,4 @@
+
 .backdrop-forms {
   position: fixed;
   top: 0%;
@@ -33,10 +34,13 @@
 }
 .login-form,
 .register-form {
+
   z-index: 999;
+
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 20;
   transform: translate(-50%, -50%);
   border: 1px solid rgb(61, 56, 56);
   border-radius: 10px;
@@ -47,8 +51,9 @@
   background-color: rgb(232, 237, 236);
 }
 
-.modal-close-register, .modal-close-login  {
- margin-right: 0;
+.modal-close-register,
+.modal-close-login {
+  margin-right: 0;
   margin-left: 90%;
   background-color: transparent;
   border: none;
