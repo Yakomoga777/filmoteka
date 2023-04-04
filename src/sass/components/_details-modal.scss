@@ -1,4 +1,4 @@
-// Стилі для приховування модального вікна 
+// Стилі для приховування модального вікна
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -42,7 +42,7 @@
   transform: translateX(-50%) scale(1);
   transition: transform 250ms linear;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   font-family: 'Roboto';
   font-weight: 500;
@@ -86,43 +86,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: inherit;
-  border: none;
   
-  // padding: 0;
+  padding: 0;
 
-  // 
+  border: none;
 
-  // cursor: pointer;
+  cursor: pointer;
 
-  // 
+  background-color: inherit;
 
-  // &:hover,
-  // &:focus {
-  //   fill: $accent-color;
-  // }
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
 }
 
-.close-button::before, .close-button::after {
-  content: ""; 
-  position: absolute; 
-  padding: 0px;
-  width: 18px; 
-  height: 2px; 
-  background: rgb(0, 0, 0);
-}
-
-.close-button:hover::before, .close-button:hover::after,
-.close-button:focus::before, .close-button:focus::after {
-  background: $accent-color;
-} 
-
-.close-button::before {
-  transform: rotate(45deg);
-}
-
-.close-button::after {
-  transform: rotate(-45deg);
+.modal-icon-close {
+  fill: currentColor;
 }
 
 .cover-thumb {
@@ -139,7 +119,7 @@
     height: 478;
   }
 }
-  
+
 .cover {
   width: 100%;
   height: 100%;
@@ -148,7 +128,6 @@
 }
 
 .film-interface {
-  
   font-size: 12;
 
   &__title {
@@ -165,26 +144,25 @@
 
   &__about-title {
     margin-bottom: 8;
-  
+
     text-transform: uppercase;
   }
-  
+
   &__about-desc {
     margin-bottom: 20;
-  
+
     line-height: 167%;
   }
 }
 
 .film-info {
-
   margin-bottom: 20;
 
   line-height: 133%;
 
   .categories-item {
     display: flex;
-  
+
     margin-bottom: 8;
 
     .category-name {
@@ -213,7 +191,7 @@
 
 .vote {
   padding: 1 9 10;
-  
+
   background: $accent-color;
 
   color: $btn-text-color-with-accent-bground;
@@ -247,21 +225,22 @@
     }
   }
 
-  &__add-watched,
-  &__add-queue,
-  &__remove-watched,
-  &__remove-queue
-  {
+  &__watched,
+  &__queue {
   
     width: 100%;
     height: 44;
-  
+
     border-radius: 5;
-  
+
     background-color: inherit;
     border: 1 solid $btn-border-color-without-accent-bground;
-  
+
     text-transform: uppercase;
+  
+    &:first-child {
+      margin-right: 20;
+    }
   
     &:hover,
     &:focus {
@@ -269,11 +248,10 @@
       background: $accent-color;
       color: $btn-text-color-with-accent-bground;
     }
-
+  
+    @media screen and (min-width: $desktop) {
+      width: 136;
+    }
   }
-}
-
-.hide-button {
-  display: none;
 }
 
