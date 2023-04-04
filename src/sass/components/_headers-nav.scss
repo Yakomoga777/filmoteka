@@ -1,8 +1,13 @@
-.nav {
+.header-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   margin-bottom: 60px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 40px;
+  }
 }
 
 .logo {
@@ -24,20 +29,50 @@
 
 .logo__text {
   display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+
+    font-family: 'Roboto';
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.17;
+
+    color: $header-text-color;
+  }
 }
 
-.nav__list {
+.nav-btn-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  margin-right: 20px;
+  // margin-right: 40px;
+}
+
+.nav__list,
+.login-btn-list {
   display: flex;
   align-items: center;
 }
 
 .nav__item:not(:last-child) {
-  margin-right: 40px;
+  margin-right: 20px;
+  // margin-right: 40px;
 }
 
 .nav__link {
-  position: relative;
   padding-bottom: 3px;
+  display: block;
+}
+
+.nav__link,
+.header-login-btn,
+.header-register-btn,
+.header-out-btn {
+  position: relative;
 
   font-family: $roboto-font;
   font-size: 12px;
@@ -68,6 +103,34 @@
   }
 }
 
+.header-login-btn,
+.header-register-btn,
+.header-out-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  background-color: transparent;
+  border: none;
+  padding: 0 0 3px 0;
+}
+
+.login-btn-icon,
+.register-btn-icon,
+.out-btn-icon {
+  fill: currentColor;
+}
+
+.login-btn-text,
+.register-btn-text,
+.out-btn-text {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+}
+
 .current {
   &::after {
     position: absolute;
@@ -80,22 +143,5 @@
     background-color: #ff001b;
 
     transform: scaleX(1);
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .nav {
-    margin-bottom: 40px;
-  }
-
-  .logo__text {
-    display: block;
-
-    font-family: 'Roboto';
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 1.17;
-
-    color: $header-text-color;
   }
 }
