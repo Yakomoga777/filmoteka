@@ -142,10 +142,12 @@ export const onRemoveWatched = (data) => {
   
   try {
           const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
-  
-          if (!storedItems.some(storedItem => storedItem.id === data.id)) {
+
+          const findItemIndex = storedItems.findIndex(storedItem => storedItem.id === data.id);
+
+          if (findItemIndex !== -1) {
             
-            storedItems.push(data);
+            storedItems.splice(findItemIndex, 1);
   
             try {
               localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
