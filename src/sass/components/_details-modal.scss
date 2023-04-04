@@ -82,24 +82,36 @@
   height: 30px;
   right: 8px;
   top: 8px;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  
   padding: 0;
-
   border: none;
-
   cursor: pointer;
-
   background-color: inherit;
-
-  &:hover,
-  &:focus {
-    fill: $accent-color;
-  }
 }
+
+.close-button::before, .close-button::after {
+    content: ""; 
+    position: absolute; 
+    padding: 0px;
+    width: 18px; 
+    height: 2px; 
+    background: rgb(0, 0, 0);
+  }
+  
+.close-button:hover::before, .close-button:focus::after,
+.close-button:focus::before, .close-button:hover::after {
+  background: $accent-color;
+}
+  
+  .close-button::before {
+    transform: rotate(45deg);
+  }
+  
+  .close-button::after {
+    transform: rotate(-45deg);
+  }
 
 .modal-icon-close {
   fill: currentColor;
@@ -225,8 +237,10 @@
     }
   }
 
-  &__watched,
-  &__queue {
+  &__add-watched,
+  &__add-queue,
+  &__remove-watched,
+  &__remove-queue {
   
     width: 100%;
     height: 44;
@@ -255,3 +269,6 @@
   }
 }
 
+.hide-button {
+  display: none;
+}
