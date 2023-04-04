@@ -10,6 +10,8 @@ import {
 
 const paginationEL = document.querySelector('.tui-pagination');
 
+// console.log(paginationEL);
+
 const options = {
   totalItems: 500,
   itemsPerPage: 20,
