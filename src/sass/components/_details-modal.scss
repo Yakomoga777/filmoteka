@@ -78,25 +78,26 @@
 
 .close-button {
   position: absolute;
-
+  width: 30px;
+  height: 30px;
   right: 8px;
   top: 8px;
-
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   padding: 0;
 
   border: none;
 
   cursor: pointer;
 
-  background-color: transparent;
+  background-color: inherit;
 
   &:hover,
   &:focus {
-    color: $accent-color;
+    fill: $accent-color;
   }
 }
 
@@ -214,9 +215,19 @@
 
 .modal-buttons {
   display: flex;
+  gap: 20px;
+
+  &__div {
+    width: 122px;
+
+    @media screen and (min-width: $desktop) {
+      width: 160px;
+    }
+  }
 
   &__watched,
   &__queue {
+  
     width: 100%;
     height: 44;
 
@@ -226,20 +237,21 @@
     border: 1 solid $btn-border-color-without-accent-bground;
 
     text-transform: uppercase;
-
+  
     &:first-child {
       margin-right: 20;
     }
-
+  
     &:hover,
     &:focus {
       border: none;
       background: $accent-color;
       color: $btn-text-color-with-accent-bground;
     }
-
+  
     @media screen and (min-width: $desktop) {
       width: 136;
     }
   }
 }
+
