@@ -20,4 +20,4 @@ import './js/fetch/pagination/btn_up';
 // import './js/fetch/pagination/pagination';
 // import './js/fetch/searchByName';
 import main from './js/main/main';
-// import './js/local-storage/show-watched-queue/show-watched-queqe';
+import './js/local-storage/show-watched-queue/show-watched-queqe';
