@@ -1,6 +1,11 @@
 import { moviesApiService } from '../../fetch/fetch';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const listFilms = document.querySelector('.list_film');
+
+let getWatched;
+let getQueue;
+let moviesArray;
 
 watchedBtn = document.querySelector('button[data-action="watched"]');
 qeueBtn = document.querySelector('button[data-action="queue"]');
@@ -8,29 +13,48 @@ qeueBtn = document.querySelector('button[data-action="queue"]');
 if (watchedBtn && qeueBtn) {
     watchedBtn.addEventListener('click', handleClickWatched);
     qeueBtn.addEventListener('click', handleClickQueue);
+
+    getWatched = localStorage.getItem('watched-movies-array');
+
+    if (getWatched) {
+        listFilms.innerHTML = '';
+        moviesArray = JSON.parse(getWatched);
+        fetchingMovies(moviesArray);
+    }
+    else Notify.info('You have not added any movies to the queue yet');
 }
     
-let moviesArray;
 
 function handleClickWatched() {
-    listFilms.innerHTML = '';
-    moviesArray = JSON.parse(localStorage.getItem('watched-movies-array'));
-    fetchingMovies(moviesArray);
+    getWatched = localStorage.getItem('watched-movies-array');
+
+    if (getWatched) {
+        listFilms.innerHTML = '';
+        moviesArray = JSON.parse(getWatched);
+        fetchingMovies(moviesArray);
+    }
+    else Notify.info('There is nothing on your watch list yet');
 }
 
 function handleClickQueue() {
-    listFilms.innerHTML = '';
-    moviesArray = JSON.parse(localStorage.getItem('queue-movies-array'));
-    fetchingMovies(moviesArray);
+    getQueue = localStorage.getItem('queue-movies-array');
+    
+    if (getQueue) {
+        listFilms.innerHTML = '';
+        moviesArray = JSON.parse(getQueue);
+        fetchingMovies(moviesArray);
+    }
+    else Notify.info('You have not added any movies to the queue yet');
 }
 
 function fetchingMovies(array) {
+    
     for (const movie of array) {
     moviesApiService
         .fetchFilmDetails(movie.id)
         .then(data => renderMovie(data))
         .catch(error => console.log(error));
-}
+    }
 }
 
 function renderMovie(data) {
