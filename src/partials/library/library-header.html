@@ -1,34 +1,77 @@
 <header class="header library-header library-overlay">
-  <div class="container theme-switcher-container">
-    <nav class="nav">
+  <div class="container library-container theme-switcher-container">
+    <div class="header-wrap">
       <a class="link logo" href="./index.html">
         <svg class="logo__icon" width="24" height="24">
           <use class="icon-film" href="./images/icons.svg#icon-logo-icon"></use>
         </svg>
-
         <span class="logo__text">Filmoteka</span>
       </a>
-      <ul class="list nav__list">
-         <li class="nav__item"><button id="header-login-btn" class="header-login-btn link nav__link">Log In</button></li>
-        <li class="nav__item"><button id="header-register-btn" class="header-register-btn link nav__link">Register</button></li>
-        <li class="nav__item"><button id="header-out-btn" class="header-out-btn link nav__link">Log Out</button></li>
-        <li class="nav__item">
-          <a class="link nav__link" href="./index.html">Home</a>
-        </li>
-        <li class="nav__item">
-          <a class="link nav__link current" href="./library.html">My library</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="btn-wrap">
-      <!-- класи замінити на нові -->
-      <button class="header__watched-btn" data-action="watched" type="button">
-        Watched
-      </button>
-      <button class="header__queue-btn" data-action="queue" type="button">
-        Queue
-      </button>
+
+      <div class="nav-btn-wrap">
+        <nav class="nav">
+          <ul class="list nav__list">
+            <li class="nav__item">
+              <a class="link nav__link" href="./index.html">Home</a>
+            </li>
+            <li class="nav__item">
+              <a class="link nav__link current" href="./library.html"
+                >My library</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <ul class="login-btn-list list">
+          <li class="login-btn-item header-login-item">
+            <button id="header-login-btn" class="header-login-btn">
+              <svg class="login-btn-icon" width="14" height="14">
+                <use
+                  class="icon-enter"
+                  href="./images/icons.svg#icon-enter"
+                ></use>
+              </svg>
+              <span class="login-btn-text">Log In</span>
+            </button>
+          </li>
+          <li class="login-btn-item">
+            <button id="header-register-btn" class="header-register-btn">
+              <svg class="register-btn-icon" width="14" height="14">
+                <use
+                  class="icon-new-user"
+                  href="./images/icons.svg#icon-new-user"
+                ></use>
+              </svg>
+              <span class="register-btn-text">Register</span>
+            </button>
+          </li>
+          <li class="login-btn-item">
+            <button id="header-out-btn" class="header-out-btn">
+              <svg class="out-btn-icon" width="14" height="14">
+                <use
+                  class="icon-exit"
+                  href="./images/icons.svg#icon-exit"
+                ></use>
+              </svg>
+              <span class="out-btn-text">Log Out</span>
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
+
+    <ul class="header-btn-list list">
+      <li class="header-btn-item">
+        <button class="header__watched-btn" data-action="watched" type="button">
+          Watched
+        </button>
+      </li>
+      <li class="header-btn-item">
+        <button class="header__queue-btn" data-action="queue" type="button">
+          Queue
+        </button>
+      </li>
+    </ul>
 
     <!-- Перемикач тем -->
     <div class="theme-switcher">
