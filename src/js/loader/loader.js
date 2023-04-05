@@ -4,6 +4,6 @@ document.body.onload = function () {
     if (!preloader.classList.contains('done')) {
       preloader.classList.add('done');
     }
-  }, 1000);
+  }, 300);
 };
 // export const load = document.body.onload;
