@@ -20,7 +20,7 @@ if (watchedBtn && queueBtn) {
 function handleClickWatched() {
   getWatched = JSON.parse(localStorage.getItem('watched-movies-array'));
 
-  if (!getWatched || []) {
+  if (getWatched === null || getWatched == "") {
     Notify.info('There is nothing on your watch list');
   }
   else {
@@ -36,7 +36,7 @@ function handleClickQueue() {
   
   listFilms.innerHTML = '';
 
-  if (!getQueue || []) {
+  if (getQueue === null || getQueue == "") {
     Notify.info('You have not added any movies to the queue');
   }
   else renderMovies(getQueue);
