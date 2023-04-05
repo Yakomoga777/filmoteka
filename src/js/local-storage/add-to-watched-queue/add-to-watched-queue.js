@@ -248,11 +248,9 @@ export const onAddWatched = ({
         console.error('Error adding film to local storage:', error);
       }
 
-      // ---------- тимчасово
-      console.log('Film added to local storage!');
+      
     } else {
-      // ---------- тимчасово
-      console.log('Filmm already exists in local storage!');
+      
     }
   } catch (error) {
     console.error('Error retrieving films from local storage:', error);
@@ -296,11 +294,9 @@ export const onAddQueue = ({
         console.error('Error adding film to local storage:', error);
       }
 
-      // ---------- тимчасово
-      console.log('Film added to local storage!');
+      
     } else {
-      // ---------- тимчасово
-      console.log('Filmm already exists in local storage!');
+      
     }
   } catch (error) {
     console.error('Error retrieving films from local storage:', error);
@@ -333,11 +329,9 @@ export const onRemoveWatched = data => {
         console.error('Error adding film to local storage:', error);
       }
 
-      // ---------- тимчасово
-      console.log('Film removed from watched list!');
+      
     } else {
-      // ---------- тимчасово
-      console.log('Filmm already exists in local storage!');
+      
     }
   } catch (error) {
     console.error('Error retrieving films from local storage:', error);
@@ -368,11 +362,8 @@ export const onRemoveQueue = data => {
         console.error('Error adding film to local storage:', error);
       }
 
-      // ---------- тимчасово
-      console.log('Film removed from queue list!');
     } else {
-      // ---------- тимчасово
-      console.log('Filmm already exists in local storage!');
+      
     }
   } catch (error) {
     console.error('Error retrieving films from local storage:', error);

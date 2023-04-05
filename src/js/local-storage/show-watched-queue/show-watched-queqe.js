@@ -1,4 +1,3 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const listFilms = document.getElementById('listMoviesLibrary');
 
@@ -32,7 +31,6 @@ function handleClickWatched() {
 
   if (getWatched === null || getWatched == "") {
     libraryPlug.style.display = "block";
-    Notify.info('There is nothing on your watch list');
   }
   else {
     renderMovies(getWatched);
@@ -50,7 +48,6 @@ function handleClickQueue() {
 
   if (getQueue === null || getQueue == "") {
     libraryPlug.style.display = "block";
-    Notify.info('You have not added any movies to the queue');
   }
   else renderMovies(getQueue);
 }
