@@ -46,7 +46,9 @@
 main {
   // при ховері та фокусі кнопки
   .tui-pagination .tui-page-btn:hover,
-  .tui-pagination .tui-page-btn:focus {
+  .tui-pagination .tui-page-btn:focus,
+  .tui-pagination .tui-first + .tui-prev:hover,
+  .tui-pagination .tui-first + .tui-prev:focus {
     border-radius: 15px;
     transform: scale(1.2);
     border: 1px solid #ff6b08;
@@ -191,7 +193,7 @@ main {
 }
 #myBtn:hover,
 #myBtn:focus {
-  transform: scale(1.75);
+  transform: scale(1.25);
   background-color: #c2baba;
   // .dark-theme & {
   //   background-color: #ff6b08;
