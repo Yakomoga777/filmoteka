@@ -1,15 +1,20 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const listFilms = document.getElementById('listMoviesLibrary');
 
 let getWatched;
 let getQueue;
-let moviesArray;
+let activeTab = "watched";
 
 const watchedBtn = document.querySelector('button[data-action="watched"]');
 const queueBtn = document.querySelector('button[data-action="queue"]');
 
-if (watchedBtn && queueBtn) {
+const libraryPlug = document.querySelector('.library_text');
+
+
+// Таким чином скрипт перевіряє чи він зараз в Library
+if (listFilms) {
+  libraryPlug.style.display = "none";
+
   watchedBtn.addEventListener('click', handleClickWatched);
   queueBtn.addEventListener('click', handleClickQueue);
 
@@ -18,18 +23,24 @@ if (watchedBtn && queueBtn) {
 }
 
 function handleClickWatched() {
+  activeTab = "watched";
+  libraryPlug.style.display = "none";
+  queueBtn.classList.remove('header__active-btn');
   getWatched = JSON.parse(localStorage.getItem('watched-movies-array'));
 
+  listFilms.innerHTML = '';
+
   if (getWatched === null || getWatched == "") {
-    Notify.info('There is nothing on your watch list');
+    libraryPlug.style.display = "block";
   }
   else {
-    listFilms.innerHTML = '';
     renderMovies(getWatched);
   }
 }
 
 function handleClickQueue() {
+  activeTab = "queue";
+  libraryPlug.style.display = "none";
   watchedBtn.classList.remove('header__active-btn');
   
   getQueue = JSON.parse(localStorage.getItem('queue-movies-array'));
@@ -37,7 +48,7 @@ function handleClickQueue() {
   listFilms.innerHTML = '';
 
   if (getQueue === null || getQueue == "") {
-    Notify.info('You have not added any movies to the queue');
+    libraryPlug.style.display = "block";
   }
   else renderMovies(getQueue);
 }
@@ -89,4 +100,15 @@ function renderMovies(movies) {
     .join('');
 
   listFilms.insertAdjacentHTML('beforeend', markup);
+}
+
+export function refreshLibrary() {
+  if (activeTab === "watched") {
+    watchedBtn.click();
+    watchedBtn.classList.add('header__active-btn');
+  }
+  else {
+    queueBtn.click();
+    queueBtn.classList.add('header__active-btn');
+  }
 }
