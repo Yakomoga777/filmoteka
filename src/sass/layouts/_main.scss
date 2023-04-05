@@ -221,7 +221,7 @@ main {
   font-weight: 900;
 
   text-align: center;
-  color: #470000;
+  color: $accent-color;
   padding-top: 100px;
   padding-bottom: 100px;
   @media screen and (min-width: $tablet) {
