@@ -112,7 +112,6 @@ function changeButtons(id, data) {
         if (id===Number(item.id)) {
           btnRemoveWatched.classList.remove("hide-button");
           btnAddWatched.classList.add("hide-button");
-          btnRemoveQueue.classList.add("hide-button");
         }
     }
   }
@@ -120,7 +119,6 @@ function changeButtons(id, data) {
     for (let item of arrayQueue) {
       if (id===Number(item.id)) {
         btnRemoveQueue.classList.remove("hide-button");
-        btnRemoveWatched.classList.add("hide-button");
         btnAddQueue.classList.add("hide-button");
       }
     }
