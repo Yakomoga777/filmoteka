@@ -18,22 +18,22 @@ if (watchedBtn && queueBtn) {
 }
 
 function handleClickWatched() {
-  getWatched = localStorage.getItem('watched-movies-array');
+  getWatched = JSON.parse(localStorage.getItem('watched-movies-array'));
 
-  if (getWatched) {
+  if (getWatched && ![]) {
     listFilms.innerHTML = '';
-    moviesArray = JSON.parse(getWatched);
     renderMovies(moviesArray);
   } else Notify.info('There is nothing on your watch list yet');
 }
 
 function handleClickQueue() {
   watchedBtn.classList.remove('header__active-btn');
-  getQueue = localStorage.getItem('queue-movies-array');
+  
+  getQueue = JSON.parse(localStorage.getItem('queue-movies-array'));
+  
   listFilms.innerHTML = '';
 
-  if (getQueue) {
-    moviesArray = JSON.parse(getQueue);
+  if (getQueue && ![]) {
     renderMovies(moviesArray);
   } else Notify.info('You have not added any movies to the queue yet');
 }
