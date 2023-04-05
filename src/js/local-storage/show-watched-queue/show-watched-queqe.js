@@ -9,6 +9,10 @@ let moviesArray;
 const watchedBtn = document.querySelector('button[data-action="watched"]');
 const queueBtn = document.querySelector('button[data-action="queue"]');
 
+const libraryPlug = document.querySelector('.library_text');
+
+libraryPlug.style.display = "none";
+
 if (watchedBtn && queueBtn) {
   watchedBtn.addEventListener('click', handleClickWatched);
   queueBtn.addEventListener('click', handleClickQueue);
@@ -18,18 +22,22 @@ if (watchedBtn && queueBtn) {
 }
 
 function handleClickWatched() {
+  libraryPlug.style.display = "none";
   getWatched = JSON.parse(localStorage.getItem('watched-movies-array'));
 
+  listFilms.innerHTML = '';
+
   if (getWatched === null || getWatched == "") {
+    libraryPlug.style.display = "block";
     Notify.info('There is nothing on your watch list');
   }
   else {
-    listFilms.innerHTML = '';
     renderMovies(getWatched);
   }
 }
 
 function handleClickQueue() {
+  libraryPlug.style.display = "none";
   watchedBtn.classList.remove('header__active-btn');
   
   getQueue = JSON.parse(localStorage.getItem('queue-movies-array'));
@@ -37,6 +45,7 @@ function handleClickQueue() {
   listFilms.innerHTML = '';
 
   if (getQueue === null || getQueue == "") {
+    libraryPlug.style.display = "block";
     Notify.info('You have not added any movies to the queue');
   }
   else renderMovies(getQueue);
