@@ -103,7 +103,6 @@ function renderMovies(movies) {
 }
 
 export function refreshLibrary() {
-  console.log(activeTab);
   if (activeTab === "watched") {
     watchedBtn.click();
     watchedBtn.classList.add('header__active-btn');
