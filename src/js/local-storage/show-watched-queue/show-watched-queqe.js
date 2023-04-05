@@ -1,5 +1,4 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { genres } from '../../fetch/genres';
 
 const listFilms = document.getElementById('listMoviesLibrary');
 
@@ -19,24 +18,28 @@ if (watchedBtn && queueBtn) {
 }
 
 function handleClickWatched() {
-  getWatched = localStorage.getItem('watched-movies-array');
+  getWatched = JSON.parse(localStorage.getItem('watched-movies-array'));
 
-  if (getWatched) {
+  if (getWatched === null || getWatched == "") {
+    Notify.info('There is nothing on your watch list');
+  }
+  else {
     listFilms.innerHTML = '';
-    moviesArray = JSON.parse(getWatched);
-    renderMovies(moviesArray);
-  } else Notify.info('There is nothing on your watch list yet');
+    renderMovies(getWatched);
+  }
 }
 
 function handleClickQueue() {
   watchedBtn.classList.remove('header__active-btn');
-  getQueue = localStorage.getItem('queue-movies-array');
+  
+  getQueue = JSON.parse(localStorage.getItem('queue-movies-array'));
+  
   listFilms.innerHTML = '';
 
-  if (getQueue) {
-    moviesArray = JSON.parse(getQueue);
-    renderMovies(moviesArray);
-  } else Notify.info('You have not added any movies to the queue yet');
+  if (getQueue === null || getQueue == "") {
+    Notify.info('You have not added any movies to the queue');
+  }
+  else renderMovies(getQueue);
 }
 
 function renderMovies(movies) {
@@ -47,7 +50,7 @@ function renderMovies(movies) {
         id,
         original_title,
         release_date,
-        genre_ids,
+        genres,
         original_language,
         title,
       }) => {
@@ -64,11 +67,8 @@ function renderMovies(movies) {
           : (urlImg =
               'https://dummyimage.com/500x750/ff6b08/fff.jpg&text=Opps,+no+image...');
 
-        const includeGenres = genres.filter(genre =>
-          genre_ids.includes(genre.id)
-        );
 
-        const listOfGenres = includeGenres.map(genre => genre.name);
+        const listOfGenres = genres.map(genre => genre.name);
 
         listOfGenres.length > 3
           ? (movieGenresTitle =
