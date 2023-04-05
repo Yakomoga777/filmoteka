@@ -77,9 +77,7 @@ export const onAddWatched = (data) => {
             try {
               localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
               btnAddWatched.classList.add("hide-button");
-              btnAddQueue.classList.add("hide-button");
               btnRemoveWatched.classList.remove("hide-button");
-              
             } catch (error) {
               console.error('Error adding film to local storage:', error);
             }
@@ -111,9 +109,7 @@ export const onAddQueue = (data) => {
             
             try {
               localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
-              
               btnAddQueue.classList.add("hide-button");
-              btnAddWatched.classList.add("hide-button");
               btnRemoveQueue.classList.remove("hide-button");
             } catch (error) {
               console.error('Error adding film to local storage:', error);
