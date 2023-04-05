@@ -45,12 +45,18 @@
 //  стилі для кнопок пагінації -------------------
 main {
   // при ховері та фокусі кнопки
+  .tui-pagination .tui-page-btn,
+  .tui-pagination .tui-page-btn {
+    transition: (border-radius, transform, border-color) $duration
+      $timing-function;
+  }
+
   .tui-pagination .tui-page-btn:hover,
   .tui-pagination .tui-page-btn:focus,
   .tui-pagination .tui-first + .tui-prev:hover,
   .tui-pagination .tui-first + .tui-prev:focus {
     border-radius: 15px;
-    transform: scale(1.2);
+    transform: scale(1.1);
     border: 1px solid #ff6b08;
   }
 
@@ -184,16 +190,20 @@ main {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 12px;
   border-radius: 50%;
   // .dark-theme & {
   //   background-color: #fff;
   //   border: 1px solid #ff6b08;
   // }
+  transform: scale(1);
+  transition: (transform, background-color) $duration $timing-function;
 }
 #myBtn:hover,
 #myBtn:focus {
+
   transform: scale(1.25);
+
   background-color: #c2baba;
   // .dark-theme & {
   //   background-color: #ff6b08;
