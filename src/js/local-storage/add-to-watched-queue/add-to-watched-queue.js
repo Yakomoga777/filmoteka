@@ -64,9 +64,8 @@ export const STORAGE_KEY_Q = 'queue-movies-array';
 export const onAddWatched = (data) => {
   
   const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
-  const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
+ 
   const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
-  const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
   
   try {
           const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
@@ -74,7 +73,7 @@ export const onAddWatched = (data) => {
           if (!storedItems.some(storedItem => storedItem.id === data.id)) {
             
             storedItems.push(data);
-            
+
             try {
               localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
               btnAddWatched.classList.add("hide-button");
@@ -98,9 +97,9 @@ export const onAddWatched = (data) => {
 
 export const onAddQueue = (data) => {
   
-  const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
+  
   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
-  const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+  
   const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
   
   try {
@@ -136,9 +135,7 @@ export const onAddQueue = (data) => {
 export const onRemoveWatched = (data) => {
   
   const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
-  const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
   const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
-  const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
   
   try {
           const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
@@ -173,9 +170,8 @@ export const onRemoveWatched = (data) => {
 
 export const onRemoveQueue = (data) => {
   
-  const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
-  const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+  
   const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
   
   try {
