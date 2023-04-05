@@ -214,3 +214,17 @@ main {
   //   background-color: #ff6b08;
   // }
 }
+
+/*Стилі тексту-заглушки на сторінці бібліотеки*/
+.library_text {
+  font-size: 25px;
+  font-weight: 900;
+
+  text-align: center;
+  color: #470000;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @media screen and (min-width: $tablet) {
+    font-size: 40px;
+  }
+}
