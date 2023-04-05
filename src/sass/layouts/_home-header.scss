@@ -79,6 +79,8 @@
 
   border: none;
   border-bottom: 2px solid $header-input-border-color;
+
+  transition: border-color $duration $timing-function;
 }
 
 .search-input:hover,
@@ -92,6 +94,8 @@
   font-size: 16px;
   line-height: 1.14;
   color: currentColor;
+
+  transition: color $duration $timing-function;
 }
 
 .search-btn {
