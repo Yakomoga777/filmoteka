@@ -3,7 +3,7 @@ const listFilms = document.getElementById('listMoviesLibrary');
 
 let getWatched;
 let getQueue;
-let acticeTab = "watched";
+let activeTab = "watched";
 
 const watchedBtn = document.querySelector('button[data-action="watched"]');
 const queueBtn = document.querySelector('button[data-action="queue"]');
@@ -23,8 +23,9 @@ if (listFilms) {
 }
 
 function handleClickWatched() {
-
+  activeTab = "watched";
   libraryPlug.style.display = "none";
+  queueBtn.classList.remove('header__active-btn');
   getWatched = JSON.parse(localStorage.getItem('watched-movies-array'));
 
   listFilms.innerHTML = '';
@@ -38,7 +39,7 @@ function handleClickWatched() {
 }
 
 function handleClickQueue() {
-  acticeTab = "queue";
+  activeTab = "queue";
   libraryPlug.style.display = "none";
   watchedBtn.classList.remove('header__active-btn');
   
@@ -102,7 +103,8 @@ function renderMovies(movies) {
 }
 
 export function refreshLibrary() {
-  if (acticeTab === "watched") {
+  console.log(activeTab);
+  if (activeTab === "watched") {
     watchedBtn.click();
     watchedBtn.classList.add('header__active-btn');
   }
