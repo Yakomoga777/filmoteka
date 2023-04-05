@@ -48,26 +48,23 @@ function createMoviesMarkup(arr) {
         poster_path
           ? (urlImg = `https://image.tmdb.org/t/p/w500${poster_path}`)
           : (urlImg =
-              'https://dummyimage.com/500x750/ff6b08/fff.jpg&text=Movie+poster+should+be+here...');
+              'https://dummyimage.com/500x400/ff6b08/fff.jpg&text=Opps,+no+image...');
 
         const includeGenres = genres.filter(genre =>
           genre_ids?.includes(genre.id)
         );
-        const listOfGenres = includeGenres.map(genre => genre.name);
-        listOfGenres.length > 3
-          ? (movieGenresTitle =
-              listOfGenres.slice(0, 2).join(', ') + ', ' + '...and others')
-          : (movieGenresTitle = listOfGenres.join(', '));
+        const listOfGenres = includeGenres.map(genre => genre.name).join(', ');
 
         return `<li class="list_film_item" data-id="${id}">
-                  <div class="card">
-		                <img class="card__img" src="${urlImg}" alt="img of film" width="395"/>
-	                  <p class="card__title">${movieTitle}</p>
-	                  <div class="card__info">
-                      <p class="card__genres">${movieGenresTitle} | ${(release_date =
-          release_date?.slice(0, 4) ? release_date.slice(0, 4) : '')}</p>
-                    </div>
-                  </div>
+		            <img src="${urlImg}" alt="img of film" width="395"/>
+	              <p class="card__title">${movieTitle}</p>
+	              <div class="card__info">
+                  <p class="card__genres">${
+                    (listOfGenres = listOfGenres) ? listOfGenres : ''
+                  } | ${(release_date = release_date?.slice(0, 4)
+          ? release_date.slice(0, 4)
+          : '')}</p>
+                </div>
 		        </li>`;
       }
     )

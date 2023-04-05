@@ -1,4 +1,8 @@
 .header-home {
+  // position : fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
   padding: 40px 0;
   background-color: rgba(0, 0, 0, 0.56);
 }
@@ -75,8 +79,6 @@
 
   border: none;
   border-bottom: 2px solid $header-input-border-color;
-
-  transition: (border-color, color) $duration $timing-function;
 }
 
 .search-input:hover,
