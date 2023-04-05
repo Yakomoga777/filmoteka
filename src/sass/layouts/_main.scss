@@ -177,6 +177,11 @@ main {
     background-color: #ff6b08;
     border: #ff6b08;
   }
+
+  .tui-page-btn.tui-last,
+  .tui-page-btn.tui-first {
+    display: none;
+  }
 }
 // -----------------  кнопка up
 #myBtn {
@@ -201,7 +206,6 @@ main {
 }
 #myBtn:hover,
 #myBtn:focus {
-
   transform: scale(1.25);
 
   background-color: #c2baba;
