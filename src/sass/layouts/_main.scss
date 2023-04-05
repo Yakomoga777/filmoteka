@@ -42,88 +42,140 @@
 
 //  стилі для кнопок пагінації -------------------
 
-// при ховері та фокусі кнопки
-.tui-pagination .tui-page-btn:hover,
-.tui-pagination .tui-page-btn:focus {
-  background-color: aqua;
-  border-radius: 15px;
-}
-// при активній кнопці
-.tui-pagination .tui-is-selected,
-.tui-pagination strong {
-  color: #fff;
-  background-color: #ff6b08;
-  border-radius: 5px;
-  cursor: pointer;
-}
-//  стрілок та крапки
-.tui-pagination .tui-prev,
-.tui-pagination .tui-next,
-.tui-pagination .tui-last,
-.tui-pagination .tui-first {
-  border-radius: 5px;
-  background-color: #c2baba;
-}
-// вирівнення кнопки крапка
-@media screen and (max-width: 767px) {
-  .tui-page-btn.tui-next-is-ellip.tui-last-child,
-  .tui-page-btn.tui-prev-is-ellip.tui-first-child {
-    height: 28px;
-  }
-  .tui-pagination {
-    margin-top: 41px;
-  }
-}
-.tui-pagination {
-  margin-top: 41px;
-}
-@media screen and (min-width: 768px) {
-  .tui-pagination {
-    height: 28px;
-    margin: 12px 0 12px;
-    margin-top: 60px;
-    line-height: normal;
-    text-align: center;
-    font-size: 0;
-  }
-
+//  стилі для кнопок пагінації -------------------
+main {
+  // при ховері та фокусі кнопки
+  .tui-pagination .tui-page-btn,
   .tui-pagination .tui-page-btn {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-
-    height: 40px;
-    width: 40px;
-    color: #000000;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.33;
+    transition: (border-radius, transform, border-color) $duration
+      $timing-function;
   }
 
-  //  стрілок та крапки
-  .tui-pagination .tui-prev,
-  .tui-pagination .tui-next,
-  .tui-pagination .tui-last,
-  .tui-pagination .tui-first {
-    border-radius: 5px;
-    background-color: #c2baba;
-    overflow: hidden;
-    height: 40px;
-    padding: 0;
-    font-size: 100px;
-    line-height: 26px;
+  .tui-pagination .tui-page-btn:hover,
+  .tui-pagination .tui-page-btn:focus,
+  .tui-pagination .tui-first + .tui-prev:hover,
+  .tui-pagination .tui-first + .tui-prev:focus {
+    border-radius: 15px;
+    transform: scale(1.1);
+    border: 1px solid #ff6b08;
   }
-  .tui-pagination .tui-prev-is-ellip,
-  .tui-pagination .tui-next-is-ellip {
-    border-radius: 5px;
-    padding: 12px 12px 12px 12px;
-    overflow: hidden;
-    height: 40px;
-    font-size: 0;
-    line-height: 26px;
+
+  .tui-pagination .tui-is-selected:hover {
+    background-color: #ff6b08;
+    border: 1px solid #ff6b08;
+  }
+
+  .tui-pagination {
+    span,
+    .tui-next,
+    .tui-last,
+    .tui-first,
+    .tui-first + .tui-prev,
+    .tui-prev-is-ellip,
+    .tui-next-is-ellip,
+    .tui-page-btn {
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  // вирівнення кнопки крапка
+  @media screen and (max-width: 767px) {
+    .tui-pagination .tui-prev,
+    .tui-pagination .tui-next {
+      margin: 0;
+      border: 1px solid #ddd;
+    }
+
+    .tui-pagination {
+      margin-top: 41px;
+    }
+    .tui-pagination {
+      .tui-next,
+      .tui-last,
+      .tui-first,
+      .tui-first + .tui-prev,
+      .tui-prev-is-ellip,
+      .tui-next-is-ellip,
+      .tui-page-btn {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .tui-pagination {
+      height: 28px;
+      margin: 12px 0 12px;
+      margin-top: 60px;
+      line-height: normal;
+      text-align: center;
+      font-size: 0;
+    }
+
+    .tui-pagination .tui-page-btn {
+      display: inline-block;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+
+      height: 40px;
+      width: 40px;
+      color: #000000;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.33;
+      // background-color: #fff;
+    }
+    // візуальне розташування
+    .tui-pagination .tui-first + .tui-prev,
+    .tui-pagination .tui-next + .tui-last,
+    .tui-pagination .tui-next-is-ellip {
+      margin-right: 20px;
+    }
+
+    //  стрілок та крапки
+    .tui-pagination .tui-prev,
+    .tui-pagination .tui-next,
+    .tui-pagination .tui-last,
+    .tui-pagination .tui-first {
+      border-radius: 5px;
+      // background-color: #c2baba;
+      overflow: hidden;
+      height: 40px;
+      padding: 0;
+      font-size: 100px;
+      line-height: 26px;
+    }
+    .tui-pagination .tui-prev-is-ellip,
+    .tui-pagination .tui-next-is-ellip {
+      border-radius: 5px;
+      padding: 12px 12px 12px 12px;
+      overflow: hidden;
+      height: 40px;
+      font-size: 0;
+      line-height: 26px;
+    }
+  }
+  &.dark-theme .tui-pagination {
+    .tui-next,
+    .tui-last,
+    .tui-first,
+    .tui-first + .tui-prev,
+    .tui-prev-is-ellip,
+    .tui-next-is-ellip,
+    .tui-page-btn {
+      background-color: #fff;
+      border-radius: 5px;
+    }
+  }
+
+  #selected {
+    background-color: #ff6b08;
+    border: #ff6b08;
   }
 }
 // -----------------  кнопка up
@@ -131,17 +183,29 @@
   display: none;
   position: fixed;
   bottom: 10px;
-  right: 10px;
+  right: 17px;
   z-index: 1;
   background-color: #ff6b08;
   font-size: 18px;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 15px;
+  padding: 12px;
   border-radius: 50%;
+  // .dark-theme & {
+  //   background-color: #fff;
+  //   border: 1px solid #ff6b08;
+  // }
+  transform: scale(1);
+  transition: (transform, background-color) $duration $timing-function;
 }
 #myBtn:hover,
 #myBtn:focus {
-  background-color: aqua;
+
+  transform: scale(1.25);
+
+  background-color: #c2baba;
+  // .dark-theme & {
+  //   background-color: #ff6b08;
+  // }
 }

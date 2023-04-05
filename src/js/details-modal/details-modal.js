@@ -1,6 +1,9 @@
 import { moviesApiService } from '../fetch/fetch';
 import {onAddWatched} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
 import {onAddQueue} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
+import {onRemoveWatched} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
+import {onRemoveQueue} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
+
 
 const listFilms = document.querySelector('.list_film');
 const modalEl = document.querySelector('div[data-modal]');
@@ -120,6 +123,7 @@ function changeButtons(id, data) {
       if (id===Number(item.id)) {
         btnRemoveQueue.classList.remove("hide-button");
         btnAddQueue.classList.add("hide-button");
+        btnAddWatched.classList.add("hide-button");
       }
     }
   }
@@ -128,5 +132,12 @@ function changeButtons(id, data) {
   });
   btnAddQueue.addEventListener("click", ()=>{
     const onAddingQueue = onAddQueue(data);
+  })
+
+  btnRemoveWatched.addEventListener("click", () => {
+    onRemoveWatched(data);
+  });
+  btnRemoveQueue.addEventListener("click", ()=>{
+    onRemoveQueue(data);
   })
 }
