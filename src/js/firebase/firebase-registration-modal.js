@@ -45,8 +45,8 @@ headerLoginItem.style.marginRight = '20px';
 if (localStorage.getItem('userSession')) {
   headerLoginBtn.style.display = 'none';
   headerRegisterBtn.style.display = 'none';
-  headerOutBtn.style.display = 'inline';
- headerLoginItem.style.marginRight = '0';
+  headerOutBtn.style.display = 'flex';
+  headerLoginItem.style.marginRight = '0';
 }
 
 // ===== Btn in Header ======
@@ -109,7 +109,7 @@ loginBtn.addEventListener('click', function () {
       loginForm.style.display = 'none';
       backdropForms.style.display = 'none';
       Notiflix.Notify.success(`Welcome back!`);
-      headerOutBtn.style.display = 'inline';
+      headerOutBtn.style.display = 'flex';
       getLoginPassword.value = '';
       headerLoginItem.style.marginRight = '0';
 
@@ -135,7 +135,7 @@ registerBtn.addEventListener('click', function () {
       registerForm.style.display = 'none';
       backdropForms.style.display = 'none';
       Notiflix.Notify.success(`Welcome!`);
-      headerOutBtn.style.display = 'inline';
+      headerOutBtn.style.display = 'flex';
       headerLoginItem.style.marginRight = '0';
 
       localStorage.setItem('userSession', 'true');
@@ -162,6 +162,7 @@ headerOutBtn.addEventListener('click', function () {
       localStorage.removeItem('userSession');
     })
     .catch(error => {});
-  headerLoginBtn.style.display = 'inline';
-  headerRegisterBtn.style.display = 'inline';
+  headerLoginBtn.style.display = 'flex';
+  headerRegisterBtn.style.display = 'flex';
+  headerLoginItem.style.marginRight = '20px';
 });
