@@ -56,12 +56,29 @@
 
 // ----------- запис усього обʼєкта у localStorage -----------
 import { moviesApiService } from '../../fetch/fetch';
-
+import { genres } from '../../fetch/genres'
 // кнопка watched
 export const STORAGE_KEY_W = 'watched-movies-array';
 export const STORAGE_KEY_Q = 'queue-movies-array';
 
-export const onAddWatched = (data) => {
+export const onAddWatched = ({
+        poster_path,
+        id,
+        original_title,
+        release_date,
+        original_language,
+        title,
+      }) => {
+  const movieObj = {
+  poster_path,
+  id,
+  original_title,
+  release_date,
+  genres,
+  original_language,
+  title
+};
+
   
   const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
@@ -69,10 +86,10 @@ export const onAddWatched = (data) => {
   
   try {
           const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
-  
-          if (!storedItems.some(storedItem => storedItem.id === data.id)) {
+  console.log(storedItems);
+          if (!storedItems.some(storedItem => storedItem.id === movieObj.id)) {
             
-            storedItems.push(data);
+            storedItems.push(movieObj);
 
             try {
               localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
@@ -93,8 +110,24 @@ export const onAddWatched = (data) => {
         }
 }
 
-export const onAddQueue = (data) => {
+export const onAddQueue = ({
+        poster_path,
+        id,
+        original_title,
+        release_date,
+        original_language,
+        title,
+      }) => {
   
+   const filmObj = {
+  poster_path,
+  id,
+  original_title,
+  release_date,
+  genres,
+  original_language,
+  title
+};
   
   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
   const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
@@ -104,8 +137,8 @@ export const onAddQueue = (data) => {
           const storedItems =
             JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
   
-          if (!storedItems.some(storedItem => storedItem.id === data.id)) {
-            storedItems.push(data);
+          if (!storedItems.some(storedItem => storedItem.id === filmObj.id)) {
+            storedItems.push(filmObj);
             
             try {
               localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
