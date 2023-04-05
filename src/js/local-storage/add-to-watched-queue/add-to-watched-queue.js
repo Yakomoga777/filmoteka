@@ -1,3 +1,5 @@
+// ---------- Віріант 1
+
 // export const STORAGE_KEY_W = 'watched-movies-array';
 // export const STORAGE_KEY_Q = 'queue-movies-array';
 
@@ -54,264 +56,325 @@
 //   }
 // }
 
-// ----------- запис усього обʼєкта у localStorage -----------
-import { moviesApiService } from '../../fetch/fetch';
+// ------------------- Віріант 2
+
+// // ----------- запис усього обʼєкта у localStorage -----------
+// import { moviesApiService } from '../../fetch/fetch';
+
+// // кнопка watched
+// export const STORAGE_KEY_W = 'watched-movies-array';
+// export const STORAGE_KEY_Q = 'queue-movies-array';
+
+// export const onAddWatched = (data) => {
+
+//   const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
+
+//   const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+
+//   try {
+//           const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
+
+//           if (!storedItems.some(storedItem => storedItem.id === data.id)) {
+
+//             storedItems.push(data);
+
+//             try {
+//               localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
+//               btnAddWatched.classList.add("hide-button");
+
+//               btnRemoveWatched.classList.remove("hide-button");
+//             } catch (error) {
+//               console.error('Error adding film to local storage:', error);
+//             }
+
+//             // ---------- тимчасово
+//             console.log('Film added to local storage!');
+//           } else {
+//             // ---------- тимчасово
+//             console.log('Filmm already exists in local storage!');
+//           }
+//         } catch (error) {
+//           console.error('Error retrieving films from local storage:', error);
+//         }
+// }
+
+// export const onAddQueue = (data) => {
+
+//   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
+
+//   const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
+
+//   try {
+//           const storedItems =
+//             JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
+
+//           if (!storedItems.some(storedItem => storedItem.id === data.id)) {
+//             storedItems.push(data);
+
+//             try {
+//               localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
+//               btnAddQueue.classList.add("hide-button");
+
+//               btnRemoveQueue.classList.remove("hide-button");
+//             } catch (error) {
+//               console.error('Error adding film to local storage:', error);
+//             }
+
+//             // ---------- тимчасово
+//             console.log('Film added to local storage!');
+//           } else {
+//             // ---------- тимчасово
+//             console.log('Filmm already exists in local storage!');
+//           }
+//         } catch (error) {
+//           console.error('Error retrieving films from local storage:', error);
+//         }
+// };
+
+// // Видалення об'єкта з localStorage
+// export const onRemoveWatched = (data) => {
+
+//   const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
+//   const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
+
+//   try {
+//           const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
+
+//           const findItemIndex =
+//             storedItems.findIndex(storedItem => storedItem.id === data.id);
+
+//           if (findItemIndex !== -1) {
+
+//             storedItems.splice(findItemIndex, 1);
+
+//             try {
+//               localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
+//               btnRemoveWatched.classList.add("hide-button");
+
+//               btnAddWatched.classList.remove("hide-button");
+
+//             } catch (error) {
+//               console.error('Error adding film to local storage:', error);
+//             }
+
+//             // ---------- тимчасово
+//             console.log('Film removed from watched list!');
+//           } else {
+//             // ---------- тимчасово
+//             console.log('Filmm already exists in local storage!');
+//           }
+//         } catch (error) {
+//           console.error('Error retrieving films from local storage:', error);
+//         }
+// }
+
+// export const onRemoveQueue = (data) => {
+
+//   const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
+
+//   const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
+
+//   try {
+//           const storedItems =
+//             JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
+
+//           const findItemIndex =
+//             storedItems.findIndex(storedItem => storedItem.id === data.id);
+
+//           if (findItemIndex !== -1) {
+
+//             storedItems.splice(findItemIndex, 1);
+
+//             try {
+//               localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
+//               btnRemoveQueue.classList.add("hide-button");
+
+//               btnAddQueue.classList.remove("hide-button");
+//             } catch (error) {
+//               console.error('Error adding film to local storage:', error);
+//             }
+
+//             // ---------- тимчасово
+//             console.log('Film removed from queue list!');
+//           } else {
+//             // ---------- тимчасово
+//             console.log('Filmm already exists in local storage!');
+//           }
+//         } catch (error) {
+//           console.error('Error retrieving films from local storage:', error);
+//         }
+// };
 
 // кнопка watched
 export const STORAGE_KEY_W = 'watched-movies-array';
 export const STORAGE_KEY_Q = 'queue-movies-array';
 
-export const onAddWatched = (data) => {
-  
-  const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
-  
-  const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
-  
-  try {
-          const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
-  
-          if (!storedItems.some(storedItem => storedItem.id === data.id)) {
-            
-            storedItems.push(data);
+export const onAddWatched = ({
+  poster_path,
+  id,
+  original_title,
+  release_date,
+  genres,
+  original_language,
+  title,
+}) => {
+  const filmObj = {
+    poster_path,
+    id,
+    original_title,
+    release_date,
+    genres,
+    original_language,
+    title,
+  };
+  const btnAddWatched = document.querySelector('.modal-buttons__add-watched');
 
-            try {
-              localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
-              btnAddWatched.classList.add("hide-button");
-              
-              btnRemoveWatched.classList.remove("hide-button");
-            } catch (error) {
-              console.error('Error adding film to local storage:', error);
-            }
-  
-            // ---------- тимчасово
-            console.log('Film added to local storage!');
-          } else {
-            // ---------- тимчасово
-            console.log('Filmm already exists in local storage!');
-          }
-        } catch (error) {
-          console.error('Error retrieving films from local storage:', error);
-        }
-}
+  const btnRemoveWatched = document.querySelector(
+    '.modal-buttons__remove-watched'
+  );
 
-export const onAddQueue = (data) => {
-  
-  
-  const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
-  
-  const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
-  
   try {
-          const storedItems =
-            JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
-  
-          if (!storedItems.some(storedItem => storedItem.id === data.id)) {
-            storedItems.push(data);
-            
-            try {
-              localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
-              btnAddQueue.classList.add("hide-button");
-              
-              btnRemoveQueue.classList.remove("hide-button");
-            } catch (error) {
-              console.error('Error adding film to local storage:', error);
-            }
-  
-            // ---------- тимчасово
-            console.log('Film added to local storage!');
-          } else {
-            // ---------- тимчасово
-            console.log('Filmm already exists in local storage!');
-          }
-        } catch (error) {
-          console.error('Error retrieving films from local storage:', error);
-        }
+    const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
+
+    if (!storedItems.some(storedItem => storedItem.id === filmObj.id)) {
+      storedItems.push(filmObj);
+
+      try {
+        localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
+        btnAddWatched.classList.add('hide-button');
+
+        btnRemoveWatched.classList.remove('hide-button');
+      } catch (error) {
+        console.error('Error adding film to local storage:', error);
+      }
+
+      // ---------- тимчасово
+      console.log('Film added to local storage!');
+    } else {
+      // ---------- тимчасово
+      console.log('Filmm already exists in local storage!');
+    }
+  } catch (error) {
+    console.error('Error retrieving films from local storage:', error);
+  }
 };
 
+export const onAddQueue = ({
+  poster_path,
+  id,
+  original_title,
+  release_date,
+  genres,
+  original_language,
+  title,
+}) => {
+  const filmObj = {
+    poster_path,
+    id,
+    original_title,
+    release_date,
+    genres,
+    original_language,
+    title,
+  };
+  const btnAddQueue = document.querySelector('.modal-buttons__add-queue');
+
+  const btnRemoveQueue = document.querySelector('.modal-buttons__remove-queue');
+
+  try {
+    const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
+
+    if (!storedItems.some(storedItem => storedItem.id === filmObj.id)) {
+      storedItems.push(filmObj);
+
+      try {
+        localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
+        btnAddQueue.classList.add('hide-button');
+
+        btnRemoveQueue.classList.remove('hide-button');
+      } catch (error) {
+        console.error('Error adding film to local storage:', error);
+      }
+
+      // ---------- тимчасово
+      console.log('Film added to local storage!');
+    } else {
+      // ---------- тимчасово
+      console.log('Filmm already exists in local storage!');
+    }
+  } catch (error) {
+    console.error('Error retrieving films from local storage:', error);
+  }
+};
 
 // Видалення об'єкта з localStorage
-export const onRemoveWatched = (data) => {
-  
-  const btnAddWatched = document.querySelector(".modal-buttons__add-watched");
-  const btnRemoveWatched = document.querySelector(".modal-buttons__remove-watched");
-  
+export const onRemoveWatched = data => {
+  const btnAddWatched = document.querySelector('.modal-buttons__add-watched');
+  const btnRemoveWatched = document.querySelector(
+    '.modal-buttons__remove-watched'
+  );
+
   try {
-          const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
+    const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
 
-          const findItemIndex =
-            storedItems.findIndex(storedItem => storedItem.id === data.id);
+    const findItemIndex = storedItems.findIndex(
+      storedItem => storedItem.id === data.id
+    );
 
-          if (findItemIndex !== -1) {
-            
-            storedItems.splice(findItemIndex, 1);
-  
-            try {
-              localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
-              btnRemoveWatched.classList.add("hide-button");
-              
-              btnAddWatched.classList.remove("hide-button");
-            
-            } catch (error) {
-              console.error('Error adding film to local storage:', error);
-            }
-  
-            // ---------- тимчасово
-            console.log('Film removed from watched list!');
-          } else {
-            // ---------- тимчасово
-            console.log('Filmm already exists in local storage!');
-          }
-        } catch (error) {
-          console.error('Error retrieving films from local storage:', error);
-        }
-}
+    if (findItemIndex !== -1) {
+      storedItems.splice(findItemIndex, 1);
 
-export const onRemoveQueue = (data) => {
-  
-  const btnAddQueue = document.querySelector(".modal-buttons__add-queue");
-  
-  const btnRemoveQueue = document.querySelector(".modal-buttons__remove-queue");
-  
-  try {
-          const storedItems =
-            JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
-  
-          const findItemIndex =
-            storedItems.findIndex(storedItem => storedItem.id === data.id);
+      try {
+        localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
+        btnRemoveWatched.classList.add('hide-button');
 
-          if (findItemIndex !== -1) {
-            
-            storedItems.splice(findItemIndex, 1);
-  
-            try {
-              localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
-              btnRemoveQueue.classList.add("hide-button");
-              
-              btnAddQueue.classList.remove("hide-button");
-            } catch (error) {
-              console.error('Error adding film to local storage:', error);
-            }
-  
-            // ---------- тимчасово
-            console.log('Film removed from queue list!');
-          } else {
-            // ---------- тимчасово
-            console.log('Filmm already exists in local storage!');
-          }
-        } catch (error) {
-          console.error('Error retrieving films from local storage:', error);
-        }
+        btnAddWatched.classList.remove('hide-button');
+      } catch (error) {
+        console.error('Error adding film to local storage:', error);
+      }
+
+      // ---------- тимчасово
+      console.log('Film removed from watched list!');
+    } else {
+      // ---------- тимчасово
+      console.log('Filmm already exists in local storage!');
+    }
+  } catch (error) {
+    console.error('Error retrieving films from local storage:', error);
+  }
 };
 
+export const onRemoveQueue = data => {
+  const btnAddQueue = document.querySelector('.modal-buttons__add-queue');
 
-// document.addEventListener('click', onCardClick);
+  const btnRemoveQueue = document.querySelector('.modal-buttons__remove-queue');
 
-// async function onCardClick(e) {
-//   const movieLi = e.target.closest('li');
-//   if (!movieLi) {
-//     return;
-//   }
+  try {
+    const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
 
-//   const filmId = Number(movieLi.dataset.id);
+    const findItemIndex = storedItems.findIndex(
+      storedItem => storedItem.id === data.id
+    );
 
-//   const { results } = await moviesApiService.fetchTrendingMovies(); //масив усіх фільмів на цій сторінці
+    if (findItemIndex !== -1) {
+      storedItems.splice(findItemIndex, 1);
 
-//   let movie;
+      try {
+        localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
+        btnRemoveQueue.classList.add('hide-button');
 
-//   results.some(movieObject => {
-//     if (filmId === movieObject.id) {
-//       movie = movieObject;
-//       console.log(movie);
-//       return true;
-//     }
-//   });
+        btnAddQueue.classList.remove('hide-button');
+      } catch (error) {
+        console.error('Error adding film to local storage:', error);
+      }
 
-  // setTimeout(() => {
-  //   const addWachedBtn = document.querySelector('.modal-buttons__add-watched');
-  //   const addQueueBtn = document.querySelector('.modal-buttons__add-queue');
-  //   const removeWatchedBtn = document.querySelector(".modal-buttons__remove-watched");
-  //   const removeQueueBtn = document.querySelector(".modal-buttons__remove-queue");
-
-  //   addWachedBtn.addEventListener('click', () => {
-  //     
-  //   });
-
-  //   addQueueBtn.addEventListener('click', () => {
-  //     
-  // }, 400);
-// }
-
-// ------------ без setTimeout, не працює
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   document.addEventListener('click', onCardClick);
-// });
-
-// async function onCardClick(e) {
-//   const movieLi = e.target.closest('li');
-//   if (!movieLi) {
-//     return;
-//   }
-
-//   const filmId = Number(movieLi.dataset.id);
-//   const { results } = await moviesApiService.fetchTrendingMovies(); //масив усіх фільмів на цій сторінці
-//   let movie;
-
-//   results.some(movieObject => {
-//     if (filmId === movieObject.id) {
-//       movie = movieObject;
-//       return true;
-//     }
-//   });
-
-//   const addWachedBtn = document.querySelector('.modal-buttons__watched');
-//   const addQueueBtn = document.querySelector('.modal-buttons__queue');
-
-//   addWachedBtn.addEventListener('click', () => {
-//     try {
-//       const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_W)) || [];
-
-//       if (!storedItems.some(storedItem => storedItem.id === filmId)) {
-//         storedItems.push(movie);
-
-//         try {
-//           localStorage.setItem(STORAGE_KEY_W, JSON.stringify(storedItems));
-//         } catch (error) {
-//           console.error('Error adding film to local storage:', error);
-//         }
-
-//         // ---------- тимчасово
-//         console.log('Film added to local storage!');
-//       } else {
-//         // ---------- тимчасово
-//         console.log('Filmm already exists in local storage!');
-//       }
-//     } catch (error) {
-//       console.error('Error retrieving films from local storage:', error);
-//     }
-//   });
-
-//   addQueueBtn.addEventListener('click', () => {
-//     try {
-//       const storedItems = JSON.parse(localStorage.getItem(STORAGE_KEY_Q)) || [];
-
-//       if (!storedItems.some(storedItem => storedItem.id === filmId)) {
-//         storedItems.push(movie);
-
-//         try {
-//           localStorage.setItem(STORAGE_KEY_Q, JSON.stringify(storedItems));
-//         } catch (error) {
-//           console.error('Error adding film to local storage:', error);
-//         }
-
-//         // ---------- тимчасово
-//         console.log('Film added to local storage!');
-//       } else {
-//         // ---------- тимчасово
-//         console.log('Filmm already exists in local storage!');
-//       }
-//     } catch (error) {
-//       console.error('Error retrieving films from local storage:', error);
-//     }
-//   });
-// }
+      // ---------- тимчасово
+      console.log('Film removed from queue list!');
+    } else {
+      // ---------- тимчасово
+      console.log('Filmm already exists in local storage!');
+    }
+  } catch (error) {
+    console.error('Error retrieving films from local storage:', error);
+  }
+};
