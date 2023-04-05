@@ -27,6 +27,7 @@ listFilms.addEventListener('click', function (e) {
     if (e.key === 'Escape') {
       modalEl.classList.add('is-hidden');
       refresh();
+      document.removeEventListener('keydown', null);
     }
   });
   
@@ -34,6 +35,7 @@ listFilms.addEventListener('click', function (e) {
     if (e.target === e.currentTarget) {
       modalEl.classList.add('is-hidden');
       refresh();
+      modalEl.removeEventListener('click', null);
     }
   });
 });
@@ -98,6 +100,7 @@ function renderCard(data) {
   buttonClose.addEventListener('click', () =>{
     modalEl.classList.add('is-hidden');
     refresh();
+    buttonClose.removeEventListener('click', null);
   });
 }
 
