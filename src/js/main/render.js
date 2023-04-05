@@ -60,6 +60,7 @@ function createMoviesMarkup(arr) {
           : (movieGenresTitle = listOfGenres.join(', '));
 
         return `<li class="list_film_item" data-id="${id}">
+                  <div class="card">
 		                <img class="card__img" src="${urlImg}" alt="img of film" width="395"/>
 	                  <p class="card__title">${movieTitle}</p>
 	                  <div class="card__info">
