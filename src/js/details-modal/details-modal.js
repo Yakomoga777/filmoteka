@@ -116,6 +116,7 @@ function changeButtons(id, data) {
           btnRemoveWatched.classList.remove("hide-button");
           btnAddWatched.classList.add("hide-button");
           btnRemoveQueue.classList.add("hide-button");
+          btnAddQueue.classList.add("hide-button");
         }
     }
   }
@@ -125,6 +126,7 @@ function changeButtons(id, data) {
         btnRemoveQueue.classList.remove("hide-button");
         btnRemoveWatched.classList.add("hide-button");
         btnAddQueue.classList.add("hide-button");
+        btnAddWatched.classList.add("hide-button");
       }
     }
   }
