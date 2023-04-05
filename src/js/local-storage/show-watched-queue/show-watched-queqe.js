@@ -4,16 +4,17 @@ const listFilms = document.getElementById('listMoviesLibrary');
 
 let getWatched;
 let getQueue;
-let moviesArray;
 
 const watchedBtn = document.querySelector('button[data-action="watched"]');
 const queueBtn = document.querySelector('button[data-action="queue"]');
 
 const libraryPlug = document.querySelector('.library_text');
 
-libraryPlug.style.display = "none";
 
-if (watchedBtn && queueBtn) {
+// Таким чином скрипт перевіряє чи він зараз в Library
+if (listFilms) {
+  libraryPlug.style.display = "none";
+
   watchedBtn.addEventListener('click', handleClickWatched);
   queueBtn.addEventListener('click', handleClickQueue);
 
@@ -98,4 +99,9 @@ function renderMovies(movies) {
     .join('');
 
   listFilms.insertAdjacentHTML('beforeend', markup);
+}
+
+export function refreshLibrary() {
+  watchedBtn.click();
+  watchedBtn.classList.add('header__active-btn');
 }

@@ -3,11 +3,15 @@ import {onAddWatched} from '../local-storage/add-to-watched-queue/add-to-watched
 import {onAddQueue} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
 import {onRemoveWatched} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
 import {onRemoveQueue} from '../local-storage/add-to-watched-queue/add-to-watched-queue';
-
+import { refreshLibrary } from '../local-storage/show-watched-queue/show-watched-queqe';
 
 const listFilms = document.querySelector('.list_film');
 const modalEl = document.querySelector('div[data-modal]');
 const modalWindow = document.querySelector('.details-modal');
+
+// Змінна створена для перевірки чи ця модалка відкрилась саме у Librery
+const isItLibrary = document.getElementById('listMoviesLibrary');
+
 let buttonClose;
 
 function refresh() {
@@ -27,6 +31,9 @@ listFilms.addEventListener('click', function (e) {
     if (e.key === 'Escape') {
       modalEl.classList.add('is-hidden');
       refresh();
+      // Перевірка чи модалка відкрита в Library + Імпортована func оновлення Library
+      if (isItLibrary) refreshLibrary();
+
       document.removeEventListener('keydown', null);
     }
   });
@@ -35,6 +42,10 @@ listFilms.addEventListener('click', function (e) {
     if (e.target === e.currentTarget) {
       modalEl.classList.add('is-hidden');
       refresh();
+
+      // Перевірка чи модалка відкрита в Library + Імпортована func оновлення Library
+      if (isItLibrary) refreshLibrary();
+
       modalEl.removeEventListener('click', null);
     }
   });
@@ -100,6 +111,10 @@ function renderCard(data) {
   buttonClose.addEventListener('click', () =>{
     modalEl.classList.add('is-hidden');
     refresh();
+    
+    // Перевірка чи модалка відкрита в Library + Імпортована func оновлення Library
+    if (isItLibrary) refreshLibrary();
+    
     buttonClose.removeEventListener('click', null);
   });
 }
