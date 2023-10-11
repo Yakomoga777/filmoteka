@@ -34,6 +34,7 @@
   border-radius: 50px;
 
   box-shadow: none;
+  cursor: pointer;
 
   transition: (box-shadow, border-color, background-color) $duration
     $timing-function;
