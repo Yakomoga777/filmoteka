@@ -1,7 +1,7 @@
 .library-header {
-  background-color: rgb(71, 0, 0);
   padding-top: 40px;
   padding-bottom: 62px;
+  background-color: rgb(71, 0, 0);
 
   @media screen and (min-width: $tablet) {
     padding-bottom: 60px;
@@ -9,7 +9,6 @@
 }
 
 .library-overlay {
-  max-width: 1600px;
   height: 230px;
   margin-right: auto;
   margin-left: auto;
@@ -60,7 +59,7 @@
   }
 
   // --------- min-width: $desktop
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $desktop) and (max-width: 1600px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/desktop/library-background-desktop.jpg);
 
@@ -83,6 +82,11 @@
         ),
         url(../images/desktop/library-background-desktop@3x.jpg);
     }
+  }
+
+  // --------- min-width: 1601px
+  @media screen and (min-width: 1601px) {
+    background-image: none;
   }
 }
 
